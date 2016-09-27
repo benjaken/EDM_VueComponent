@@ -20,6 +20,8 @@
   </div>
 </template>
 <style lang="less">
+@import '../../assets/style/bootstrap';
+
   html,
   body {
     margin: 0;
@@ -36,7 +38,6 @@
     background: #fff;
     border-bottom: 1px solid #eee;
     font-size: 16px;
-    position: relative;
     height: 80px;
   }
   a.logo {
@@ -57,7 +58,7 @@
   .nav {
   margin: 0;
   padding: 0;
-  position: absolute;
+  position: absolute;;
   right: 60px;
   top: 10px;
   height: 40px;

@@ -1,0 +1,24 @@
+<template class="mark">
+  <markdown>
+    # 下载
+
+    ---
+
+    可以使用 npm 进行安装或直接下载文件。
+
+    ## 从 npm 安装
+
+    **我们推荐使用 npm 的方式进行开发**，不仅可在开发环境轻松调试，也可放心地在生产环境打包部署使用，享受整个生态圈和工具链带来的诸多好处。
+
+    可以通过 npm 直接安装到本地，使用 `require` 或 `import` 进行引用。
+
+  </markdown>
+</template>
+<script>
+import markdown from './components/markdown'
+export default {
+  components: {
+    markdown
+  }
+}
+</script>

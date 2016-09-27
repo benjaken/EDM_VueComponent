@@ -4,7 +4,7 @@
     <ul>
       <li>
         <a v-link="{path: '/docs/introduce'}" class="">
-          EDM Design of Vue
+          EDM Vue Component
           <span class="chinese"></span>
         </a>
       </li>
@@ -70,7 +70,7 @@
     </ul>
   </aside>
   <section class="main-container">
-    <router-view class="view"></router-view>
+    <router-view></router-view>
   </section>
 </div>
 </template>
@@ -92,6 +92,176 @@ export default {
             name: 'layout',
             desc: '栅格'
           }
+        ],
+        form: [
+          {
+            name: 'checkbox',
+            desc: '多选框'
+          },
+          // {
+          //   name: 'datepicker',
+          //   desc: '日期选择框'
+          // },
+          // {
+          //   name: 'form',
+          //   desc: '表单'
+          // },
+          {
+            name: 'input-number',
+            desc: '数字输入框'
+          },
+          {
+            name: 'radio',
+            desc: '单选框'
+          },
+          {
+            name: 'select',
+            desc: '选择器'
+          },
+          {
+            name: 'slider',
+            desc: '滑动输入条'
+          },
+          {
+            name: 'switch',
+            desc: '开关'
+          },
+          {
+            name: 'upload',
+            desc: '文件上传'
+          }
+          // {
+          //   name: 'validation',
+          //   desc: '表单验证'
+          // }
+        ],
+        show: [
+          {
+            name: 'alert',
+            desc: '警告提示'
+          },
+          {
+            name: 'badge',
+            desc: '徽标数'
+          },
+          {
+            name: 'carousel',
+            desc: '走马灯'
+          },
+          {
+            name: 'collapse',
+            desc: '折叠面板'
+          },
+          {
+            name: 'dropdown',
+            desc: '下拉菜单'
+          },
+          {
+            name: 'message',
+            desc: '全局提示'
+          },
+          {
+            name: 'modal',
+            desc: '对话框'
+          },
+          {
+            name: 'notification',
+            desc: '通知提醒框'
+          },
+          {
+            name: 'popconfirm',
+            desc: '气泡确认框'
+          },
+          {
+            name: 'popover',
+            desc: '气泡卡片'
+          },
+          {
+            name: 'progress',
+            desc: '进度条'
+          },
+          {
+            name: 'table',
+            desc: '表格'
+          },
+          {
+            name: 'tag',
+            desc: '标签'
+          },
+          {
+            name: 'spin',
+            desc: '加载动画'
+          },
+          {
+            name: 'timeline',
+            desc: '时间轴'
+          },
+          {
+            name: 'tooltip',
+            desc: '文字提示'
+          },
+          {
+            name: 'tree',
+            desc: '树形控件'
+          }
+        ],
+        pagination: [
+          {
+            name: 'breadcrumb',
+            desc: '面包屑'
+          },
+          {
+            name: 'menu',
+            desc: '导航菜单'
+          },
+          // {
+          //   name: 'pagination',
+          //   desc: '分页'
+          // },
+          {
+            name: 'steps',
+            desc: '步骤条'
+          }
+          // {
+          //   name: 'tabs',
+          //   desc: '标签页'
+          // }
+        ],
+        other: [
+          {
+            name: 'affix',
+            desc: '固钉'
+          },
+          {
+            name: 'queue-anim',
+            desc: '进场动画'
+          }
+        ],
+        basic: [
+          {
+            name: '_animate',
+            desc: '动画'
+          },
+          {
+            name: '_align',
+            desc: '对齐'
+          },
+          {
+            name: '_trigger',
+            desc: '触发'
+          },
+          {
+            name: '_notification',
+            desc: '通知'
+          },
+          {
+            name: '_tooltip',
+            desc: '提示'
+          },
+          {
+            name: '_dialog',
+            desc: '对话框'
+          }
         ]
       }
     }
@@ -108,8 +278,6 @@ export default {
 }
 </script>
 <style>
-@import "../assets/css/markdown.less";
-
 .main-container {
   margin-left: 260px;
   padding: 30px 40px 120px;
@@ -133,6 +301,7 @@ export default {
   padding-top: 10px;
   padding-bottom: 50px;
   float: left;
+  position: absolute;
 }
 
 .aside-container > ul > li {
@@ -234,174 +403,5 @@ export default {
 
 .aside-container .current a {
   color: #009B72;
-}
-
-#api ~ ul > li > p > strong ~ code {
-  background: #fff;
-  color: #CC7300;
-  border: none;
-  margin-left: 0.5em;
-}
-
-.code-boxes-col {
-  width: 100%;
-}
-
-.code-boxes-col-1-1 {
-  width: 80%;
-}
-
-.code-boxes-col-2-1 {
-  width: 49%;
-  display: inline-block;
-  vertical-align: top;
-  padding-right: 15px;
-}
-
-.code-boxes-col-2-1:last-child {
-  padding-right: 0;
-}
-
-.code-box {
-  border: 1px solid #E9E9E9;
-  border-radius: 6px;
-  display: inline-block;
-  width: 100%;
-  position: relative;
-  margin: 0px 15px 15px 0px;
-  transition: all 0.5s ease;
-}
-
-.code-box:hover {
-  border-color: #ccc;
-}
-
-.code-box:target {
-  border: 1px solid rgba(45, 183, 245, 0.7);
-  box-shadow: 0 0 4px rgba(45, 183, 245, 0.5);
-}
-
-.code-box:hover .code-box-meta,
-.code-box:target .code-box-meta {
-  background: #fbfbfb;
-}
-
-.code-box:hover .code-box-title,
-.code-box:target .code-box-title {
-  background: #fbfbfb;
-  box-shadow: 0 -1.2px 0 #e9e9e9;
-}
-
-.code-box h3 {
-  margin: 1em;
-  font-size: 14px;
-}
-
-.code-box .code-box-title a,
-.code-box .code-box-title a:hover {
-  color: #666;
-}
-
-.code-box .code-box-demo {
-  padding: 1.2em 1em;
-}
-
-.code-box-meta {
-  position: relative;
-  padding: 10px 15px;
-  border-radius: 0 0 6px 6px;
-  transition: background-color 0.4s ease;
-  width: 100%;
-}
-
-.code-box-meta h4,
-.code-box-meta p {
-  margin: 0;
-}
-
-.code-box-title {
-  position: absolute;
-  top: -14px;
-  padding: 1px 1.1em;
-  color: #777;
-  border-radius: 6px;
-  background: #fff;
-  transition: all 0.4s ease;
-}
-
-.code-box-title:before {
-  font-family: anticon;
-  content: "\e665";
-  font-size: 16px;
-  vertical-align: middle;
-  line-height: 22px;
-  position: relative;
-  margin-right: 8px;
-  top: -2px;
-  color: #ccc;
-  -webkit-transform: rotate(-45deg);
-  transform: rotate(-45deg);
-  display: inline-block;
-}
-
-.code-box-meta > p {
-  font-size: 12px;
-  margin: 0.5em 0;
-  padding-right: 25px;
-}
-
-.code-box .collapse {
-  position: absolute;
-  right: 16px;
-  bottom: 18px;
-  cursor: pointer;
-  width: 18px;
-  height: 18px;
-  font-size: 18px;
-  line-height: 18px;
-  opacity: 0.5;
-  text-align: center;
-  -webkit-transform: rotate(90deg);
-  transform: rotate(90deg);
-  transition: all 0.3s ease;
-  color: #999;
-  background: #fff;
-}
-
-.code-box.expand .collapse {
-  -webkit-transform: rotate(-90deg);
-  transform: rotate(-90deg);
-}
-
-.code-box .collapse:hover {
-  opacity: 1;
-}
-
-.code-box .highlight {
-  overflow: hidden;
-  display: none;
-  padding: 5px;
-  border-top: 1px dashed #e9e9e9;
-}
-
-.code-box-code pre {
-  max-height: 300px;
-  overflow-y: scroll;
-}
-
-.xRightMatrix {
-  animation: xRightMatrix .5s ease-out;
-}
-
-@keyframes xRightMatrix {
-  0% {
-    opacity: 0;
-    transform: translateX(50px);
-  }
-
-  100% {
-    opacity: 1;
-    transform: translateX(0px);
-  }
 }
 </style>

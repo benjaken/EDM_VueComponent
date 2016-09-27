@@ -1,0 +1,52 @@
+<template class="mark">
+  <markdown>
+  # 快速上手
+
+  ---
+
+  ## 标准项目
+
+  实际项目开发中，你会需要 CommonJS 、JSX 构建、打包部署等一系列工程化的需求。
+  提供了一套 `npm` + `webpack` 的开发工具链来辅助开发，下面我们用一个简单的实例来说明。
+
+
+  ### 1. 使用组件
+
+
+
+  ### 2. 开发调试
+
+  一键启动调试，访问 http://127.0.0.1:8000 查看效果。
+
+  ```bash
+  $ npm run dev
+  ```
+
+  ### 3. 构建和部署
+
+  ```bash
+  $ npm run build
+  ```
+
+  入口文件会构建到 `dist` 目录中，你可以自由部署到不同环境中进行引用。
+
+  > 上述例子用于帮助你理解 EDM Vue Component 的使用流程，并非真实的开发过程，你可以根据自己的项目开发流程进行接入。
+
+  ## 兼容性
+
+  EDM Vue Component 支持所有的现代浏览器（IE9+）。
+
+  ## 小甜点
+
+  - 你可以享用 `npm` 生态圈里的所有模块。
+  - 我们使用了 `babel` 的写法来提升编码的愉悦感。
+  </markdown>
+</template>
+<script>
+import markdown from './components/markdown'
+export default {
+  components: {
+    markdown
+  }
+}
+</script>

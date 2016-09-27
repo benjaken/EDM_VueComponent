@@ -1,0 +1,9 @@
+.wangEditor-container{
+  border: none;
+}
+.wangEditor-menu-shadow{
+  box-shadow: none;
+}
+.wangEditor-container .wangEditor-txt{
+  height: auto;
+}
