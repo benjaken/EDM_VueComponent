@@ -1,5 +1,5 @@
 <template class="mark">
-  <markdown>
+  <markdown :codeacitve="true">
     # Button
 
     ---
@@ -18,27 +18,51 @@
 
     属性 | 说明 | 类型 | 默认值
     -----|-----|-----|------
-    type | 设置按钮类型，可选值为 `primary` `ghost` 或者不设 | Enum | undefined
+    type | 设置按钮类型，可选值为 `primary` `default` 或者不设 | Enum | undefined
     htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 HTML标准 | Enum | `button`
     shape | 设置按钮形状，可选值为 `circle` `circle-outline` 或者不设 | Enum | undefined
-    size | 设置按钮大小，可选值为 `sm` `lg` 或者不设 | Enum | undefined
+    size | 设置按钮大小，可选值为 `xsmall` `small` `large` 或者不设 | Enum | undefined
     loading | 设置按钮载入状态，存在为 `true`，不存在为 `false`，或直接设置值，如：`loading="true"` | Bool | false
     onClick | `click` 事件的 handler | Function | `function() {}`
 
-    - `<Button>Hello world!</Button>` 最终会被渲染为 `<button>Hello world!</button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`
+    - `<button>Hello world!</button>` 最终会被渲染为 `<button>Hello world!</button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`
+
+    `<button></button>`
 
     ## 组件演示
-    <div slot="title" id="1">按钮类型</div>
-    <div slot="demo" id="1">
+    <div slot="title" id="1" aa="title">按钮类型</div>
+    <div slot="demo" id="1" bb="demo">
       <vbutton type="primary">主按钮</vbutton>
       <vbutton>次按钮</vbutton>
       <vbutton type="default">幽灵按钮</vbutton>
+    </div>
+    <div slot="code" id="1" cc="code">
+      <xmp>
+        <vbutton type="primary">主按钮</vbutton>
+        <vbutton>次按钮</vbutton>
+        <vbutton type="default">幽灵按钮</vbutton>
+      </xmp>
+    </div>
+    <div slot="title" id="2" aa="title">按钮尺寸</div>
+    <div slot="demo" id="2" bb="demo">
+      <vbutton type="primary" size="xsmall">更小按钮</vbutton>
+      <vbutton type="primary" size="small">小按钮</vbutton>
+      <vbutton type="primary" >正常按钮</vbutton>
+      <vbutton type="primary" size="large">大按钮</vbutton>
+    </div>
+    <div slot="code" id="2" cc="code">
+      <xmp>
+        <vbutton type="primary" size="xsmall">更小按钮</vbutton>
+        <vbutton type="primary" size="small">小按钮</vbutton>
+        <vbutton type="primary" >正常按钮</vbutton>
+        <vbutton type="primary" size="large">大按钮</vbutton>
+      </xmp>
     </div>
   </markdown>
 </template>
 <script>
 import markdown from '../docs/components/markdown'
-import vbutton from '../../../components/button'
+import vbutton from '../../components/button'
 export default {
   components: {
     markdown,

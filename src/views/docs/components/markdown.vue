@@ -10,36 +10,36 @@
       <slot></slot>
     </div>
   </div>
-  <div class="code" :class="{active: active}">
-    <div class="code-box">
-      <h3><slot name="title"></slot></h3>
-      <div class="code-boxes-col-2-1 code-box-demo">
-        <slot name="demo">
-        </slot>
-      </div>
-      <div class="code-boxes-col-2-1 code-box-code markdown">
-        <pre>
-          <slot name="code">
-          </slot>
-        </pre>
-      </div>
-    </div>
+  <div style="display:none" id="code">
+    <slot name="title"></slot>
+    <slot name="demo"></slot>
+    <slot name="code"></slot>
+  </div>
+  <div class="code" :class="{active: active}, codeClasses">
   </div>
 </template>
 <script>
   import WangEditor from 'wangeditor'
   import './assets/wangEditor.css'
+  import $ from 'jquery'
+  import { defaultProps } from '../../utils/props'
+  import cx from 'classnames'
 
   var MarkdownIt = require('markdown-it')
   export default{
+    props: defaultProps({
+      codeacitve: {
+        type: Boolean
+      }
+    }),
     ready () {
       var self = this
       // 创建编辑器
       self.editor = new WangEditor('editor')
-      self.editor.config.pasteText = true
+      self.editor.config.printLog = false
       self.editor.config.menus = [
         'source',
-        '|',     // '|' 是菜单组的分割线
+        '|',
         'bold',
         'underline',
         'italic',
@@ -48,12 +48,27 @@
         'forecolor',
         'bgcolor'
       ]
-      self.editor.enableMenusExcept('source')
       self.editor.create()
-      self.text = self.editor.$txt.text()
+      self.text = self.editor.$txt.html().replace("<p><br></p>", "")
       self.editor.onchange = function () {
         // onchange 事件中更新数据
-        self.text = self.editor.$txt.text()
+        self.text = self.editor.$txt.html().replace("<p><br></p>", "")
+      }
+      self.code = $('.code-box-demo > div').html()
+      var line = $('#code > div').length / 3
+      for (var i = 1; i <= line; i++) {
+        $('.code').append("<div class='code-box' id='" + i + "'><h3 class='title'></h3><div class='code-boxes-col-2-1 code-box-demo'></div><div class='code-boxes-col-2-1 code-box-code markdown'></div>")
+        $('#code > div[id^=' + i + ']').each(function () {
+          if ($(this).attr('aa') === "title") {
+            $('.code .code-box[id^=' + i + '] .title').append($(this).text())
+          }
+          if ($(this).attr('bb') === "demo") {
+            $('.code .code-box[id^=' + i + '] .code-box-demo').append($(this).html())
+          }
+          if ($(this).attr('cc') === "code") {
+            $('.code .code-box[id^=' + i + '] .code-box-code').append($(this).html())
+          }
+        })
       }
     },
     data () {
@@ -61,7 +76,9 @@
         text: '',
         markdown: '',
         active: 0,
-        editor: ''
+        editor: '',
+        code: '',
+        arr: {}
       }
     },
     watch: {
@@ -75,11 +92,18 @@
         let self = this
         self.active = self.active === 0 ? 1 : 0
       }
+    },
+    computed: {
+      codeClasses () {
+        return cx({
+          [`show`]: this.codeacitve
+        })
+      }
     }
   }
 </script>
 
-<style scoped>
+<style>
 @import "./assets/markdown.css";
 
 .markdown.active{
@@ -149,6 +173,12 @@
   border: none;
   height: 100%;
 }
+.code{
+  display: none;
+}
+.code.show{
+  display: block;
+}
 .code.active {
   padding-right: 400px;
 }
@@ -164,7 +194,7 @@
   font-size: 14px;
 }
 .code-boxes-col-2-1 {
-  width:100%;
+  width:49%;
   display: inline-block;
   vertical-align: top;
   padding-right: 15px;
@@ -176,5 +206,14 @@
   max-height: 300px;
   margin: 1em;
   border: none;
+  overflow: auto;
+  white-space: normal;
+}
+.code-box-code xmp{
+  max-height: 300px;
+  border: none;
+  overflow: auto;
+  white-space: pre-line;
+  padding: 0 1em 1em;
 }
 </style>

@@ -1,4 +1,4 @@
-export function configRouter (router) {
+export function configRouter(router) {
   router.map({
     'components': {
       component: require('../components.vue'),
@@ -14,6 +14,9 @@ export function configRouter (router) {
         },
         'button': {
           component: require('../components/button.vue')
+        },
+        'iconfont': {
+          component: require('../components/iconfont.vue')
         }
       }
     },
@@ -23,6 +26,7 @@ export function configRouter (router) {
   })
 
   router.alias({
+    '/': '/components/introduce',
     '/components': '/components/introduce',
     '/docs/introduce': '/components/introduce',
     '/docs/getting-started': '/components/getting-started',

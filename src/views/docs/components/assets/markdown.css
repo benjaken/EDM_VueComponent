@@ -57,7 +57,8 @@
 }
 
 .markdown p,
-.markdown pre {
+.markdown pre,
+.markdown xmp {
   margin: 1em 0;
 }
 
@@ -100,13 +101,15 @@
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
-.markdown pre {
+.markdown pre,
+.markdown xmp{
   border-radius: 6px;
   background: #f7f7f7;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
 }
 
-.markdown pre code {
+.markdown pre code ,
+.markdown xmp code {
   border: none;
   background: #f7f7f7;
   margin: 0;

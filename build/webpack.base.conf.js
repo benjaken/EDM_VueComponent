@@ -2,23 +2,29 @@ var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
+var webpack = require('webpack')
+var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
+  plugins: [
+    new CopyWebpackPlugin([{ from: path.resolve(__dirname, '../src/assets/swf'), to: utils.assetsPath('swf') }])
+  ],
   entry: {
     app: './src/main.js'
   },
   output: {
     path: config.build.assetsRoot,
-    publicPath: process.env.NODE_ENV === 'production' ? config.build.assetsPublicPath : config.dev.assetsPublicPath,
+    publicPath: config.build.assetsPublicPath,
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.vue'],
+    extensions: ['', '.js', '.less', '.vue'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'src': path.resolve(__dirname, '../src'),
       'assets': path.resolve(__dirname, '../src/assets'),
-      'components': path.resolve(__dirname, '../src/components')
+      'components': path.resolve(__dirname, '../src/components'),
+      'jquery': 'jquery/src/jquery'
     }
   },
   resolveLoader: {
@@ -79,5 +85,12 @@ module.exports = {
   },
   vue: {
     loaders: utils.cssLoaders()
-  }
+  },
+  node: {
+    fs: 'empty'
+  },
+  externals: [{
+    './cptable': 'var cptable',
+    "./jszip": "jszip"
+  }]
 }

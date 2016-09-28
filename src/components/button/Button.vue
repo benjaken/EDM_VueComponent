@@ -4,7 +4,7 @@
   </button>
 </template>
 <script>
-import {defaultProps, oneOf} from '../../utils/props'
+import {defaultProps, oneOf} from '../../views/utils/props'
 import cx from 'classnames'
 export default {
   props: defaultProps({
@@ -12,7 +12,7 @@ export default {
     type: oneOf(['primary', 'default', undefined]),
     htmlType: 'button',
     shape: oneOf(['circle', 'circle-outline', undefined]),
-    size: oneOf(['small', 'large', undefined]),
+    size: oneOf(['xsmall', 'small', 'large', undefined]),
     loading: Boolean,
     className: '',
     onclick: () => {}
@@ -21,7 +21,8 @@ export default {
     btClasses () {
       const sizeCls = ({
         'large': 'lg',
-        'small': 'sm'
+        'small': 'sm',
+        'xsmall': 'xs'
       })[this.size] || ''
       return cx({
         [this.prefixCls]: 1,

@@ -12,7 +12,7 @@
           <a v-link="{path: '/components'}">Components</a>
         </li>
         <li>
-          <a >Github</a>
+          <a href="https://github.com/benjaken/EDM_VueComponent">Github</a>
         </li>
       </ul>
     </nav>
@@ -60,7 +60,7 @@
   padding: 0;
   position: absolute;;
   right: 60px;
-  top: 10px;
+  top: 20px;
   height: 40px;
   line-height: 40px;
   font-size: 0.875em;
