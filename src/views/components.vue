@@ -278,6 +278,10 @@ export default {
 }
 </script>
 <style>
+.main-wrapper{
+  margin-top: 81px;
+  position: relative;
+}
 .main-container {
   margin-left: 260px;
   padding: 30px 40px 120px;
@@ -311,7 +315,7 @@ export default {
 .aside-container li h4 {
   font-size: 14px;
   font-weight: 600;
-  padding: 10px 0 10px 46px;
+  padding: 10px 0 10px 40px;
   margin: 0;
   color: #5C6B77;
   cursor: pointer;
@@ -375,7 +379,7 @@ export default {
 }
 
 .aside-container > ul > li > a {
-  padding-left: 46px;
+  padding-left: 40px;
   font-size: 14px;
   border-left: 3px solid transparent;
 }
@@ -403,5 +407,14 @@ export default {
 
 .aside-container .current a {
   color: #009B72;
+}
+
+@media (max-width : 768px) {
+  .aside-container {
+    display: none;
+  }
+  .main-container {
+    margin-left: 0
+  }
 }
 </style>

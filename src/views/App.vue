@@ -2,8 +2,8 @@
   <div>
     <header class="clearfix">
       <a class="logo">
-        <img width="50" src="../assets/logo.png">
-        <span>EDM组件库 v1.0.0<span>
+        <img src="../assets/logo.png">
+        <span>EDM组件库<span>
       </a>
     </header>
     <nav class="nav">
@@ -39,12 +39,14 @@
     border-bottom: 1px solid #eee;
     font-size: 16px;
     height: 80px;
+    top: 0;
+    position: fixed;
+    z-index: 99999;
   }
   a.logo {
     float: left;
-    height: 46px;
-    line-height: 46px;
-    margin: 17px 48px 17px 40px;
+    height: 80px;
+    line-height: 80px;
     transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
     font-size: 18px;
     font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",sans-serif;
@@ -52,7 +54,8 @@
   }
   .logo img {
     float: left;
-    margin-right: 15px;
+    width: 40px;
+    margin: 20px 15px 20px 40px;
     animation: rotateCircleBack 0.6s 1 ease-in-out;
   }
   .nav {
@@ -64,6 +67,11 @@
   height: 40px;
   line-height: 40px;
   font-size: 0.875em;
+  }
+  @media (max-width : 768px) {
+    .nav {
+      display: none;
+    }
   }
   .nav ul li {
     display: inline-block;

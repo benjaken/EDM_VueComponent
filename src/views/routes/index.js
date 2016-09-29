@@ -17,6 +17,9 @@ export function configRouter(router) {
         },
         'iconfont': {
           component: require('../components/iconfont.vue')
+        },
+        'layout': {
+          component: require('../components/layout.vue')
         }
       }
     },

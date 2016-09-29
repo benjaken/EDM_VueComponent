@@ -25,48 +25,132 @@
     loading | 设置按钮载入状态，存在为 `true`，不存在为 `false`，或直接设置值，如：`loading="true"` | Bool | false
     onClick | `click` 事件的 handler | Function | `function() {}`
 
-    - `<button>Hello world!</button>` 最终会被渲染为 `<button>Hello world!</button>`，并且除了上表中的属性，其它属性都会直接传到 `<button></button>`
-
-    `<button></button>`
-
+    - 除了上表中的属性，其它属性都会直接传到 `<button></button>`
     ## 组件演示
-    <div slot="title" id="1" aa="title">按钮类型</div>
-    <div slot="demo" id="1" bb="demo">
-      <vbutton type="primary">主按钮</vbutton>
-      <vbutton>次按钮</vbutton>
-      <vbutton type="default">幽灵按钮</vbutton>
+    <div slot="title">按钮类型</div>
+    <div slot="demo">
+      <v-button type="primary">主按钮</v-button>
+      <v-button>次按钮</v-button>
+      <v-button type="default">幽灵按钮</v-button>
     </div>
-    <div slot="code" id="1" cc="code">
+    <div slot="code">
       <xmp>
-        <vbutton type="primary">主按钮</vbutton>
-        <vbutton>次按钮</vbutton>
-        <vbutton type="default">幽灵按钮</vbutton>
+      <v-button type="primary">主按钮</v-button>
+      <v-button>次按钮</v-button>
+      <v-button type="default">幽灵按钮</v-button>
       </xmp>
     </div>
-    <div slot="title" id="2" aa="title">按钮尺寸</div>
-    <div slot="demo" id="2" bb="demo">
-      <vbutton type="primary" size="xsmall">更小按钮</vbutton>
-      <vbutton type="primary" size="small">小按钮</vbutton>
-      <vbutton type="primary" >正常按钮</vbutton>
-      <vbutton type="primary" size="large">大按钮</vbutton>
+    <div slot="title">按钮尺寸</div>
+    <div slot="demo">
+      <v-button type="primary" size="xsmall">更小按钮</v-button>
+      <v-button type="primary" size="small">小按钮</v-button>
+      <v-button type="primary" >正常按钮</v-button>
+      <v-button type="primary" size="large">大按钮</v-button>
     </div>
-    <div slot="code" id="2" cc="code">
+    <div slot="code">
       <xmp>
-        <vbutton type="primary" size="xsmall">更小按钮</vbutton>
-        <vbutton type="primary" size="small">小按钮</vbutton>
-        <vbutton type="primary" >正常按钮</vbutton>
-        <vbutton type="primary" size="large">大按钮</vbutton>
+      <v-button type="primary" size="xsmall">更小按钮</v-button>
+      <v-button type="primary" size="small">小按钮</v-button>
+      <v-button type="primary" >正常按钮</v-button>
+      <v-button type="primary" size="large">大按钮</v-button>
+      </xmp>
+    </div>
+    <div slot="title">按钮形状</div>
+    <div slot="demo">
+      <v-button type="primary" shape='circle' size="large"><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle'><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle' size="small"><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle' size="xsmall"><v-icon type='question'></v-icon></v-button>
+      <p></p>
+      <v-button type="primary" shape='circle-outline' size="large"><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle-outline'><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle-outline' size="small"><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle-outline' size="xsmall"><v-icon type='question'></v-icon></v-button>
+    </div>
+    <div slot="code">
+      <xmp>
+      <v-button type="primary" shape='circle' size="xsmall"><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle' size="small"><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle'><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle' size="large"><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle-outline' size="xsmall"><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle-outline' size="small"><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle-outline'><v-icon type='question'></v-icon></v-button>
+      <v-button type="primary" shape='circle-outline' size="large"><v-icon type='question'></v-icon></v-button>
+      </xmp>
+    </div>
+    <div slot="title">按钮状态</div>
+    <div slot="demo">
+      <v-button type="primary">主按钮</v-button>
+      <v-button>次按钮</v-button>
+      <v-button type="default">幽灵按钮</v-button>
+      <p></p>
+      <v-button type="primary" disabled>主按钮(失效)</v-button>
+      <v-button disabled>次按钮(失效)</v-button>
+      <v-button type="default" class="disabled">幽灵按钮(失效)</v-button>
+    </div>
+    <div slot="code">
+      <xmp>
+      <v-button type="primary" disabled>主按钮</v-button>
+      <v-button disabled>次按钮</v-button>
+      <v-button type="default" class="disabled">幽灵按钮</v-button>
+      </xmp>
+    </div>
+    <div slot="title">按钮状态</div>
+    <div slot="demo">
+      <v-button type="primary" :loading="true" size="small">加载中</v-button>
+      <v-button type="primary" :loading="true">加载中</v-button>
+      <v-button type="primary" size="large" :loading="true">加载中</v-button>
+      <v-button type="primary" :loading="loading" @click="_enterLoading()">点击加载</v-button>
+    </div>
+    <div slot="code">
+      <xmp>
+      <v-button type="primary" :loading="true" size="small">加载中</v-button>
+      <v-button type="primary" :loading="true">加载中</v-button>
+      <v-button type="primary" size="large" :loading="true">加载中</v-button>
+      <v-button type="primary" :loading="loading" onclick="_enterLoading">点击加载</v-button>
+      </xmp>
+    </div>
+    <div slot="title">按钮组合</div>
+    <div slot="demo">
+      <v-button-group>
+        <v-button type="default">加载中</v-button>
+        <v-button type="default">加载中</v-button>
+        <v-button type="default">加载中</v-button>
+      </v-button-group>
+    </div>
+    <div slot="code">
+      <xmp>
+        <v-button-group>
+          <v-button type="default">加载中</v-button>
+          <v-button type="default">加载中</v-button>
+          <v-button type="default">加载中</v-button>
+        </v-button-group>
       </xmp>
     </div>
   </markdown>
 </template>
 <script>
 import markdown from '../docs/components/markdown'
-import vbutton from '../../components/button'
+import vButton, { vButtonGroup } from '../../components/button'
+import vIcon from '../../components/iconfont'
 export default {
+  data () {
+    return {
+      loading: false
+    }
+  },
   components: {
     markdown,
-    vbutton
+    vButton,
+    vButtonGroup,
+    vIcon
+  },
+  methods: {
+    _enterLoading () {
+      console.log(this.loading)
+      this.loading = true
+    }
   }
 }
 </script>

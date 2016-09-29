@@ -55,21 +55,31 @@
         self.text = self.editor.$txt.html().replace("<p><br></p>", "")
       }
       self.code = $('.code-box-demo > div').html()
+      $.each($('#code > div[slot^=title]'), function (i) {
+        $(this).attr('id', i + 1)
+      })
+      $.each($('#code > div[slot^=demo]'), function (i) {
+        $(this).attr('id', i + 1)
+      })
+      $.each($('#code > div[slot^=code]'), function (i) {
+        $(this).attr('id', i + 1)
+      })
       var line = $('#code > div').length / 3
       for (var i = 1; i <= line; i++) {
         $('.code').append("<div class='code-box' id='" + i + "'><h3 class='title'></h3><div class='code-boxes-col-2-1 code-box-demo'></div><div class='code-boxes-col-2-1 code-box-code markdown'></div>")
         $('#code > div[id^=' + i + ']').each(function () {
-          if ($(this).attr('aa') === "title") {
+          if ($(this).attr('slot') === "title") {
             $('.code .code-box[id^=' + i + '] .title').append($(this).text())
           }
-          if ($(this).attr('bb') === "demo") {
+          if ($(this).attr('slot') === "demo") {
             $('.code .code-box[id^=' + i + '] .code-box-demo').append($(this).html())
           }
-          if ($(this).attr('cc') === "code") {
+          if ($(this).attr('slot') === "code") {
             $('.code .code-box[id^=' + i + '] .code-box-code').append($(this).html())
           }
         })
       }
+      $('#code').remove()
     },
     data () {
       return {
@@ -175,6 +185,7 @@
 }
 .code{
   display: none;
+  position: relative;
 }
 .code.show{
   display: block;
@@ -188,19 +199,18 @@
   margin: 0px 15px 15px 0px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
+  position: relative;
 }
 .code-box h3 {
-  margin: 1em;
+  margin: 1em 1em 0;
   font-size: 14px;
 }
 .code-boxes-col-2-1 {
   width:49%;
+  padding: 1.2em 1em;
   display: inline-block;
   vertical-align: top;
-  padding-right: 15px;
-}
-.code-box .code-box-demo{
-  padding: 1.2em 1em;
+  position: relative;
 }
 .code-box-code pre {
   max-height: 300px;
@@ -213,7 +223,14 @@
   max-height: 300px;
   border: none;
   overflow: auto;
-  white-space: pre-line;
-  padding: 0 1em 1em;
+  white-space: pre;
+}
+@media (max-width : 768px) {
+  .code-boxes-col-2-1 {
+    width: 100%
+  }
+  .markdown xmp{
+    margin: 0
+  }
 }
 </style>
