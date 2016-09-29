@@ -1,4 +1,3 @@
-
 <template>
 <div :class="wrapClasses"><slot></slot></div>
 </template>
@@ -9,7 +8,7 @@ import cx from 'classnames'
 export default {
   props: defaultProps({
     span: oneOfType([String, Number]),
-    type: oneOf(['xs', 'sm', 'lg', 'md']),
+    type: oneOf(['xs', 'sm', 'lg', 'md', undefined]),
     offset: oneOfType([String, Number]),
     push: oneOfType([String, Number]),
     pull: oneOfType([String, Number]),

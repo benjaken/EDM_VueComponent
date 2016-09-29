@@ -70,24 +70,79 @@
     ## 组件演示
     <div slot="title">基础布局</div>
     <div slot="demo">
-      <v-row>
-        <v-col span='4'>
-      </v-row>
+      <div class="row">
+        <v-col span='12' type='md'>.col-md-12</v-col>
+        <v-col span='12' type='md'>.col-md-12</v-col>
+      </div>
+      <div class="row">
+        <v-col span='8' type='sm'>.col-sm-8</v-col>
+        <v-col span='8' type='sm'>.col-sm-8</v-col>
+        <v-col span='8' type='sm'>.col-sm-8</v-col>
+      </div>
+      <div class="row">
+        <v-col span='6' type='lg'>.col-lg-8</v-col>
+        <v-col span='6' type='lg'>.col-lg-8</v-col>
+        <v-col span='6' type='lg'>.col-lg-8</v-col>
+        <v-col span='6' type='lg'>.col-lg-8</v-col>
+      </div>
     </div>
     <div slot="code"><xmp>
-      <v-row>
-        <v-col span='4'>
-      </v-row>
+      <div class="row">
+        <v-col span='12' type='md'>.col-md-12</v-col>
+        <v-col span='12' type='md'>.col-md-12</v-col>
+      </div>
+      <div class="row">
+        <v-col span='8' type='sm'>.col-sm-8</v-col>
+        <v-col span='8' type='sm'>.col-sm-8</v-col>
+        <v-col span='8' type='sm'>.col-sm-8</v-col>
+      </div>
+      <div class="row">
+        <v-col span='6' type='lg'>.col-lg-8</v-col>
+        <v-col span='6' type='lg'>.col-lg-8</v-col>
+        <v-col span='6' type='lg'>.col-lg-8</v-col>
+        <v-col span='6' type='lg'>.col-lg-8</v-col>
+      </div>
+    </xmp></div>
+    <div slot="title">左右偏移</div>
+    <div slot="demo">
+      <div class="row">
+        <v-col span='8' type='md'>.col-md-8</v-col>
+        <v-col span='8' type='md' offset='8'>.col-md-8</v-col>
+        <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
+        <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
+        <v-col span='12' type='lg' offset='6'>.col-lg-12</v-col>
+      </div>
+    </div>
+    <div slot="code"><xmp>
+      <div class="row">
+        <v-col span='8' type='md'>.col-md-8</v-col>
+        <v-col span='8' type='md' offset='8'>.col-md-8</v-col>
+        <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
+        <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
+        <v-col span='12' type='lg' offset='6'>.col-lg-12</v-col>
+      </div>
+    </xmp></div>
+    <div slot="title">布局排序</div>
+    <div slot="demo">
+      <div class="row">
+        <v-col span='16' type='md' push='8'>.col-md-16 .col-md-push-8</v-col>
+        <v-col span='8' type='md' pull='16'>.col-md-8 .col-md-pull-16</v-col>
+      </div>
+    </div>
+    <div slot="code"><xmp>
+      <div class="row">
+        <v-col span='16' type='md' push='8'>.col-md-16 .col-md-push-8</v-col>
+        <v-col span='8' type='md' pull='16'>.col-md-8 .col-md-pull-16</v-col>
+      </div>
     </xmp></div>
   </markdown>
 </template>
 <script>
 import markdown from '../docs/components/markdown'
-import { vRow, vCol } from '../../components/layout'
+import vCol from '../../components/layout'
 export default {
   components: {
     markdown,
-    vRow,
     vCol
   }
 }
