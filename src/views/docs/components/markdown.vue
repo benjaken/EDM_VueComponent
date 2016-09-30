@@ -10,7 +10,7 @@
       <slot></slot>
     </div>
   </div>
-  <div style="display:none" id="code">
+  <div v-cloak id="code">
     <slot name="title"></slot>
     <slot name="demo"></slot>
     <slot name="code"></slot>
@@ -32,6 +32,9 @@
         type: Boolean
       }
     }),
+    compile () {
+      console.log($('body').html())
+    },
     ready () {
       var self = this
       // 创建编辑器
@@ -79,7 +82,6 @@
           }
         })
       }
-      $('#code').remove()
     },
     data () {
       return {
@@ -196,7 +198,7 @@
 .code-box {
   border: 1px solid #E9E9E9;
   border-radius: 6px;
-  margin: 0px 15px 15px 0px;
+  margin-bottom:15px;
   -webkit-transition: all 0.5s ease;
   transition: all 0.5s ease;
   position: relative;

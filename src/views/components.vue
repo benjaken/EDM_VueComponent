@@ -409,6 +409,11 @@ export default {
   color: #009B72;
 }
 
+.aside-container .v-link-active {
+  border-right: 3px solid #009B72;
+  color: #009B72;
+}
+
 @media (max-width : 768px) {
   .aside-container {
     display: none;

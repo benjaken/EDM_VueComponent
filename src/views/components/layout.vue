@@ -80,10 +80,10 @@
         <v-col span='8' type='sm'>.col-sm-8</v-col>
       </div>
       <div class="row">
-        <v-col span='6' type='lg'>.col-lg-8</v-col>
-        <v-col span='6' type='lg'>.col-lg-8</v-col>
-        <v-col span='6' type='lg'>.col-lg-8</v-col>
-        <v-col span='6' type='lg'>.col-lg-8</v-col>
+        <v-col span='6' type='md'>.col-md-6</v-col>
+        <v-col span='6' type='md'>.col-md-6</v-col>
+        <v-col span='6' type='md'>.col-md-6</v-col>
+        <v-col span='6' type='md'>.col-md-6</v-col>
       </div>
     </div>
     <div slot="code"><xmp>
@@ -97,10 +97,10 @@
         <v-col span='8' type='sm'>.col-sm-8</v-col>
       </div>
       <div class="row">
-        <v-col span='6' type='lg'>.col-lg-8</v-col>
-        <v-col span='6' type='lg'>.col-lg-8</v-col>
-        <v-col span='6' type='lg'>.col-lg-8</v-col>
-        <v-col span='6' type='lg'>.col-lg-8</v-col>
+        <v-col span='6' type='md'>.col-md-6</v-col>
+        <v-col span='6' type='md'>.col-md-6</v-col>
+        <v-col span='6' type='md'>.col-md-6</v-col>
+        <v-col span='6' type='md'>.col-md-6</v-col>
       </div>
     </xmp></div>
     <div slot="title">左右偏移</div>
@@ -110,7 +110,7 @@
         <v-col span='8' type='md' offset='8'>.col-md-8</v-col>
         <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
         <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
-        <v-col span='12' type='lg' offset='6'>.col-lg-12</v-col>
+        <v-col span='12' type='md' offset='6'>.col-md-12</v-col>
       </div>
     </div>
     <div slot="code"><xmp>
@@ -119,7 +119,7 @@
         <v-col span='8' type='md' offset='8'>.col-md-8</v-col>
         <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
         <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
-        <v-col span='12' type='lg' offset='6'>.col-lg-12</v-col>
+        <v-col span='12' type='md' offset='6'>.col-md-12</v-col>
       </div>
     </xmp></div>
     <div slot="title">布局排序</div>

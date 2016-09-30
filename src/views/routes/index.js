@@ -20,6 +20,27 @@ export function configRouter(router) {
         },
         'layout': {
           component: require('../components/layout.vue')
+        },
+        'checkbox': {
+          component: require('../components/checkbox.vue')
+        },
+        'input-number': {
+          component: require('../components/inputnumber.vue')
+        },
+        'radio': {
+          component: require('../components/radio.vue')
+        },
+        'select': {
+          component: require('../components/select.vue')
+        },
+        'slider': {
+          component: require('../components/slider.vue')
+        },
+        'switch': {
+          component: require('../components/switch.vue')
+        },
+        'upload': {
+          component: require('../components/upload.vue')
         }
       }
     },

@@ -84,7 +84,13 @@ module.exports = {
     formatter: require('eslint-friendly-formatter')
   },
   vue: {
-    loaders: utils.cssLoaders()
+    // apply babel transform to all javascript
+    // inside *.vue files.
+    md: 'html!vue-antd-docs',
+    js: 'babel!eslint'
+      // less: ExtractTextPlugin.extract(
+      //   'css?sourceMap&-minimize!' + 'postcss-loader!' + 'less?sourceMap'
+      // )
   },
   node: {
     fs: 'empty'
