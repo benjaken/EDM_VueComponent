@@ -107,11 +107,13 @@
     "gregorian-calendar": "^4.1.2",
     "json2mq": "^0.2.0",
     "lodash.isplainobject": "^4.0.3",
+    "markdown-it": "^8.0.0",
     "markdown-loader": "^0.1.7",
     "marked": "^0.3.6",
     "umeditor": "^1.2.5b",
     "velocity-animate": "^1.2.3",
     "vue": "^1.0.28",
-    "vue_demo_loader": "https://github.com/benjaken/vue_demo_loader.git"
+    "vue_demo_loader": "https://github.com/benjaken/vue_demo_loader.git",
+    "wangeditor": "^2.1.20"
   }
 }

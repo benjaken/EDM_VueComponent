@@ -1,17 +1,10 @@
-var HtmlWebpackPlugin = require('html-webpack-plugin')
-var ExtractTextPlugin = require('extract-text-webpack-plugin')
-var autoprefixer = require('autoprefixer')
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
 var projectRoot = path.resolve(__dirname, '../')
 var webpack = require('webpack')
-var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  plugins: [
-    new CopyWebpackPlugin([{ from: path.resolve(__dirname, '../src/assets/swf'), to: utils.assetsPath('swf') }])
-  ],
   entry: {
     app: './src/main.js'
   },
@@ -83,9 +76,6 @@ module.exports = {
       }
     ]
   },
-  eslint: {
-    formatter: require('eslint-friendly-formatter')
-  },
   vue: {
     loaders: {
       // apply babel transform to all javascript
@@ -98,9 +88,5 @@ module.exports = {
   },
   node: {
     fs: 'empty'
-  },
-  externals: [{
-    './cptable': 'var cptable',
-    "./jszip": "jszip"
-  }]
+  }
 }
