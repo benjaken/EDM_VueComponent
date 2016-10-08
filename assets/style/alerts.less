@@ -39,14 +39,18 @@
 
 .alert-dismissable, // The misspelled .alert-dismissable was deprecated in 3.2.0.
 .alert-dismissible {
-  padding-right: (@alert-padding + 20);
+  padding-right: 2rem;
 
   // Adjust close link position
   .close {
     position: relative;
-    top: -2px;
-    right: -21px;
+    top: 0;
+    right: -14px;
     color: inherit;
+
+    i {
+      font-size: 12px;
+    }
   }
 }
 

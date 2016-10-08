@@ -41,6 +41,9 @@ export function configRouter(router) {
         },
         'upload': {
           component: require('../components/upload.vue')
+        },
+        'alert': {
+          component: require('../components/alert.vue')
         }
       }
     },
