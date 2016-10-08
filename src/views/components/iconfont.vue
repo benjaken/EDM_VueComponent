@@ -1,5 +1,4 @@
-<template class="mark">
-  <markdown>
+<template lang="md">
   # Iconfont
 
   ---
@@ -35,7 +34,6 @@
   ## 图标列表
 
   ### 一. 方向性图标
-  </markdown>
   <div slot="code">
     <ul class="icons-list clearfix">
       <li v-for="item in icons1Obj" :data-clipboard-text="_getCopyCode(item.name)" :class="{copied: item.justCopied}">
@@ -68,12 +66,10 @@
   </div>
 </template>
 <script>
-import markdown from '../docs/components/markdown'
 import vIcon from '../../components/iconfont'
 import Clipboard from 'Clipboard'
 export default {
   components: {
-    markdown,
     vIcon
   },
   data () {

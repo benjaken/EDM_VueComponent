@@ -277,7 +277,10 @@ export default {
   }
 }
 </script>
-<style>
+<style lang="less">
+@import "./assets/markdown.less";
+@import "./assets/prism.css";
+
 .main-wrapper{
   margin-top: 81px;
   position: relative;

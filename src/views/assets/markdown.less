@@ -56,9 +56,7 @@
   clear: both;
 }
 
-.markdown p,
-.markdown pre,
-.markdown xmp {
+.markdown p{
   margin: 1em 0;
 }
 
@@ -288,5 +286,40 @@
     li.ant-timeline-item:first-child {
       margin-top: 40px;
     }
+  }
+}
+
+.code-box {
+  border: 1px solid #E9E9E9;
+  border-radius: 6px;
+  margin-bottom:15px;
+  -webkit-transition: all 0.5s ease;
+  transition: all 0.5s ease;
+  position: relative;
+}
+.code-box > h3 {
+  margin: 1em 1em 0;
+  font-size: 14px;
+}
+.code-box > .code-boxes-col-2-1 {
+  width:49%;
+  padding: 1.2em 1em;
+  display: inline-block;
+  vertical-align: top;
+  position: relative;
+}
+.code-box > .code-box-code pre {
+  max-height: 300px;
+  border: none;
+  line-height: 1.5rem;
+  padding: 1rem;
+  overflow: auto;
+}
+.code-box > .code-box-demo .btn {
+  margin-bottom: 10px;
+}
+@media (max-width : 768px) {
+  .code-box > .code-boxes-col-2-1 {
+    width: 100%
   }
 }

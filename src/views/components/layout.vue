@@ -1,75 +1,72 @@
-<template class="mark">
-    <div class="markdown">
-      <h1>Layout 布局</h1>
-      <hr>
-      <p>24 栅格系统。</p>
+<template lang="md">
+  # Layout 布局
+  ---
+  24 栅格系统。
+  <div class="row demo-row">
+    <div class="col-md-24 demo-col demo-col-1">
+      100%
     </div>
-    <div class="row demo-row">
-      <div class="col-md-24 demo-col demo-col-1">
-        100%
-      </div>
+  </div>
+  <div class="row demo-row">
+    <div class="col-md-6 demo-col demo-col-2">
+      25%
     </div>
-    <div class="row demo-row">
-      <div class="col-md-6 demo-col demo-col-2">
-        25%
-      </div>
-      <div class="col-md-6 demo-col demo-col-3">
-        25%
-      </div>
-      <div class="col-md-6 demo-col demo-col-2">
-        25%
-      </div>
-      <div class="col-md-6 demo-col demo-col-3">
-        25%
-      </div>
+    <div class="col-md-6 demo-col demo-col-3">
+      25%
     </div>
-    <div class="row demo-row">
-      <div class="col-md-8 demo-col demo-col-4">
-        33.33%
-      </div>
-      <div class="col-md-8 demo-col demo-col-5">
-        33.33%
-      </div>
-      <div class="col-md-8 demo-col demo-col-4">
-        33.33%
-      </div>
+    <div class="col-md-6 demo-col demo-col-2">
+      25%
     </div>
-    <div class="row demo-row">
-      <div class="col-md-12 demo-col demo-col-1">
-        50%
-      </div>
-      <div class="col-md-12 demo-col demo-col-3">
-        50%
-      </div>
+    <div class="col-md-6 demo-col demo-col-3">
+      25%
     </div>
-    <div class="row demo-row">
-      <div class="col-md-16 demo-col demo-col-4">
-        66.66%
-      </div>
-      <div class="col-md-8 demo-col demo-col-5">
-        33.33%
-      </div>
+  </div>
+  <div class="row demo-row">
+    <div class="col-md-8 demo-col demo-col-4">
+      33.33%
     </div>
-    <markdown :codeacitve="true">
-    ## 设计理念
+    <div class="col-md-8 demo-col demo-col-5">
+      33.33%
+    </div>
+    <div class="col-md-8 demo-col demo-col-4">
+      33.33%
+    </div>
+  </div>
+  <div class="row demo-row">
+    <div class="col-md-12 demo-col demo-col-1">
+      50%
+    </div>
+    <div class="col-md-12 demo-col demo-col-3">
+      50%
+    </div>
+  </div>
+  <div class="row demo-row">
+    <div class="col-md-16 demo-col demo-col-4">
+      66.66%
+    </div>
+    <div class="col-md-8 demo-col demo-col-5">
+      33.33%
+    </div>
+  </div>
+  ## 设计理念
 
-    在多数业务情况下，EDM需要在设计区域内解决大量信息收纳的问题，因此在12栅格系统的基础上，我们将整个设计建议区域按照24等分的原则进行划分。
+  在多数业务情况下，EDM需要在设计区域内解决大量信息收纳的问题，因此在12栅格系统的基础上，我们将整个设计建议区域按照24等分的原则进行划分。
 
-    划分之后的信息区块我们称之为“盒子”。建议横向排列的盒子数量最多四个，最少一个。“盒子”在整个屏幕上占比见上图。设计部分基于盒子的单位定制盒子内部的排版规则，以保证视觉层面的舒适感。
+  划分之后的信息区块我们称之为“盒子”。建议横向排列的盒子数量最多四个，最少一个。“盒子”在整个屏幕上占比见上图。设计部分基于盒子的单位定制盒子内部的排版规则，以保证视觉层面的舒适感。
 
-    ## 概述
+  ## 概述
 
-    布局的栅格化系统，我们是基于行（row）和列（col）来定义信息区块的外部框架，以保证页面的每个区域能够稳健地排布起来。下面简单介绍一下它的工作原理：
+  布局的栅格化系统，我们是基于行（row）和列（col）来定义信息区块的外部框架，以保证页面的每个区域能够稳健地排布起来。下面简单介绍一下它的工作原理：
 
-    * 通过`row`在水平方向建立一组`column`（简写col）
-    * 你的内容应当放置于`col`内，并且，只有`col`可以作为`row`的直接元素
-    * `col-xs`,`col-sm`,`col-md`,`col-lg`分别对应栅格中对应`小于768px`,`大于768px`,`大于992px`,`大于1200px`对于屏幕宽度的区分
-    * 栅格系统中的列是指1到24的值来表示其跨越的范围。例如，三个等宽d的列可以使用`.col-md-8`来创建
-    * 如果一个`row`中的`col`总和超过24，那么多余的`col`会作为一个整体另起一行排列
+  * 通过`row`在水平方向建立一组`column`（简写col）
+  * 你的内容应当放置于`col`内，并且，只有`col`可以作为`row`的直接元素
+  * `col-xs`,`col-sm`,`col-md`,`col-lg`分别对应栅格中对应`小于768px`,`大于768px`,`大于992px`,`大于1200px`对于屏幕宽度的区分
+  * 栅格系统中的列是指1到24的值来表示其跨越的范围。例如，三个等宽d的列可以使用`.col-md-8`来创建
+  * 如果一个`row`中的`col`总和超过24，那么多余的`col`会作为一个整体另起一行排列
 
-    ## 组件演示
-    <div slot="title">基础布局</div>
-    <div slot="demo">
+  ## 组件演示
+  <demo>
+    <example title="基础布局">
       <div class="row">
         <v-col span='12' type='md'>.col-md-12</v-col>
         <v-col span='12' type='md'>.col-md-12</v-col>
@@ -85,26 +82,8 @@
         <v-col span='6' type='md'>.col-md-6</v-col>
         <v-col span='6' type='md'>.col-md-6</v-col>
       </div>
-    </div>
-    <div slot="code"><xmp>
-      <div class="row">
-        <v-col span='12' type='md'>.col-md-12</v-col>
-        <v-col span='12' type='md'>.col-md-12</v-col>
-      </div>
-      <div class="row">
-        <v-col span='8' type='sm'>.col-sm-8</v-col>
-        <v-col span='8' type='sm'>.col-sm-8</v-col>
-        <v-col span='8' type='sm'>.col-sm-8</v-col>
-      </div>
-      <div class="row">
-        <v-col span='6' type='md'>.col-md-6</v-col>
-        <v-col span='6' type='md'>.col-md-6</v-col>
-        <v-col span='6' type='md'>.col-md-6</v-col>
-        <v-col span='6' type='md'>.col-md-6</v-col>
-      </div>
-    </xmp></div>
-    <div slot="title">左右偏移</div>
-    <div slot="demo">
+    </example>
+    <example title="左右偏移">
       <div class="row">
         <v-col span='8' type='md'>.col-md-8</v-col>
         <v-col span='8' type='md' offset='8'>.col-md-8</v-col>
@@ -112,37 +91,19 @@
         <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
         <v-col span='12' type='md' offset='6'>.col-md-12</v-col>
       </div>
-    </div>
-    <div slot="code"><xmp>
-      <div class="row">
-        <v-col span='8' type='md'>.col-md-8</v-col>
-        <v-col span='8' type='md' offset='8'>.col-md-8</v-col>
-        <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
-        <v-col span='6' type='sm' offset='6'>.col-sm-6</v-col>
-        <v-col span='12' type='md' offset='6'>.col-md-12</v-col>
-      </div>
-    </xmp></div>
-    <div slot="title">布局排序</div>
-    <div slot="demo">
+    </example>
+    <example title="布局排序">
       <div class="row">
         <v-col span='16' type='md' push='8'>.col-md-16 .col-md-push-8</v-col>
         <v-col span='8' type='md' pull='16'>.col-md-8 .col-md-pull-16</v-col>
       </div>
-    </div>
-    <div slot="code"><xmp>
-      <div class="row">
-        <v-col span='16' type='md' push='8'>.col-md-16 .col-md-push-8</v-col>
-        <v-col span='8' type='md' pull='16'>.col-md-8 .col-md-pull-16</v-col>
-      </div>
-    </xmp></div>
-  </markdown>
+    </example>
+  </demo>
 </template>
 <script>
-import markdown from '../docs/components/markdown'
 import vCol from '../../components/layout'
 export default {
   components: {
-    markdown,
     vCol
   }
 }

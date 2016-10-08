@@ -1,3 +1,6 @@
+var HtmlWebpackPlugin = require('html-webpack-plugin')
+var ExtractTextPlugin = require('extract-text-webpack-plugin')
+var autoprefixer = require('autoprefixer')
 var path = require('path')
 var config = require('../config')
 var utils = require('./utils')
@@ -84,13 +87,14 @@ module.exports = {
     formatter: require('eslint-friendly-formatter')
   },
   vue: {
-    // apply babel transform to all javascript
-    // inside *.vue files.
-    md: 'html!vue-antd-docs',
-    js: 'babel!eslint'
-      // less: ExtractTextPlugin.extract(
-      //   'css?sourceMap&-minimize!' + 'postcss-loader!' + 'less?sourceMap'
-      // )
+    loaders: {
+      // apply babel transform to all javascript
+      // inside *.vue files.
+      md: 'html!vue_demo_loader'
+        // less: ExtractTextPlugin.extract(
+        //   'css?sourceMap&-minimize!' + 'postcss-loader!' + 'less?sourceMap'
+        // )
+    }
   },
   node: {
     fs: 'empty'

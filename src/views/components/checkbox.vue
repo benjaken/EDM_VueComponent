@@ -1,5 +1,4 @@
-<template class="mark">
-  <markdown :codeacitve="true">
+<template lang="md">
     # Checkbox
 
     ---
@@ -17,21 +16,9 @@
 
     参数      | 说明                                     | 类型       |  可选值 |默认值 |
     -----------|------------------------------------------|------------|-------|--------|
-    checked | 指定当前是否选中 | boolean  |   | false    |
-    default-checked | 初始是否选中 | boolean |  | false |
-    on-change | 变化时回调函数 | Function(e:Event) |  |  | |
+    checked | 指定当前是否选中 | boolean  |   | false
+    default-checked | 初始是否选中 | boolean |  | false
+    on-change | 变化时回调函数 | Function(e:Event) |  |
 
     ## 组件演示
-    <div slot="title"></div>
-    <div slot="demo"></div>
-    <div slot="code"><xmp></xmp></div>
-  </markdown>
 </template>
-<script>
-import markdown from '../docs/components/markdown'
-export default {
-  components: {
-    markdown
-  }
-}
-</script>
