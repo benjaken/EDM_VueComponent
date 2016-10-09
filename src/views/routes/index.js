@@ -44,6 +44,15 @@ export function configRouter(router) {
         },
         'alert': {
           component: require('../components/alert.vue')
+        },
+        'badge': {
+          component: require('../components/badge.vue')
+        },
+        'popover': {
+          component: require('../components/popover.vue')
+        },
+        'tag': {
+          component: require('../components/tag.vue')
         }
       }
     },

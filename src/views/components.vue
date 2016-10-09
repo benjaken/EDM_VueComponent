@@ -25,42 +25,42 @@
         <ul>
           <li class="type-divider">基本</li>
           <li v-for="component in componentsMenu.base">
-            <a v-link="{path: '/components/' + component.name}">
+            <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
           </li>
           <li class="type-divider">表单</li>
           <li v-for="component in componentsMenu.form">
-            <a v-link="{path: '/components/' + component.name}">
+            <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
           </li>
           <li class="type-divider">展示</li>
           <li v-for="component in componentsMenu.show">
-            <a v-link="{path: '/components/' + component.name}">
+            <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
           </li>
           <li class="type-divider">导航</li>
           <li v-for="component in componentsMenu.pagination">
-            <a v-link="{path: '/components/' + component.name}">
+            <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
           </li>
           <li class="type-divider">其他</li>
           <li v-for="component in componentsMenu.other">
-            <a v-link="{path: '/components/' + component.name}">
+            <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
           </li>
           <li class="type-divider">基础</li>
           <li v-for="component in componentsMenu.basic">
-            <a v-link="{path: '/components/' + component.name}">
+            <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
@@ -82,15 +82,18 @@ export default {
         base: [
           {
             name: 'button',
-            desc: '按钮'
+            desc: '按钮',
+            done: true
           },
           {
             name: 'iconfont',
-            desc: '图标'
+            desc: '图标',
+            done: true
           },
           {
             name: 'layout',
-            desc: '栅格'
+            desc: '栅格',
+            done: true
           }
         ],
         form: [
@@ -124,7 +127,8 @@ export default {
           // },
           {
             name: 'switch',
-            desc: '开关'
+            desc: '开关',
+            done: true
           },
           {
             name: 'upload',
@@ -138,11 +142,13 @@ export default {
         show: [
           {
             name: 'alert',
-            desc: '警告提示'
+            desc: '警告提示',
+            done: true
           },
           {
             name: 'badge',
-            desc: '徽标数'
+            desc: '徽标数',
+            done: true
           },
           {
             name: 'carousel',
@@ -186,7 +192,8 @@ export default {
           },
           {
             name: 'tag',
-            desc: '标签'
+            desc: '标签',
+            done: true
           },
           {
             name: 'spin',
@@ -334,8 +341,8 @@ export default {
   position: absolute;
   top: 11px;
   right: 30px;
-  content: "\e600";
-  font-family: "anticon";
+  content: "\e603";
+  font-family: "iconfont";
   transform: scale(0.6);
   font-size: 12px;
   color: #5C6B76;
@@ -396,6 +403,15 @@ export default {
   margin-left: 6px;
   font-weight: normal;
   opacity: 0.67;
+}
+
+.aside-container li a.done:after{
+  content: "\E62E";
+  font-family: "iconfont";
+  font-size: 12px;
+  color: #5C6B76;
+  float: right;
+  margin-right: 20px;
 }
 
 .aside-container li a:hover {

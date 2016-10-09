@@ -1,12 +1,21 @@
 // Labels
 
-.label-variant(@color) {
-  background-color: @color;
+.label-variant(@bg-color, @color) {
+  background-color: @bg-color;
+  border: 1px solid darken(@bg-color, 8%);
 
   &[href] {
     &:hover,
     &:focus {
       background-color: darken(@color, 10%);
     }
+  }
+
+  a,i {
+    color: @color;
+    text-decoration: none;
+  }
+  a:hover,i:hover {
+    color: lighten(@color, 8%);
   }
 }

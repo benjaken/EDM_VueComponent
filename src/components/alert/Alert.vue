@@ -1,21 +1,39 @@
 <template>
-  <div :class="'alert alert-dismissable alert-' + type" v-if="!closed">
-    <i :class="'icon ' + iconClass"></i>
-    <span>{{message}}</span>
-    <a @click="close" class="close" v-if='closable'><i class="icon icon-cross"></i></a>
+  <div v-if="description">
+    <div :class="['alert alert-dismissable alert-description alert-' + type]" v-if="!closed">
+      <i :class="'icon ' + iconClass"></i>
+      <span>{{message}}</span>
+      <span class="description">{{description}}</span>
+      <span v-if="closable">
+        <a @click="close" class="close" v-if='closeText'>{{closeText}}</a>
+        <a @click="close" class="close" v-else><i class="icon icon-cross"></i></a>
+      </span>
+    </div>
+  </div>
+  <div v-else>
+    <div :class="['alert alert-dismissable alert-' + type]" v-if="!closed">
+      <i :class="'icon ' + iconClass"></i>
+      <span>{{message}}</span>
+      <span v-if="closable">
+        <a @click="close" class="close" v-if='closeText'>{{closeText}}</a>
+        <a @click="close" class="close" v-else><i class="icon icon-cross"></i></a>
+      </span>
+    </div>
   </div>
 </template>
 <script>
 import {defaultProps, oneOf} from '../../views/utils/props'
 export default {
   props: defaultProps({
-    prefixCls: 'alert',
     type: oneOf(['success', 'info', 'warning', 'danger', undefined]),
     message: {
       type: String,
       require: true
     },
-    closable: Boolean
+    closable: Boolean,
+    closeText: String,
+    onClose: () => {},
+    description: String
   }),
   data () {
     return {

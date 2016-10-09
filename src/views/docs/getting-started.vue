@@ -1,5 +1,4 @@
-<template class="mark">
-  <markdown>
+<template lang="md">
   # 快速上手
 
   ---
@@ -40,13 +39,4 @@
 
   - 你可以享用 `npm` 生态圈里的所有模块。
   - 我们使用了 `babel` 的写法来提升编码的愉悦感。
-  </markdown>
 </template>
-<script>
-import markdown from './components/markdown'
-export default {
-  components: {
-    markdown
-  }
-}
-</script>

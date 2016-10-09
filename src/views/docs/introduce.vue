@@ -1,5 +1,4 @@
-<template class="mark">
-  <markdown>
+<template lang="md">
     # EDM Vue Component
 
     ---
@@ -26,14 +25,4 @@
     ## 如何贡献
 
     我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request]，或者给我们[提问]。
-
-  </markdown>
 </template>
-<script>
-  import markdown from './components/markdown'
-  export default {
-    components: {
-      markdown
-    }
-  }
-</script>

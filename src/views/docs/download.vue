@@ -1,5 +1,4 @@
-<template class="mark">
-  <markdown>
+<template lang="md">
     # 下载
 
     ---
@@ -12,13 +11,4 @@
 
     可以通过 npm 直接安装到本地，使用 `require` 或 `import` 进行引用。
 
-  </markdown>
 </template>
-<script>
-import markdown from './components/markdown'
-export default {
-  components: {
-    markdown
-  }
-}
-</script>

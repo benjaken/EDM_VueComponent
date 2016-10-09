@@ -4,10 +4,18 @@
 
 
 // Base class
+.vbadge {
+  position: relative;
+  display: inline-block;
+  line-height: 1;
+  vertical-align: middle;
+}
+
 .badge {
+  position: relative;
   display: inline-block;
   min-width: 10px;
-  padding: 3px 7px;
+  padding: 3px 6px;
   font-size: @font-size-small;
   font-weight: @badge-font-weight;
   color: @badge-color;
@@ -20,7 +28,22 @@
 
   // Empty badges collapse automatically (not available in IE8)
   &:empty {
-    display: none;
+  }
+
+  &-count {
+    position: absolute;
+    right: 0;
+    margin-right: -9px;
+    margin-top: -9px;
+  }
+
+  &-dot {
+    position: absolute;
+    right: 0;
+    padding: 4px;
+    min-width: 8px;
+    margin-top: -4px;
+    margin-right: -4px;
   }
 
   // Quick fix for badges in buttons

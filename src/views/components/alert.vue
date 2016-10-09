@@ -28,9 +28,14 @@
       <v-alert type="success" message="成功提示的文案"></v-alert>
     </example>
     <example title="含有辅助性文字介绍">
+      <v-alert type="success" message="成功提示的文案" description="成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍"></v-alert>
+      <v-alert type="info" message="消息提示的文案" description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"></v-alert>
+      <v-alert type="warning" message="警告提示的文案" description="警告提示的辅助性文字介绍警告提示的辅助性文字介绍警告提示的辅助性文字介绍"></v-alert>
+      <v-alert type="danger" message="失败提示的文案" description="失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍"></v-alert>
     </example>
     <example title="可关闭的警告提示">
       <v-alert type="warning" message="警告提示的文案" :closable="true"></v-alert>
+      <v-alert type="danger" message="失败提示的文案" :closable="true" description="失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍"></v-alert>
     </example>
     <example title="四种样式">
       <v-alert type="success" message="成功提示的文案"></v-alert>
@@ -39,6 +44,8 @@
       <v-alert type="danger" message="失败提示的文案"></v-alert>
     </example>
     <example title="自定义关闭">
+      <v-alert type="info" message="消息提示的文案" :closable="true" close-text="不再提醒"></v-alert>
+      <v-alert type="danger" message="失败提示的文案" :closable="true" close-text="点我关闭" description="失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍"></v-alert>
     </example>
   </demo>
 </template>
