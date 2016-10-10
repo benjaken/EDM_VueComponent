@@ -21,4 +21,48 @@
     on-change | 变化时回调函数 | Function(e:Event) |  |
 
     ## 组件演示
+
+    <demo>
+      <example title="基础用法">
+        <v-checkbox>Checkbox</v-checkbox>
+        <v-checkbox :default-checked="checked" :on-change="_checkShow">Checkbox</v-checkbox>
+      </example>
+      <example title="不可用">
+        <v-checkbox disabled>Checkbox</v-checkbox>
+        <v-checkbox :default-checked="true" disabled>Checkbox</v-checkbox>
+      </example>
+      <example title="可控的checkbox">
+        <v-checkbox :checked="checked" :disabled="disabled">Checkbox</v-checkbox>
+        <br/>
+        <v-button type="default" size="small" @click="_checkChange">改变check状态</v-button>
+        <v-button type="default" size="small" @click="_disabledChange">改变disabled状态</v-button>
+      </example>
+    </demo>
 </template>
+<script>
+import vCheckbox from '../../components/checkbox'
+import vButton from '../../components/button'
+export default{
+  components: {
+    vCheckbox,
+    vButton
+  },
+  data () {
+    return {
+      checked: true,
+      disabled: false
+    }
+  },
+  methods: {
+    _checkChange () {
+      this.checked = !this.checked
+    },
+    _disabledChange () {
+      this.disabled = !this.disabled
+    },
+    _checkShow () {
+      console.log('Checkbox被点击')
+    }
+  }
+}
+</script>

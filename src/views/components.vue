@@ -99,7 +99,8 @@ export default {
         form: [
           {
             name: 'checkbox',
-            desc: '多选框'
+            desc: '多选框',
+            done: true
           },
           // {
           //   name: 'datepicker',
