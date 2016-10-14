@@ -15,11 +15,33 @@
 
   | 参数      | 说明                                     | 类型          | 默认值 |
   |-----------|------------------------------------------|---------------|--------|
-  | trigger   | 触发行为，可选 `hover/focus/click`       | string        | hover  |
-  | placement | 气泡框位置，可选 `top/left/right/bottom` | string        | top    |
-  | title     | 卡片标题                                 | React.Element | 无     |
-  | content   | 卡片内容                                 | React.Element | 无     |
-  | overlayClassName | 浮层的类名                        | string        | 无     |
+  | trigger   | 触发行为，可选 `hover/focus/click`        | string         | hover  |
+  | placement | 气泡框位置，可选 `top/left/right/bottom`  | string         | top    |
+  | title     | 卡片标题                                 | String         | 无     |
+  | content   | 卡片内容                                 | String         | 无     |
+  | overlayClassName | 卡片类名                          | string         | 无     |
+  | overlayStyle | 卡片样式                              | object         | 无     |
+  | visible   | 用于手动控制浮层显隐                       | boolean        | false  |
 
   ## 组件演示
+
+  <demo>
+    <example title="基本">
+      <v-popover title="title" content="contentcontentcontentcontentcontent">
+        <v-button type="primary">Hover me</v-button>
+      </v-popover>
+    </example>
+    <example title="位置"></example>
+    <example title="三种触发方式"></example>
+  </demo>
 </template>
+<script>
+  import vPopover from '../../components/popover'
+  import vButton from '../../components/button'
+  export default{
+    components: {
+      vPopover,
+      vButton
+    }
+  }
+</script>

@@ -31,9 +31,9 @@
       <v-input-number :min="1" :max="10"></v-input-number>
     </example>
     <example title="三种大小">
-      <v-input-number :min="1" :max="10" type="small"></v-input-number>
+      <v-input-number :min="1" :max="10" size="small"></v-input-number>
       <v-input-number :min="1" :max="10"></v-input-number>
-      <v-input-number :min="1" :max="10" type="big"></v-input-number>
+      <v-input-number :min="1" :max="10" size="big"></v-input-number>
     </example>
     <example title="不可用">
       <v-input-number :default-value="10" :disabled="true"></v-input-number>

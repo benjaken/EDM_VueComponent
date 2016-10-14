@@ -53,6 +53,9 @@ export function configRouter(router) {
         },
         'tag': {
           component: require('../components/tag.vue')
+        },
+        'datepicker': {
+          component: require('../components/datepicker.vue')
         }
       }
     },

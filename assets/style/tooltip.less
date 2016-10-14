@@ -5,13 +5,13 @@
 
 // Base class
 .tooltip {
-  position: absolute;
+  position: relative;
   z-index: @zindex-tooltip;
-  display: block;
+  display: inline-block;
   visibility: visible;
   font-size: @font-size-small;
   line-height: 1.4;
-  .opacity(0);
+  .opacity(1);
 
   &.in     { .opacity(@tooltip-opacity); }
   &.top    { margin-top:  -3px; padding: @tooltip-arrow-width 0; }
@@ -23,12 +23,23 @@
 // Wrapper for the tooltip content
 .tooltip-inner {
   max-width: @tooltip-max-width;
-  padding: 3px 8px;
   color: @tooltip-color;
-  text-align: center;
+  text-align: left;
   text-decoration: none;
   background-color: @tooltip-bg;
   border-radius: @border-radius-base;
+  border: 1px solid @tooltip-border;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.17);
+
+  &-title {
+    padding: 8px 16px;
+  }
+
+  &-content {
+    border-top: 1px solid @tooltip-border;
+    padding: 8px 16px;
+    word-wrap: break-word;
+  }
 }
 
 // Arrows
@@ -41,7 +52,7 @@
 }
 .tooltip {
   &.top .tooltip-arrow {
-    bottom: 0;
+    bottom: 0px;
     left: 50%;
     margin-left: -@tooltip-arrow-width;
     border-width: @tooltip-arrow-width @tooltip-arrow-width 0;

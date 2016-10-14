@@ -1,5 +1,5 @@
 <template>
-  <div :class="prefixCls + ' ' + type">
+  <div :class="prefixCls + ' ' + size">
     <div :class="prefixCls + '-toolbox'" v-show="!disabled">
       <button class="operation" @click="value += step" :disabled="value >= max"><i class="icon icon-up"></i></button>
       <button class="operation" @click="value -= step" :disabled="value <= min"><i class="icon icon-down"></i></button>
@@ -24,7 +24,8 @@ export default {
     step: 1,
     defaultValue: Number,
     disabled: false,
-    type: oneOf(['small', 'default', 'big'], 'default')
+    size: oneOf(['small', 'default', 'big'], 'default'),
+    onChange: () => {}
   }),
   compiled () {
     if (this.defaultValue !== null) {
@@ -41,7 +42,6 @@ export default {
       let val = e.target.value.trim()
       if (isValueNumber(val)) {
         val = Number(val)
-        console.log(val + typeof val)
         if (val < this.min) {
           self._setValue(this.min)
         } else if (val > this.max) {
@@ -72,8 +72,10 @@ export default {
   .inputnumber {
     position: relative;
     display: inline-block;
+    width: 120px;
 
     .form-control[readonly]{
+      width: 100%;
       background: #fff;
 
       &:disabled{
@@ -131,13 +133,28 @@ export default {
         height: 30px;
 
         .operation{
-          line-height: 15px;
-          height: 15px;
+          line-height: 14px;
+          height: 14px;
         }
       }
 
       input {
         height: 30px;
+      }
+    }
+
+    &.big {
+      .inputnumber-toolbox {
+        height: 38  px;
+
+        .operation{
+          line-height: 18px;
+          height: 18px;
+        }
+      }
+
+      input {
+        height: 38px;
       }
     }
   }

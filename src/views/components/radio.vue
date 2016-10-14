@@ -1,28 +1,38 @@
 <template lang="md">
-  # InputNumber
+  # Radio
 
   ---
 
-  通过鼠标或键盘，输入范围内的数值。
+  单选框。
 
   ## 何时使用
 
-  当需要获取标准数值时。
+  - 用于在多个备选项中选中单个状态。
+  - 和 Select 的区别是，Radio 所有选项默认可见，方便用户在比较中选择，因此选项不宜过多。
 
   ## API
 
-  属性如下
+  ### Radio
 
-  | 成员        | 说明           | 类型               | 默认值       |
-  |-------------|----------------|--------------------|--------------|
-  | min     | 最小值   | Number | -Infinity        |
-  | max     | 最大值       | Number      | Infinity           |
-  | value     | 当前值       | Number      |            |
-  | step     | 每次改变步数       | Number      |      1      |
-  | defaultValue     | 初始值       | Number      |            |
-  | onChange     | 变化回调       | Function      |            |
-  | disabled     | 禁用       | Boolean      |      false      |
-  | size    | 输入框大小  | String      |      无      |
+  | 参数           | 说明                                     | 类型       |  可选值 | 默认值 |
+  |----------------|------------------------------------------|------------|---------|--------|
+  | checked        | 指定当前是否选中                         | Boolean    |         | false  |
+  | defaultChecked | 初始是否选中                             | Boolean    |         | false  |
+  | value          | 根据 value 进行比较，判断是否选中        | String     |         | 无     |
+
+  ### RadioGroup
+
+  单选框组合，用于包裹一组 `Radio`。
+
+  | 参数           | 说明                             | 类型              | 可选值 | 默认值 |
+  |----------------|----------------------------------|-------------------|--------|--------|
+  | onChange       | 选项变化时的回调函数             | Function(e:Event) | 无     | 无     |
+  | value          | 用于设置当前选中的值             | String            | 无     | 无     |
+  | defaultValue   | 默认选中的值                     | String            | 无     | 无     |
 
   ## 组件演示
+
+  <example title="基本">
+  </example>
+  <example title="不可用"></example>
 </template>

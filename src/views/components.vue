@@ -102,17 +102,18 @@ export default {
             desc: '多选框',
             done: true
           },
-          // {
-          //   name: 'datepicker',
-          //   desc: '日期选择框'
-          // },
+          {
+            name: 'datepicker',
+            desc: '日期选择框'
+          },
           // {
           //   name: 'form',
           //   desc: '表单'
           // },
           {
             name: 'input-number',
-            desc: '数字输入框'
+            desc: '数字输入框',
+            done: true
           },
           {
             name: 'radio',
