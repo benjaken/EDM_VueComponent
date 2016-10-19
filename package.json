@@ -110,6 +110,7 @@
     "markdown-it": "^8.0.0",
     "markdown-loader": "^0.1.7",
     "marked": "^0.3.6",
+    "moment": "^2.15.1",
     "umeditor": "^1.2.5b",
     "velocity-animate": "^1.2.3",
     "vue": "^1.0.28",
