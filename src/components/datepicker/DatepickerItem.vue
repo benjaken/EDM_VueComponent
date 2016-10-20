@@ -1,6 +1,6 @@
 <template>
-<div class="date-picker">
-  <div class="input" type="text" @click="togglePanel" v-text="range ? value[0] + ' -- ' + value[1] : value"></div>
+<div class="date-picker" :class="{'showtime': showTime}">
+  <input type="text" @click="togglePanel" v-model="value" :disabled="disabled" readonly="">
   <div v-show="panelState">
     <div class="date-panel" :style="coordinates" v-show="panelType !== 'time'" transition="toggle">
       <div class="panel-header" v-show="panelType !== 'year'">
@@ -50,14 +50,14 @@
         <span>{{tmpYear}}年 {{tmpMonth + 1 | month language}} {{tmpEndDate}}日</span>
       </div>
       <ul class="timepicker">
-        <li class="hour"><ul><li v-for="i in 24" :class="'active': isSelected('date', i)">{{i | fix}}</li></ul></li>
-        <li class="minute"><ul><li v-for="i in 60">{{i | fix}}</li></ul></li>
-        <li class="second"><ul><li v-for="i in 60">{{i | fix}}</li></ul></li>
+        <li class="hour"><ul><li v-for="i in 24" @click="selectHour(i)" :class="{selected: isSelected('hour', i)}">{{i | fix}}</li></ul></li>
+        <li class="minute"><ul><li v-for="i in 60" @click="selectMinute(i)" :class="{selected: isSelected('minute', i)}">{{i | fix}}</li></ul></li>
+        <li class="second"><ul><li v-for="i in 60" @click="selectSecond(i)" :class="{selected: isSelected('second', i)}">{{i | fix}}</li></ul></li>
       </ul>
       <div class="footer">
         <a @click="selectToday" class="fl">今天</a>
         <a @click="chType('date')">选择日期</a>
-        <a class="fr">确定</a>
+        <a class="fr" @click="panelState = false">确定</a>
       </div>
     </div>
   </div>
@@ -73,11 +73,14 @@ export default {
       panelState: false,
       panelType: 'date',
       coordinates: {},
-      year: new Date(this.value).getFullYear(),
-      month: new Date(this.value).getMonth(),
-      date: new Date(this.value).getDate(),
+      year: '',
+      month: '',
+      date: '',
       tmpYear: now.getFullYear(),
       tmpMonth: now.getMonth(),
+      tmpHour: now.getHours(),
+      tmpMinute: now.getMinutes(),
+      tmpSecond: now.getSeconds(),
       tmpStartYear: now.getFullYear(),
       tmpStartMonth: now.getMonth(),
       tmpStartDate: now.getDate(),
@@ -97,9 +100,11 @@ export default {
       default: 'ch'
     },
     min: {
+      type: String,
       default: '1970-01-01'
     },
     max: {
+      type: String,
       default: '3016-01-01'
     },
     showTime: {
@@ -112,15 +117,17 @@ export default {
     maxYear: Number,
     maxMonth: Number,
     maxDate: Number,
-    value: [String, Array],
+    value: String,
     range: {
       type: Boolean,
       default: false
-    }
+    },
+    disabled: Boolean,
+    format: String
   },
   methods: {
     selectToday () {
-      this.value = moment().format('YYYY-MM-DD')
+      this.value = moment()
       this.togglePanel()
     },
     togglePanel() {
@@ -142,8 +149,17 @@ export default {
           let month = this.tmpMonth
           item.previousMonth && month--
           item.nextMonth && month++
-          return (new Date(this.tmpYear, month, item.value).getTime() >= new Date(this.tmpStartYear, this.tmpStartMonth, this.tmpStartDate).getTime() &&
-                  new Date(this.tmpYear, month, item.value).getTime() <= new Date(this.tmpEndYear, this.tmpEndMonth, this.tmpEndDate).getTime())
+          return (new Date(this.tmpYear, month, item.value, this.tmpHour, this.tmpMinute, this.tmpSecond).getTime() >= new Date(this.tmpStartYear, this.tmpStartMonth, this.tmpStartDate).getTime() &&
+                  new Date(this.tmpYear, month, item.value, this.tmpHour, this.tmpMinute, this.tmpSecond).getTime() <= new Date(this.tmpEndYear, this.tmpEndMonth, this.tmpEndDate).getTime())
+        case 'hour':
+          if (!this.range) return item === this.tmpHour
+          return
+        case 'minute':
+          if (!this.range) return item === this.tmpMinute
+          return
+        case 'second':
+          if (!this.range) return item === this.tmpSecond
+          return
       }
     },
     chType(type) {
@@ -198,7 +214,8 @@ export default {
           this.year = this.tmpYear
           this.month = this.tmpMonth
           this.date = date.value
-          this.value = `${this.tmpYear}-${('0' + (this.month + 1)).slice(-2)}-${('0' + this.date).slice(-2)}`
+          this.value = this.showTime === false ? `${this.tmpYear}-${('0' + (this.month + 1)).slice(-2)}-${('0' + this.date).slice(-2)}`
+                        : `${this.tmpYear}-${('0' + (this.month + 1)).slice(-2)}-${('0' + this.date).slice(-2)} ${this.tmpHour}:${this.tmpMinute}:${this.tmpSecond}`
           this.panelState = false
         } else if (this.range && !this.rangeStart) {
           this.tmpEndYear = this.tmpStartYear = this.tmpYear
@@ -230,6 +247,21 @@ export default {
           this.panelState = false
         }
       }, 0)
+    },
+    selectHour (hour) {
+      hour = hour < 10 ? '0' + hour : hour
+      this.value = this.value.substring(0, 10) + ' ' + hour + this.value.substring(13, 19)
+      console.log(this.value)
+    },
+    selectMinute (minute) {
+      minute = minute < 10 ? '0' + minute : minute
+      this.value = this.value.substring(0, 14) + minute + this.value.substring(16, 19)
+      console.log(this.value)
+    },
+    selectSecond (second) {
+      second = second < 10 ? '0' + second : second
+      this.value = this.value.substring(0, 17) + second
+      console.log(this.value)
     },
     validateYear(year) {
       return (year > this.maxYear || year < this.minYear) ? 1 : 0
@@ -263,16 +295,25 @@ export default {
   },
   watch: {
     min(v) {
-      let minArr = v.split('-')
-      this.minYear = Number(minArr[0])
-      this.minMonth = Number(minArr[1])
-      this.minDate = Number(minArr[2])
+      this.minYear = Number(v.subString(0, 4))
+      this.minMonth = Number(v.subString(5, 7))
+      this.minDate = Number(v.subString(8, 10))
     },
     max(v) {
-      let maxArr = v.split('-')
-      this.maxYear = Number(maxArr[0])
-      this.maxMonth = Number(maxArr[1])
-      this.maxDate = Number(maxArr[2])
+      this.maxYear = Number(v.subString(0, 4))
+      this.maxMonth = Number(v.subString(5, 7))
+      this.maxDate = Number(v.subString(8, 10))
+    },
+    'value' (v) {
+      if (!this.showTime) {
+        this.value = moment(new Date(v)).format(this.format.toUpperCase())
+      } else {
+        var str = this.format.split(' ')
+        this.value = moment(new Date(v)).format(str[0].toUpperCase() + ' HH:mm:ss')
+        this.tmpHour = new Date(v).getHours()
+        this.tmpMinute = new Date(v).getMinutes()
+        this.tmpSecond = new Date(v).getSeconds()
+      }
     }
   },
   computed: {
@@ -307,7 +348,27 @@ export default {
     fix (val) {
       return val < 10 ? '0' + val : val
     },
-    week(item, lang) {
+    // btn(item, lang) {
+    //   switch (lang) {
+    //     case 'en':
+    //       return {
+    //         today: 'Today',
+    //         selectTime: 'Select time',
+    //         selectDate: 'Select date',
+    //         submit: 'Ok'
+    //       }[item]
+    //     case 'ch':
+    //       return {
+    //         today: '今天',
+    //         selectTime: '选择时间',
+    //         selectDate: '选择日期',
+    //         submit: '确定'
+    //       }[item]
+    //     default:
+    //       return item
+    //   }
+    // },
+    week (item, lang) {
       switch (lang) {
         case 'en':
           return {
@@ -371,6 +432,9 @@ export default {
     }
   },
   ready() {
+    if (this.showTime) {
+      this.format += ' hh:mm:ss'
+    }
     if (this.$el.parentNode.offsetWidth + this.$el.parentNode.offsetLeft - this.$el.offsetLeft <= 300) {
       this.coordinates = {
         left: '0',
@@ -401,7 +465,21 @@ export default {
       this.tmpEndDate = Number(rangeEnd[2])
     }
     if (!this.value) {
-      this.value = `${this.tmpYear}-${('0' + (this.month + 1)).slice(-2)}-${('0' + this.date).slice(-2)}`
+      if (!this.showTime) {
+        this.value = moment().format(this.format.toUpperCase())
+        this.year = new Date().getFullYear()
+        this.month = new Date().getMonth()
+        this.date = new Date().getDate()
+      } else {
+        var str = this.format.split(' ')
+        this.value = moment().format(str[0].toUpperCase() + ' HH:mm:ss')
+        this.year = new Date().getFullYear()
+        this.month = new Date().getMonth()
+        this.date = new Date().getDate()
+        this.tmpHour = new Date().getHours()
+        this.tmpMinute = new Date().getMinutes()
+        this.tmpSecond = new Date().getSeconds()
+      }
     }
     window.addEventListener('click', this.close)
   },

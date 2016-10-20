@@ -1,6 +1,24 @@
 .datePicker{
   display: inline-block;
 
+  input{
+    display: inline-block;
+    width: 140px;
+    height: 34px;
+    line-height: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 6px 12px;
+    color: #666;
+    background: #fff;
+    cursor: pointer;
+
+    &:disabled{
+      background: #eee;
+      cursor: not-allowed;
+    }
+  }
+
   button {
     margin-left: .3rem;
     width: 60px;
@@ -22,21 +40,15 @@ ul{
     list-style: none;
 }
 .date-picker{
-    position: relative;
-    display: inline-block;
-    font-size: 14px;
-}
-.input{
+  position: relative;
   display: inline-block;
-  width: 140px;
-  height: 34px;
-  line-height: 20px;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  padding: 6px 12px;
-  color: #666;
-  background: #fff;
-  cursor: pointer;
+  font-size: 14px;
+
+  &.showtime {
+    input{
+      width: 200px;
+    }
+  }
 
   &::after{
     content: "\E654";
@@ -246,7 +258,7 @@ ul{
         color: #666;
       }
 
-      &.active {
+      &.selected {
         background: #009b72;
         color: #fff;
         &:hover{

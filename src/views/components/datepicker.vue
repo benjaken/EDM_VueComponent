@@ -20,28 +20,28 @@
   | value        | 日期           | string   | 无           |
   | defaultValue | 默认日期       | string   | 无           |
   | format       | 展示的日期格式 | string   | "yyyy-MM-dd" |
-  | disabledDate | 不可选择的日期 | function | 无           |
-  | onChange     | 日期发生变化的回调，发生在用户选择日期时 | function | 无           |
   | showTime     | 显示时间选择条 | boolean  | false        |
   | disabled     | 禁用           | bool     | false        |
-  | calendarStyle | 格外的弹出日历样式，例如 zIndex           | object     | {}        |
-  | size         | 输入框大小，`large` 高度为 32px，`small` 为 22px，默认是 28px | string   | 无  |
 
   <demo>
     <example title="基本">
       <v-datepicker></v-datepicker>
     </example>
-    <example title="日期格式"></example>
-    <example title="三种大小"></example>
+    <example title="日期格式">
+      <v-datepicker format="yyyy/mm/dd"></v-datepicker>
+    </example>
     <example title="日期时间选择">
       <v-datepicker :show-time="true"></v-datepicker>
     </example>
-    <example title="禁用"></example>
-    <example title="日期范围一">
+    <example title="禁用">
+      <v-datepicker :disabled="true"></v-datepicker>
+    </example>
+    <!-- <example title="日期范围一">
       <v-datepicker range-picker="one"></v-datepicker>
     </example>
-    <example title="日期范围二"></example>
-    <example title="国际化"></example>
+    <example title="日期范围二">
+      <v-datepicker range-picker="one" :show-time="true"></v-datepicker>
+    </example> -->
   </demo>
 </template>
 <script>
