@@ -36,12 +36,12 @@
     <example title="禁用">
       <v-datepicker :disabled="true"></v-datepicker>
     </example>
-    <!-- <example title="日期范围一">
+    <example title="日期范围一">
       <v-datepicker range-picker="one"></v-datepicker>
     </example>
     <example title="日期范围二">
       <v-datepicker range-picker="one" :show-time="true"></v-datepicker>
-    </example> -->
+    </example>
   </demo>
 </template>
 <script>
