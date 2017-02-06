@@ -27,6 +27,7 @@
   <demo>
     <example title="最简单的用法">
       <v-switch :on-change="showValue"></v-switch>
+      <v-switch :checked.sync="defaultChecked" :on-change="showValue"></v-switch>
     </example>
     <example title="不可用">
       <v-switch :disabled="true"></v-switch>
@@ -49,6 +50,11 @@
 <script>
 import vSwitch from '../../components/switch'
 export default {
+  data () {
+    return {
+      defaultChecked: true
+    }
+  },
   components: {
     vSwitch
   },

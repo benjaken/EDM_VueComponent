@@ -104,7 +104,8 @@ export default {
           },
           {
             name: 'datepicker',
-            desc: '日期选择框'
+            desc: '日期选择框',
+            done: true
           },
           // {
           //   name: 'form',

@@ -1,24 +1,14 @@
 <template>
-  <div v-if="description">
-    <div :class="['alert alert-dismissable alert-description alert-' + type]" v-if="!closed">
-      <i :class="'icon ' + iconClass"></i>
-      <span>{{message}}</span>
-      <span class="description">{{description}}</span>
-      <span v-if="closable">
-        <a @click="close" class="close" v-if='closeText'>{{closeText}}</a>
-        <a @click="close" class="close" v-else><i class="icon icon-cross"></i></a>
-      </span>
-    </div>
-  </div>
-  <div v-else>
-    <div :class="['alert alert-dismissable alert-' + type]" v-if="!closed">
-      <i :class="'icon ' + iconClass"></i>
-      <span>{{message}}</span>
-      <span v-if="closable">
-        <a @click="close" class="close" v-if='closeText'>{{closeText}}</a>
-        <a @click="close" class="close" v-else><i class="icon icon-cross"></i></a>
-      </span>
-    </div>
+  <div :class="['alert alert-dismissable alert-description alert-' + type]" v-if="!closed">
+    <i :class="'icon ' + iconClass"></i>
+    <span>{{message}}</span>
+    <span class="description">
+      <slot></slot>
+    </span>
+    <span v-if="closable">
+      <a @click="close" class="close" v-if='closeText'>{{closeText}}</a>
+      <a @click="close" class="close" v-else><i class="icon icon-cross"></i></a>
+    </span>
   </div>
 </template>
 <script>

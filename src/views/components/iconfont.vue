@@ -28,7 +28,7 @@
   使用 `` 标签申明组件，设置对应的 type 设置需要渲染的图标，示例代码如下:
 
   ```html
-  <v-icon type="link" ></v-icon>
+  <v-icon type="link"></v-icon>
   ```
 
   ## 图标列表

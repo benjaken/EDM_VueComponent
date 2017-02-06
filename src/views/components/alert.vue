@@ -17,7 +17,6 @@
   | type       | 必选参数，指定警告提示的样式，有四种选择`success`、`info`、`warning`、`danger`   | String     | 无    |
   | message    | 必选参数，警告提示内容                                       | String     | 无    |
   | closable   | 可选参数，默认不显示关闭按钮                                  | Boolean   | 无    |
-  | description | 可选参数，警告提示的辅助性文字介绍                            | String     | 无    |
   | onClose     | 可选参数，关闭时触发的回调函数                                | Function   | 无    |
   | closeText  | 可选参数，自定义关闭按钮                                     | slot     | 无    |
 
@@ -28,14 +27,14 @@
       <v-alert type="success" message="成功提示的文案"></v-alert>
     </example>
     <example title="含有辅助性文字介绍">
-      <v-alert type="success" message="成功提示的文案" description="成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍"></v-alert>
-      <v-alert type="info" message="消息提示的文案" description="消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍"></v-alert>
-      <v-alert type="warning" message="警告提示的文案" description="警告提示的辅助性文字介绍警告提示的辅助性文字介绍警告提示的辅助性文字介绍"></v-alert>
-      <v-alert type="danger" message="失败提示的文案" description="失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍"></v-alert>
+      <v-alert type="success" message="成功提示的文案">成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍成功提示的辅助性文字介绍</v-alert>
+      <v-alert type="info" message="消息提示的文案">消息提示的辅助性文字介绍消息提示的辅助性文字介绍消息提示的辅助性文字介绍</v-alert>
+      <v-alert type="warning" message="警告提示的文案">警告提示的辅助性文字介绍警告提示的辅助性文字介绍警告提示的辅助性文字介绍</v-alert>
+      <v-alert type="danger" message="失败提示的文案">失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍</v-alert>
     </example>
     <example title="可关闭的警告提示">
       <v-alert type="warning" message="警告提示的文案" :closable="true"></v-alert>
-      <v-alert type="danger" message="失败提示的文案" :closable="true" description="失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍"></v-alert>
+      <v-alert type="danger" message="失败提示的文案" :closable="true">失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍</v-alert>
     </example>
     <example title="四种样式">
       <v-alert type="success" message="成功提示的文案"></v-alert>
@@ -45,7 +44,7 @@
     </example>
     <example title="自定义关闭">
       <v-alert type="info" message="消息提示的文案" :closable="true" close-text="不再提醒"></v-alert>
-      <v-alert type="danger" message="失败提示的文案" :closable="true" close-text="点我关闭" description="失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍"></v-alert>
+      <v-alert type="danger" message="失败提示的文案" :closable="true" close-text="点我关闭">失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍失败提示的辅助性文字介绍</v-alert>
     </example>
   </demo>
 </template>

@@ -76,7 +76,7 @@
   </demo>
 </template>
 <script>
-import vButton, { vButtonGroup } from '../../components/button'
+import vButton, {vButtonGroup} from '../../components/button'
 import vIcon from '../../components/iconfont'
 export default {
   data () {

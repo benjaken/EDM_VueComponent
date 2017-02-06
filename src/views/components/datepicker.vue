@@ -1,10 +1,6 @@
 <template lang="md">
   # Datepicker
 
-  - category: Components
-  - chinese: 日期选择框
-  - type: 表单
-
   ---
 
   输入或选择日期/时间的控件。
@@ -17,36 +13,49 @@
 
   | 参数         | 说明           | 类型     | 默认值       |
   |--------------|----------------|----------|--------------|
-  | value        | 日期           | string   | 无           |
-  | defaultValue | 默认日期       | string   | 无           |
-  | format       | 展示的日期格式 | string   | "yyyy-MM-dd" |
-  | showTime     | 显示时间选择条 | boolean  | false        |
+  | Date         | 默认日期        | string   | 当前时间      |
+  | startDate    | 默认开始日期     | string   | 当前时间      |
+  | endDate      | 默认结束日期     | string   | 当前时间      |
+  | format       | 展示的日期格式   | string   | "yyyy-MM-dd" |
+  | showTime     | 显示时间选择条   | boolean  | false        |
   | disabled     | 禁用           | bool     | false        |
 
   <demo>
     <example title="基本">
-      <v-datepicker></v-datepicker>
+      <v-datepicker :Date.sync="selectedTime1"></v-datepicker>
     </example>
     <example title="日期格式">
-      <v-datepicker format="yyyy/mm/dd"></v-datepicker>
+      <v-datepicker :Date.sync="selectedTime2" format="yyyy/mm/dd"></v-datepicker>
     </example>
     <example title="日期时间选择">
-      <v-datepicker :show-time="true"></v-datepicker>
+      <v-datepicker :Date.sync="selectedTime3" :show-time="true"></v-datepicker>
     </example>
     <example title="禁用">
-      <v-datepicker :disabled="true"></v-datepicker>
+      <v-datepicker :Date.sync="selectedTime4" :disabled="true"></v-datepicker>
     </example>
-    <!-- <example title="日期范围一">
-      <v-datepicker range-picker="one"></v-datepicker>
+    <example title="日期范围一">
+      <v-datepicker :start-date.sync="startTime1" :end-date.sync="endTime1" :range-picker="true"></v-datepicker>
     </example>
     <example title="日期范围二">
-      <v-datepicker range-picker="one" :show-time="true"></v-datepicker>
-    </example> -->
+      <v-datepicker :start-date.sync="startTime2" :end-date.sync="endTime2" :range-picker="true" :show-time="true"></v-datepicker>
+    </example>
   </demo>
 </template>
 <script>
   import vDatepicker from '../../components/datepicker'
   export default {
+    data () {
+      return {
+        selectedTime1: '',
+        selectedTime2: '',
+        selectedTime3: '',
+        selectedTime4: '',
+        startTime1: '',
+        endTime1: '',
+        startTime2: '',
+        endTime2: ''
+      }
+    },
     components: {
       vDatepicker
     }

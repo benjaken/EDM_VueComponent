@@ -6,15 +6,15 @@
     width: 140px;
     height: 34px;
     line-height: 20px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    border: 1px solid @gray-lighter;
+    border-radius: @border-radius-base;
     padding: 6px 12px;
     color: #666;
     background: #fff;
     cursor: pointer;
 
     &:disabled{
-      background: #eee;
+      background: #f4f4f4;
       cursor: not-allowed;
     }
   }
@@ -50,16 +50,18 @@ ul{
     }
   }
 
-  &::after{
-    content: "\E654";
-    font-family: "iconfont";
-    font-size: 12px;
-    color: #999;
+  .calendar-logo{
     display: inline-block;
     line-height: 1;
     position: absolute;
-    top: 11px;
+    top: 9px;
     right: 12px;
+    cursor: pointer;
+
+    i {
+      font-size: 12px;
+      color: #999;
+    }
   }
 }
 .date-panel{
@@ -71,7 +73,7 @@ ul{
     width: 200px;
     margin-top: 4px;
     border-radius: 4px;
-    box-shadow: 2px 2px 10px lighten(#ccc, 10%);
+    box-shadow: 2px 2px 6px #e4e4e4;
 }
 .panel-header{
     display: flex;
@@ -147,7 +149,7 @@ ul{
         }
         &.invalid{
             cursor: not-allowed;
-            color: #ccc;
+            color: #ddd;
         }
     }
 }
@@ -160,6 +162,7 @@ ul{
         background-color: #eee;
     }
     li{
+        border-radius: @border-radius-base;
         transition: all ease .1s;
         cursor: pointer;
         box-sizing: border-box;
@@ -178,7 +181,7 @@ ul{
         }
         &.invalid{
             cursor: not-allowed;
-            color: #ccc;
+            color: #ddd;
         }
     }
 
@@ -195,7 +198,7 @@ ul{
     width: 100%;
     text-align: center;
     .preMonth, .nextMonth{
-        color: #ccc;
+        color: #ddd;
     }
     li{
         font-family: Roboto;
@@ -217,7 +220,7 @@ ul{
 }
 .footer {
   line-height: 30px;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid #ddd;
   text-align: center;
   padding: 0px 7px;
   font-size: 12px;
@@ -242,7 +245,7 @@ ul{
   display: flex;
 
   > li {
-    max-height: 180px;
+    max-height: 210px;
     overflow: auto;
     display: inline-block;
     width: 33.33%;

@@ -56,6 +56,12 @@ export function configRouter(router) {
         },
         'datepicker': {
           component: require('../components/datepicker.vue')
+        },
+        'carousel': {
+          component: require('../components/carousel.vue')
+        },
+        'spin': {
+          component: require('../components/spin.vue')
         }
       }
     },

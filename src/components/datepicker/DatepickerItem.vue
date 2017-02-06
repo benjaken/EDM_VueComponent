@@ -1,6 +1,7 @@
 <template>
 <div class="date-picker" :class="{'showtime': showTime}">
   <input type="text" @click="togglePanel" v-model="value" :disabled="disabled" readonly="">
+  <div class="calendar-logo" @click="togglePanel"><i class="icon icon-calendar"></i></div>
   <div v-show="panelState">
     <div class="date-panel" :style="coordinates" v-show="panelType !== 'time'" transition="toggle">
       <div class="panel-header" v-show="panelType !== 'year'">
@@ -251,17 +252,14 @@ export default {
     selectHour (hour) {
       hour = hour < 10 ? '0' + hour : hour
       this.value = this.value.substring(0, 10) + ' ' + hour + this.value.substring(13, 19)
-      console.log(this.value)
     },
     selectMinute (minute) {
       minute = minute < 10 ? '0' + minute : minute
       this.value = this.value.substring(0, 14) + minute + this.value.substring(16, 19)
-      console.log(this.value)
     },
     selectSecond (second) {
       second = second < 10 ? '0' + second : second
       this.value = this.value.substring(0, 17) + second
-      console.log(this.value)
     },
     validateYear(year) {
       return (year > this.maxYear || year < this.minYear) ? 1 : 0
@@ -348,26 +346,6 @@ export default {
     fix (val) {
       return val < 10 ? '0' + val : val
     },
-    // btn(item, lang) {
-    //   switch (lang) {
-    //     case 'en':
-    //       return {
-    //         today: 'Today',
-    //         selectTime: 'Select time',
-    //         selectDate: 'Select date',
-    //         submit: 'Ok'
-    //       }[item]
-    //     case 'ch':
-    //       return {
-    //         today: '今天',
-    //         selectTime: '选择时间',
-    //         selectDate: '选择日期',
-    //         submit: '确定'
-    //       }[item]
-    //     default:
-    //       return item
-    //   }
-    // },
     week (item, lang) {
       switch (lang) {
         case 'en':

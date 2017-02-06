@@ -13,7 +13,7 @@ export default {
     htmlType: 'button',
     shape: oneOf(['circle', 'circle-outline', undefined]),
     size: oneOf(['xsmall', 'small', 'large', undefined]),
-    loading: Boolean,
+    loading: false,
     className: '',
     onclick: () => {}
   }),
