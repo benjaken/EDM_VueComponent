@@ -1,5 +1,5 @@
 <template>
-  <span :class="'label label-' + color" v-if="show">
+  <span :class="'label label-' + type" v-if="show">
     <a :href='href'><slot></slot></a>
     <v-icon v-if="closable" type="cross" @click="_close()"></v-icon>
   </span>
@@ -12,7 +12,7 @@ export default {
     href: String,
     closable: false,
     onClose: () => {},
-    color: oneOf(['primary', 'info', 'warning', 'danger'], 'default')
+    type: oneOf(['primary', 'info', 'warning', 'danger'], 'default')
   }),
   components: { vIcon },
   data () {

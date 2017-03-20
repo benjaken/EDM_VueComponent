@@ -62,6 +62,18 @@ export function configRouter(router) {
         },
         'spin': {
           component: require('../components/spin.vue')
+        },
+        'progress': {
+          component: require('../components/progress.vue')
+        },
+        'listgroup': {
+          component: require('../components/listgroup.vue')
+        },
+        'dropdown': {
+          component: require('../components/dropdown.vue')
+        },
+        'timeline': {
+          component: require('../components/timeline.vue')
         }
       }
     },

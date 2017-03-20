@@ -17,7 +17,7 @@
   | href           | 链接的地址，会传给 a 标签      | string     |         | false  |
   | closable       | 标签是否可以关闭               | boolean    |         | false  |
   | on-close        | 组合时根据此项判定checked      | function   |         | 无     |
-  | color          | 标签的色彩                     | string     | `primary` `info` `warning` `danger` | 无 |
+  | type          | 标签的色彩                     | string     | `primary` `info` `warning` `danger` | 无 |
 
   ## 组件演示
 
@@ -29,10 +29,10 @@
       <v-tag href="http://www.baidu.com">标签四 (链接)</v-tag>
     </example>
     <example title="四种颜色的类型">
-      <v-tag closable color="info">蓝色</v-tag>
-      <v-tag closable color="primary">绿色</v-tag>
-      <v-tag closable color="warning">黄色</v-tag>
-      <v-tag closable color="danger">红色</v-tag>
+      <v-tag closable type="info">蓝色</v-tag>
+      <v-tag closable type="primary">绿色</v-tag>
+      <v-tag closable type="warning">黄色</v-tag>
+      <v-tag closable type="danger">红色</v-tag>
     </example>
   </demo>
 </template>

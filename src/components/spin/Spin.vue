@@ -1,11 +1,12 @@
 <template>
   <div :class="spinClasses" v-show="spinning">
-    <div class='bounce1'></div>
-    <div class='bounce2'></div>
-    <div class='bounce3'></div>
-    <span class="tip">{{tip}}</span>
+    <div class="spinning" :class="{'spin-with-tip': tip}">
+      <div class='bounce1'></div>
+      <div class='bounce2'></div>
+      <div class='bounce3'></div>
+      <span class="tip" v-if="tip">{{tip}}</span>
+    </div>
   </div>
-  <slot></slot>
 </template>
 <script>
   import {defaultProps, oneOf} from '../../views/utils/props'

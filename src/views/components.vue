@@ -166,6 +166,11 @@ export default {
             desc: '下拉菜单'
           },
           {
+            name: 'listgroup',
+            desc: '列表组',
+            done: true
+          },
+          {
             name: 'message',
             desc: '全局提示'
           },
@@ -187,7 +192,8 @@ export default {
           },
           {
             name: 'progress',
-            desc: '进度条'
+            desc: '进度条',
+            done: true
           },
           {
             name: 'table',
@@ -200,11 +206,13 @@ export default {
           },
           {
             name: 'spin',
-            desc: '加载动画'
+            desc: '加载动画',
+            done: true
           },
           {
             name: 'timeline',
-            desc: '时间轴'
+            desc: '时间轴',
+            done: true
           },
           {
             name: 'tooltip',
