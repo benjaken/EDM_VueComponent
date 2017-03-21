@@ -176,7 +176,8 @@ export default {
           },
           {
             name: 'modal',
-            desc: '对话框'
+            desc: '对话框',
+            done: true
           },
           {
             name: 'notification',

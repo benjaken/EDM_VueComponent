@@ -15,12 +15,10 @@
 // Container that the modal scrolls within
 .modal {
   display: none;
-  overflow: hidden;
   position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  top: 80px;
+  left:50%;
+  margin-left: -300px;
   z-index: @zindex-modal;
   -webkit-overflow-scrolling: touch;
 
@@ -43,8 +41,7 @@
 // Shell div to position the modal with bottom padding
 .modal-dialog {
   position: relative;
-  width: auto;
-  margin: 10px;
+  width: 600px;
 }
 
 // Actual modal
@@ -62,11 +59,13 @@
 
 // Modal background
 .modal-backdrop {
+  display: none;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: @zindex-modal - 1;
   background-color: @modal-backdrop-bg;
   // Fade for backdrop
   &.fade { .opacity(0); }
@@ -130,20 +129,90 @@
 }
 
 // Scale up the modal
-@media (min-width: @screen-sm-min) {
+
+@media (min-width: @screen-md-min) {
+  .modal-lg {
+    width: @modal-lg;
+    margin-left: -150px;
+  }
+}
+
+@media (min-width: @screen-sm-min) and (max-width: @screen-md-min) {
   // Automatically set modal's width for larger viewports
   .modal-dialog {
     width: @modal-md;
-    margin: 30px auto;
+
   }
   .modal-content {
     .box-shadow(0 5px 15px rgba(0,0,0,.5));
   }
 
   // Modal sizes
-  .modal-sm { width: @modal-sm; }
+  .modal-sm {
+    width: @modal-sm;
+    margin-left: 150px;
+  }
 }
 
-@media (min-width: @screen-md-min) {
-  .modal-lg { width: @modal-lg; }
+.confirmBox {
+  margin-left: -200px;
+
+  .modal-dialog {
+    width: 400px;
+
+    .modal-body {
+      padding: 25px;
+      zoom: 1;
+      overflow: auto;
+    }
+
+    .icon {
+      font-size: 24px;
+      margin-right: 8px;
+      padding: 0 1px;
+      float: left;
+      line-height: 1.2;
+    }
+
+    .icon-question-circle {
+      color: @brand-primary;
+    }
+
+    .icon-info-circle {
+      color: @brand-info;
+    }
+
+    .icon-check-circle {
+      color: @brand-success;
+    }
+
+    .icon-cross-circle {
+      color: @brand-danger;
+    }
+
+    .icon-exclamation-circle {
+      color: @brand-warning;
+    }
+
+    .confirm-title {
+      color: rgba(0,0,0,.65);
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .confirm-content {
+      margin-left: 34px;
+      margin-top: 8px;
+
+      p {
+        color: rgba(0,0,0,.65);
+        margin: 0 0 8px;
+      }
+    }
+
+    .confirm-btns {
+      margin-top: 16px;
+      float: right;
+    }
+  }
 }

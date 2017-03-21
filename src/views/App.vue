@@ -41,7 +41,7 @@
     height: 80px;
     top: 0;
     position: fixed;
-    z-index: 99999;
+    z-index: 1000;
   }
   a.logo {
     float: left;

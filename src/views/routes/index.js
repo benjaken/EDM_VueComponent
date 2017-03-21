@@ -74,6 +74,9 @@ export function configRouter(router) {
         },
         'timeline': {
           component: require('../components/timeline.vue')
+        },
+        'modal': {
+          component: require('../components/modal.vue')
         }
       }
     },
