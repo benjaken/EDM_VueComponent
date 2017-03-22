@@ -11,24 +11,24 @@
 
   <demo>
     <example title="基本">
-      <v-list-group :data="data1"></v-list-group>
+      <v-collapse :data="data1"></v-collapse>
     </example>
     <example title="带有徽章">
-      <v-list-group :data="data2"></v-list-group>
+      <v-collapse :data="data2"></v-collapse>
     </example>
     <example title="被禁用">
-      <v-list-group :data="data1" :enable-click="true"></v-list-group>
+      <v-collapse :data="data1" :enable-click="true"></v-collapse>
     </example>
     <example title="添加情境类">
-      <v-list-group :data="data3" :enable-click="true"></v-list-group>
+      <v-collapse :data="data3" :enable-click="true"></v-collapse>
     </example>
     <example title="带描述性内容">
-      <v-list-group :data="data4" :enable-click="true"></v-list-group>
+      <v-collapse :data="data4" :enable-click="true"></v-collapse>
     </example>
   </demo>
 </template>
 <script>
-    import vListGroup from '../../components/listgroup'
+    import vCollapse from '../../components/collapse'
     export default {
       data () {
         return {
@@ -56,7 +56,7 @@
         }
       },
       components: {
-        vListGroup
+        vCollapse
       }
     }
 </script>

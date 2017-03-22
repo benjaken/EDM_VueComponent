@@ -66,8 +66,8 @@ export function configRouter(router) {
         'progress': {
           component: require('../components/progress.vue')
         },
-        'listgroup': {
-          component: require('../components/listgroup.vue')
+        'collapse': {
+          component: require('../components/collapse.vue')
         },
         'dropdown': {
           component: require('../components/dropdown.vue')
@@ -77,6 +77,12 @@ export function configRouter(router) {
         },
         'modal': {
           component: require('../components/modal.vue')
+        },
+        'steps': {
+          component: require('../components/steps.vue')
+        },
+        'card': {
+          component: require('../components/card.vue')
         }
       }
     },

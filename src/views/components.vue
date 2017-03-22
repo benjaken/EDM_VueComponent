@@ -23,43 +23,50 @@
       <li>
         <h4>Components</h4>
         <ul>
-          <li class="type-divider">基本</li>
-          <li v-for="component in componentsMenu.base">
+          <li class="type-divider">General</li>
+          <li v-for="component in componentsMenu.general">
             <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
           </li>
-          <li class="type-divider">表单</li>
-          <li v-for="component in componentsMenu.form">
+          <li class="type-divider">Layout</li>
+          <li v-for="component in componentsMenu.layout">
             <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
           </li>
-          <li class="type-divider">展示</li>
-          <li v-for="component in componentsMenu.show">
+          <li class="type-divider">Navigation</li>
+          <li v-for="component in componentsMenu.navigation">
             <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
           </li>
-          <li class="type-divider">导航</li>
-          <li v-for="component in componentsMenu.pagination">
+          <li class="type-divider">DataEntry</li>
+          <li v-for="component in componentsMenu.dataEntry">
             <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
             </a>
           </li>
-          <li class="type-divider">其他</li>
+          <li class="type-divider">DataDisplay</li>
+          <li v-for="component in componentsMenu.dataDisplay">
+            <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
+              {{component.name | Upper}}
+              <span class="chinese">{{component.desc}}</span>
+            </a>
+          </li>
+          <li class="type-divider">Feedback</li>
+          <li v-for="component in componentsMenu.feedback">
+            <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
+              {{component.name | Upper}}
+              <span class="chinese">{{component.desc}}</span>
+            </a>
+          </li>
+          <li class="type-divider">Other</li>
           <li v-for="component in componentsMenu.other">
-            <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
-              {{component.name | Upper}}
-              <span class="chinese">{{component.desc}}</span>
-            </a>
-          </li>
-          <li class="type-divider">基础</li>
-          <li v-for="component in componentsMenu.basic">
             <a v-link="{path: '/components/' + component.name}" :class="{'done': component.done}">
               {{component.name | Upper}}
               <span class="chinese">{{component.desc}}</span>
@@ -79,7 +86,7 @@ export default {
   data () {
     return {
       componentsMenu: {
-        base: [
+        general: [
           {
             name: 'button',
             desc: '按钮',
@@ -89,14 +96,58 @@ export default {
             name: 'iconfont',
             desc: '图标',
             done: true
-          },
+          }
+        ],
+        layout: [
           {
             name: 'layout',
             desc: '栅格',
             done: true
           }
         ],
-        form: [
+        navigation: [
+          {
+            name: 'affix',
+            desc: '固钉'
+          },
+          {
+            name: 'breadcrumb',
+            desc: '面包屑'
+          },
+          {
+            name: 'backtop',
+            desc: '回到顶部'
+          },
+          {
+            name: 'dropdown',
+            desc: '下拉菜单'
+          },
+          {
+            name: 'menu',
+            desc: '导航菜单'
+          },
+          {
+            name: 'pagination',
+            desc: '分页'
+          },
+          {
+            name: 'steps',
+            desc: '步骤条'
+          },
+          {
+            name: 'tabs',
+            desc: '标签页'
+          }
+        ],
+        dataEntry: [
+          {
+            name: 'auto-complete',
+            desc: '自动完成'
+          },
+          {
+            name: 'cascader',
+            desc: '级联选择'
+          },
           {
             name: 'checkbox',
             desc: '多选框',
@@ -107,50 +158,71 @@ export default {
             desc: '日期选择框',
             done: true
           },
-          // {
-          //   name: 'form',
-          //   desc: '表单'
-          // },
+          {
+            name: 'form',
+            desc: '表单'
+          },
           {
             name: 'input-number',
             desc: '数字输入框',
             done: true
           },
           {
+            name: 'input',
+            desc: '输入框'
+          },
+          {
+            name: 'mention',
+            desc: '提及'
+          },
+          {
+            name: 'rate',
+            desc: '评分'
+          },
+          {
             name: 'radio',
-            desc: '单选框'
+            desc: '单选框',
+            done: true
           },
           {
             name: 'select',
             desc: '选择器'
           },
-          // {
-          //   name: 'slider',
-          //   desc: '滑动输入条'
-          // },
+          {
+            name: 'slider',
+            desc: '滑动输入条'
+          },
           {
             name: 'switch',
             desc: '开关',
             done: true
           },
           {
+            name: 'tree-select',
+            desc: '树选择'
+          },
+          {
+            name: 'transfer',
+            desc: '穿梭框'
+          },
+          {
             name: 'upload',
             desc: '文件上传'
           }
-          // {
-          //   name: 'validation',
-          //   desc: '表单验证'
-          // }
         ],
-        show: [
-          {
-            name: 'alert',
-            desc: '警告提示',
-            done: true
-          },
+        dataDisplay: [
           {
             name: 'badge',
             desc: '徽标数',
+            done: true
+          },
+          {
+            name: 'calendar',
+            desc: '日历'
+          },
+          {
+            name: 'card',
+            desc: '卡片',
             done: true
           },
           {
@@ -159,42 +231,16 @@ export default {
           },
           {
             name: 'collapse',
-            desc: '折叠面板'
-          },
-          {
-            name: 'dropdown',
-            desc: '下拉菜单'
-          },
-          {
-            name: 'listgroup',
-            desc: '列表组',
+            desc: '折叠面板',
             done: true
-          },
-          {
-            name: 'message',
-            desc: '全局提示'
-          },
-          {
-            name: 'modal',
-            desc: '对话框',
-            done: true
-          },
-          {
-            name: 'notification',
-            desc: '通知提醒框'
-          },
-          {
-            name: 'popconfirm',
-            desc: '气泡确认框'
           },
           {
             name: 'popover',
             desc: '气泡卡片'
           },
           {
-            name: 'progress',
-            desc: '进度条',
-            done: true
+            name: 'tooltip',
+            desc: '文字提示'
           },
           {
             name: 'table',
@@ -206,80 +252,57 @@ export default {
             done: true
           },
           {
-            name: 'spin',
-            desc: '加载动画',
-            done: true
-          },
-          {
             name: 'timeline',
             desc: '时间轴',
             done: true
-          },
-          {
-            name: 'tooltip',
-            desc: '文字提示'
           },
           {
             name: 'tree',
             desc: '树形控件'
           }
         ],
-        pagination: [
+        feedback: [
           {
-            name: 'breadcrumb',
-            desc: '面包屑'
+            name: 'alert',
+            desc: '警告提示',
+            done: true
           },
           {
-            name: 'menu',
-            desc: '导航菜单'
+            name: 'modal',
+            desc: '对话框',
+            done: true
           },
-          // {
-          //   name: 'pagination',
-          //   desc: '分页'
-          // },
           {
-            name: 'steps',
-            desc: '步骤条'
+            name: 'message',
+            desc: '全局提示'
+          },
+          {
+            name: 'notification',
+            desc: '通知提醒框'
+          },
+          {
+            name: 'progress',
+            desc: '进度条',
+            done: true
+          },
+          {
+            name: 'popconfirm',
+            desc: '气泡确认框'
+          },
+          {
+            name: 'spin',
+            desc: '加载动画',
+            done: true
           }
-          // {
-          //   name: 'tabs',
-          //   desc: '标签页'
-          // }
         ],
         other: [
           {
-            name: 'affix',
-            desc: '固钉'
+            name: 'anchor',
+            desc: '锚点'
           },
           {
-            name: 'queue-anim',
-            desc: '进场动画'
-          }
-        ],
-        basic: [
-          {
-            name: '_animate',
-            desc: '动画'
-          },
-          {
-            name: '_align',
-            desc: '对齐'
-          },
-          {
-            name: '_trigger',
-            desc: '触发'
-          },
-          {
-            name: '_notification',
-            desc: '通知'
-          },
-          {
-            name: '_tooltip',
-            desc: '提示'
-          },
-          {
-            name: '_dialog',
-            desc: '对话框'
+            name: 'locale-provider',
+            desc: '国际化'
           }
         ]
       }

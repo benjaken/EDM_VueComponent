@@ -1,5 +1,5 @@
 <template>
-  <v-button type="default" @click="_showMenu()">{{value}}</v-button>
+  <v-button type="default" @click="_showMenu()" @blur="_closeMenu()">{{value}}</v-button>
   <ul :class="prefixCls" v-if="showMenu">
     <li v-for="i in data" :class="_dropdownClasses(i)">
       <a v-link="`${i.path}`" v-if="i.value !== '|'">{{i.value}}</a>
@@ -22,7 +22,7 @@
     },
     methods: {
       _showMenu () {
-        this.showMenu = !this.showMenu
+        this.showMenu = true
       },
       _dropdownClasses (i) {
         return cx({
