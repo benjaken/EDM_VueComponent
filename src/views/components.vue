@@ -4,7 +4,7 @@
     <ul>
       <li>
         <a v-link="{path: '/docs/introduce'}" class="">
-          EDM Vue Component
+          EDM Component
           <span class="chinese"></span>
         </a>
       </li>
@@ -112,11 +112,13 @@ export default {
           },
           {
             name: 'breadcrumb',
-            desc: '面包屑'
+            desc: '面包屑',
+            done: true
           },
           {
             name: 'backtop',
-            desc: '回到顶部'
+            desc: '回到顶部',
+            done: true
           },
           {
             name: 'dropdown',
@@ -411,6 +413,7 @@ export default {
   padding-left: 60px;
   font-size: 14px;
   color: #5C6B76;
+  text-decoration: none;
 }
 
 .aside-container li.type-divider {
@@ -450,22 +453,22 @@ export default {
 }
 
 .aside-container li a:hover {
-  color: #009B72;
+  color: #21A3E9;
 }
 
 .aside-container .current {
   background: #fff;
-  border-left: 3px solid #009B72;
-  color: #009B72;
+  border-left: 3px solid #21A3E9;
+  color: #21A3E9;
 }
 
 .aside-container .current a {
-  color: #009B72;
+  color: #21A3E9;
 }
 
 .aside-container .v-link-active {
-  border-right: 3px solid #009B72;
-  color: #009B72;
+  border-right: 3px solid #21A3E9;
+  color: #21A3E9;
 }
 
 @media (max-width : 768px) {

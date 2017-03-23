@@ -69,7 +69,6 @@
 import moment from 'moment'
 export default {
   data() {
-    let now = new Date()
     return {
       panelState: false,
       panelType: 'date',
@@ -77,20 +76,20 @@ export default {
       year: '',
       month: '',
       date: '',
-      tmpYear: now.getFullYear(),
-      tmpMonth: now.getMonth(),
-      tmpHour: now.getHours(),
-      tmpMinute: now.getMinutes(),
-      tmpSecond: now.getSeconds(),
-      tmpStartYear: now.getFullYear(),
-      tmpStartMonth: now.getMonth(),
-      tmpStartDate: now.getDate(),
-      tmpEndYear: now.getFullYear(),
-      tmpEndMonth: now.getMonth(),
-      tmpEndDate: now.getDate(),
+      tmpYear: moment().year(),
+      tmpMonth: moment().month(),
+      tmpHour: moment().hour(),
+      tmpMinute: moment().minute(),
+      tmpSecond: moment().second(),
+      tmpStartYear: moment().year(),
+      tmpStartMonth: moment().month(),
+      tmpStartDate: moment().date(),
+      tmpEndYear: moment().year(),
+      tmpEndMonth: moment().month(),
+      tmpEndDate: moment().date(),
       yearList: Array.from({
         length: 12
-      }, (value, index) => new Date().getFullYear() + index),
+      }, (value, index) => moment().year() + index),
       monthList: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
       weekList: [0, 1, 2, 3, 4, 5, 6],
       rangeStart: false
@@ -124,11 +123,11 @@ export default {
       default: false
     },
     disabled: Boolean,
-    format: String
+    format: 'yyyy-mm-dd'
   },
   methods: {
     selectToday () {
-      this.value = moment()
+      this.value = moment().format()
       this.togglePanel()
     },
     togglePanel() {
@@ -304,13 +303,13 @@ export default {
     },
     'value' (v) {
       if (!this.showTime) {
-        this.value = moment(new Date(v)).format(this.format.toUpperCase())
+        this.value = moment(v).format(this.format.toUpperCase())
       } else {
         var str = this.format.split(' ')
-        this.value = moment(new Date(v)).format(str[0].toUpperCase() + ' HH:mm:ss')
-        this.tmpHour = new Date(v).getHours()
-        this.tmpMinute = new Date(v).getMinutes()
-        this.tmpSecond = new Date(v).getSeconds()
+        this.value = moment(v).format(str[0].toUpperCase() + ' HH:mm:ss')
+        this.tmpHour = moment(v).hour()
+        this.tmpMinute = moment(v).minute()
+        this.tmpSecond = moment(v).second()
       }
     }
   },
@@ -445,18 +444,18 @@ export default {
     if (!this.value) {
       if (!this.showTime) {
         this.value = moment().format(this.format.toUpperCase())
-        this.year = new Date().getFullYear()
-        this.month = new Date().getMonth()
-        this.date = new Date().getDate()
+        this.year = moment().year()
+        this.month = moment().month()
+        this.date = moment().date()
       } else {
         var str = this.format.split(' ')
         this.value = moment().format(str[0].toUpperCase() + ' HH:mm:ss')
-        this.year = new Date().getFullYear()
-        this.month = new Date().getMonth()
-        this.date = new Date().getDate()
-        this.tmpHour = new Date().getHours()
-        this.tmpMinute = new Date().getMinutes()
-        this.tmpSecond = new Date().getSeconds()
+        this.year = moment().year()
+        this.month = moment().month()
+        this.date = moment().date()
+        this.tmpHour = moment().hour()
+        this.tmpMinute = moment().minute()
+        this.tmpSecond = moment().second()
       }
     }
     window.addEventListener('click', this.close)

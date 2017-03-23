@@ -83,6 +83,12 @@ export function configRouter(router) {
         },
         'card': {
           component: require('../components/card.vue')
+        },
+        'breadcrumb': {
+          component: require('../components/breadcrumb.vue')
+        },
+        'backtop': {
+          component: require('../components/backtop.vue')
         }
       }
     },

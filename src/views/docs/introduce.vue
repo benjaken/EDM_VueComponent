@@ -1,5 +1,5 @@
 <template lang="md">
-    # EDM Vue Component
+    # EDM Component
 
     ---
 
@@ -12,17 +12,11 @@
     + 背靠 npm 生态圈。
     + 基于 webpack 的调试构建方案，支持 ES6。
 
-    ## 示例
-
-
     ## 版本
 
+    Beta
 
     ## 谁在使用
 
     - 本人
-
-    ## 如何贡献
-
-    我们欢迎任何形式的贡献，有任何建议或意见您可以进行 [Pull Request]，或者给我们[提问]。
 </template>

@@ -31,7 +31,7 @@
   <demo>
     <example title="按钮类型">
       <v-button type="primary">主按钮</v-button>
-      <v-button>次按钮</v-button>
+      <!-- <v-button>次按钮</v-button> -->
       <v-button type="default">幽灵按钮</v-button>
     </example>
     <example title="按钮尺寸">
@@ -53,11 +53,11 @@
     </example>
     <example title="按钮状态">
       <v-button type="primary">主按钮</v-button>
-      <v-button>次按钮</v-button>
+      <!-- <v-button>次按钮</v-button> -->
       <v-button type="default">幽灵按钮</v-button>
       <br />
       <v-button type="primary" disabled>主按钮(失效)</v-button>
-      <v-button disabled>次按钮(失效)</v-button>
+      <!-- <v-button disabled>次按钮(失效)</v-button> -->
       <v-button type="default" class="disabled">幽灵按钮(失效)</v-button>
     </example>
     <example title="按钮加载中">

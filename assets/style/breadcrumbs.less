@@ -13,9 +13,13 @@
   > li {
     display: inline-block;
 
+    .icon {
+      font-size: 12px;
+    }
+
     + li:before {
       content: "@{breadcrumb-separator}\00a0"; // Unicode space added since inline-block means non-collapsing white-space
-      padding: 0 5px;
+      padding-left: 5px;
       color: @breadcrumb-color;
     }
   }

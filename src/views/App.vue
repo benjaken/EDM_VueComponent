@@ -1,10 +1,10 @@
 <template>
   <div>
     <header class="clearfix">
-      <a class="logo">
+      <div class="logo">
         <img src="../assets/logo.png">
-        <span>EDM组件库<span>
-      </a>
+        <span style="vertical-align: sub">Beta</span>
+      </div>
     </header>
     <nav class="nav">
       <ul>
@@ -35,7 +35,7 @@
   }
   header {
     width: 100%;
-    background: #fff;
+    background: #293642;
     border-bottom: 1px solid #eee;
     font-size: 16px;
     height: 80px;
@@ -43,19 +43,19 @@
     position: fixed;
     z-index: 1000;
   }
-  a.logo {
+  .logo {
     float: left;
     height: 80px;
     line-height: 80px;
     transition: margin 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, width 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s, height 0.3s cubic-bezier(0.075, 0.82, 0.165, 1) 0s;
     font-size: 18px;
     font-family: "Hiragino Sans GB","Microsoft YaHei","微软雅黑",sans-serif;
-    color: #009B72;
+    color: #fff;
+    font-size: 12px;
   }
   .logo img {
     float: left;
-    width: 40px;
-    margin: 20px 15px 20px 40px;
+    margin: 28px 10px 28px 40px;
     animation: rotateCircleBack 0.6s 1 ease-in-out;
   }
   .nav {
@@ -83,10 +83,10 @@
     padding-bottom: 3px;
   }
   .nav ul li.current a {
-    border-bottom: 3px solid #009B72;
+    border-bottom: 3px solid #21A3E9;
   }
   .nav ul li a:hover{
-    border-bottom: 3px solid #009B72;
+    border-bottom: 3px solid #21A3E9;
   }
 </style>
 <script>

@@ -106,7 +106,7 @@
 .markdownOpenBtn:hover{
   width: 200px;
   border-radius: 10px;
-  background: #009B72;
+  background: #21A3E9;
   color: #fff;
 }
 .markdownOpenBtn:hover span{

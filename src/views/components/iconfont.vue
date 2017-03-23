@@ -133,7 +133,7 @@ ul.icons-list li {
   position: relative; padding-top: 10px;
 }
 ul.icons-list li:hover {
-  background-color: #009B72;
+  background-color: #21A3E9;
   color: #fff;
   border-radius: 4px;
 }
