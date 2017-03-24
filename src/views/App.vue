@@ -58,35 +58,37 @@
     margin: 28px 10px 28px 40px;
     animation: rotateCircleBack 0.6s 1 ease-in-out;
   }
-  .nav {
-  margin: 0;
-  padding: 0;
-  position: absolute;;
-  right: 60px;
-  top: 20px;
-  height: 40px;
-  line-height: 40px;
-  font-size: 0.875em;
-  }
-  @media (max-width : 768px) {
-    .nav {
-      display: none;
+  #root {
+    >.nav {
+    margin: 0;
+    padding: 0;
+    position: absolute;;
+    right: 60px;
+    top: 20px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 0.875em;
     }
-  }
-  .nav ul li {
-    display: inline-block;
-    margin: 0 0.6em;
-    text-align: center;
-  }
-  .nav ul li a {
-    color: #728AA3;
-    padding-bottom: 3px;
-  }
-  .nav ul li.current a {
-    border-bottom: 3px solid #21A3E9;
-  }
-  .nav ul li a:hover{
-    border-bottom: 3px solid #21A3E9;
+    @media (max-width : 768px) {
+      >.nav {
+        display: none;
+      }
+    }
+    >.nav ul li {
+      display: inline-block;
+      margin: 0 0.6em;
+      text-align: center;
+    }
+    >.nav ul li a {
+      color: #728AA3;
+      padding-bottom: 3px;
+    }
+    >.nav ul li.current a {
+      border-bottom: 3px solid #21A3E9;
+    }
+    >.nav ul li a:hover{
+      border-bottom: 3px solid #21A3E9;
+    }
   }
 </style>
 <script>

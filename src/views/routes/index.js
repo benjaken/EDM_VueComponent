@@ -89,6 +89,9 @@ export function configRouter(router) {
         },
         'backtop': {
           component: require('../components/backtop.vue')
+        },
+        'tabs': {
+          component: require('../components/tabs.vue')
         }
       }
     },

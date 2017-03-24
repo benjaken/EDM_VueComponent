@@ -119,7 +119,7 @@ export default {
 .row div,
 .row-flex div {
   padding: 5px 0;
-  background: rgba(0, 155, 114, 0.7);
+  background: rgba(33, 163, 233, 0.7);
   text-align: center;
   min-height: 28px;
   border: 1px solid rgba(0, 0, 0, 0.1);
@@ -138,17 +138,17 @@ export default {
   margin-bottom: 0;
 }
 .row .demo-col-1 {
-  background: rgba(0, 155, 114, 0.7);
+  background: rgba(33, 163, 233, 0.7);
 }
 .row .demo-col-2 {
-  background: rgba(0, 155, 114, 0.5);
+  background: rgba(33, 163, 233, 0.5);
 }
 .row .demo-col-3 {
   background: rgba(255, 255, 255, 0.2);
   color: #999;
 }
 .row .demo-col-4 {
-  background: rgba(0, 155, 114, 0.6);
+  background: rgba(33, 163, 233, 0.6);
 }
 .row .demo-col-5 {
   background: rgba(255, 255, 255, 0.5);

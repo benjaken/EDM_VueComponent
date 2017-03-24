@@ -1,5 +1,4 @@
 <template>
-  <p>滚动了{{scrollTop}}px</p>
   <div :class="prefixCls" v-if="visibility" @click="_scrolltop">
     <div :class="prefixCls + '-inner'">
       <slot></slot>

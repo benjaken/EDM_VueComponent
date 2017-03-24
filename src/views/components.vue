@@ -138,7 +138,8 @@ export default {
           },
           {
             name: 'tabs',
-            desc: '标签页'
+            desc: '标签页',
+            done: true
           }
         ],
         dataEntry: [
