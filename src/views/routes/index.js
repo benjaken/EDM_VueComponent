@@ -92,6 +92,9 @@ export function configRouter(router) {
         },
         'tabs': {
           component: require('../components/tabs.vue')
+        },
+        'input': {
+          component: require('../components/input.vue')
         }
       }
     },

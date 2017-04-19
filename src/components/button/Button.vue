@@ -9,7 +9,7 @@ import cx from 'classnames'
 export default {
   props: defaultProps({
     prefixCls: 'btn',
-    type: oneOf(['primary', 'default', undefined]),
+    type: oneOf(['primary', 'default', 'success', 'info', 'warning', 'danger', undefined]),
     htmlType: 'button',
     shape: oneOf(['circle', 'circle-outline', undefined]),
     size: oneOf(['xsmall', 'small', 'large', undefined]),

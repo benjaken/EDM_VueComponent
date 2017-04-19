@@ -9,7 +9,6 @@
 </template>
 <script>
 import {defaultProps, oneOf} from '../../views/utils/props'
-import 'jquery'
 
 function isValueNumber (value) {
   return (/^-?\d+?$/).test(value + '')
@@ -91,7 +90,7 @@ export default {
       position: absolute;
       right: 0;
       background: #fff;
-      z-index: 1050;
+      z-index: 900;
 
       .operation{
         display: block;

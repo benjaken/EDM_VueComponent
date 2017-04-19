@@ -17,7 +17,7 @@
 
   |属性 | 说明 | 类型 | 默认值
   |-----|-----|-----|------
-  | type | 设置按钮类型，可选值为 `primary` `default` 或者不设 | Enum | undefined
+  | type | 设置按钮类型，可选值为 `primary` `default` `success` `info` `warning` `danger` 或者不设 | Enum | undefined
   | htmlType | 设置 `button` 原生的 `type` 值，可选值请参考 HTML标准 | Enum | `button`
   | shape | 设置按钮形状，可选值为 `circle` `circle-outline` 或者不设 | Enum | undefined
   | size | 设置按钮大小，可选值为 `xsmall` `small` `large` 或者不设 | Enum | undefined
@@ -33,6 +33,11 @@
       <v-button type="primary">主按钮</v-button>
       <!-- <v-button>次按钮</v-button> -->
       <v-button type="default">幽灵按钮</v-button>
+      <br />
+      <v-button type="success">成功按钮</v-button>
+      <v-button type="info">通知按钮</v-button>
+      <v-button type="warning">警告按钮</v-button>
+      <v-button type="danger">危险按钮</v-button>
     </example>
     <example title="按钮尺寸">
       <v-button type="primary" size="xsmall">更小按钮</v-button>
@@ -46,10 +51,10 @@
       <v-button type="primary" shape='circle' size="small"><v-icon type='question'></v-icon></v-button>
       <v-button type="primary" shape='circle' size="xsmall"><v-icon type='question'></v-icon></v-button>
       <br />
-      <v-button type="primary" shape='circle-outline' size="large"><v-icon type='question'></v-icon></v-button>
-      <v-button type="primary" shape='circle-outline'><v-icon type='question'></v-icon></v-button>
-      <v-button type="primary" shape='circle-outline' size="small"><v-icon type='question'></v-icon></v-button>
-      <v-button type="primary" shape='circle-outline' size="xsmall"><v-icon type='question'></v-icon></v-button>
+      <v-button type="default" shape='circle-outline' size="large"><v-icon type='question'></v-icon></v-button>
+      <v-button type="default" shape='circle-outline'><v-icon type='question'></v-icon></v-button>
+      <v-button type="default" shape='circle-outline' size="small"><v-icon type='question'></v-icon></v-button>
+      <v-button type="default" shape='circle-outline' size="xsmall"><v-icon type='question'></v-icon></v-button>
     </example>
     <example title="按钮状态">
       <v-button type="primary">主按钮</v-button>

@@ -164,3 +164,36 @@
     }
   }
 }
+
+.input-group-icon {
+  position: relative;
+
+  .icon {
+    position: absolute;
+    top: 8px;
+    left: 12px;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  .form-control {
+    padding-left: 32px;
+  }
+}
+
+.textarea {
+  position: relative;
+  display: inline-block;
+  padding: 4px 7px;
+  width: 100%;
+  height: @textarea-height-base;
+  cursor: text;
+  font-size: @font-size-base;
+  line-height: @line-height-base;
+  color: @input-color;
+  background-color: @input-bg;
+  background-image: none;
+  border: 1px solid @input-border;
+  border-radius: @input-border-radius;
+  .transition(~"border-color ease-in-out .15s, box-shadow ease-in-out .15s");
+}

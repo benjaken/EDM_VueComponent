@@ -20,7 +20,7 @@
   </div>
 </template>
 <style lang="less">
-@import '../../assets/style/bootstrap';
+@import '../../assets/style/index';
 
   html,
   body {
