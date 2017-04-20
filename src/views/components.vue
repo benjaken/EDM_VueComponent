@@ -100,7 +100,7 @@ export default {
         ],
         layout: [
           {
-            name: 'layout',
+            name: 'grid',
             desc: '栅格',
             done: true
           }
@@ -122,7 +122,8 @@ export default {
           },
           {
             name: 'dropdown',
-            desc: '下拉菜单'
+            desc: '下拉菜单',
+            done: true
           },
           {
             name: 'menu',
@@ -172,7 +173,8 @@ export default {
           },
           {
             name: 'input',
-            desc: '输入框'
+            desc: '输入框',
+            done: true
           },
           {
             name: 'mention',

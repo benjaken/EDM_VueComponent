@@ -1,5 +1,5 @@
 <template lang="md">
-  # Layout 布局
+  # Grid 栅格
   ---
   24 栅格系统。
   <div class="row demo-row">
@@ -101,7 +101,7 @@
   </demo>
 </template>
 <script>
-import vCol from '../../components/layout'
+import vCol from '../../components/grid'
 export default {
   components: {
     vCol

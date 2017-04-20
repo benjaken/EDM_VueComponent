@@ -11,21 +11,51 @@ export function configRouter(router) {
         },
         'download': {
           component: require('../docs/download.vue')
-        },
+        }, // General
         'button': {
           component: require('../components/button.vue')
         },
         'iconfont': {
           component: require('../components/iconfont.vue')
+        }, // Layout
+        'grid': {
+          component: require('../components/grid.vue')
+        }, // Navigation
+        'affix': {
+          component: require('../components/affix.vue')
         },
-        'layout': {
-          component: require('../components/layout.vue')
+        'breadcrumb': {
+          component: require('../components/breadcrumb.vue')
         },
+        'backtop': {
+          component: require('../components/backtop.vue')
+        },
+        'dropdown': {
+          component: require('../components/dropdown.vue')
+        },
+        'menu': {
+          component: require('../components/menu.vue')
+        },
+        'pagination': {
+          component: require('../components/pagination.vue')
+        },
+        'steps': {
+          component: require('../components/steps.vue')
+        },
+        'tabs': {
+          component: require('../components/tabs.vue')
+        }, // DataEntry
         'checkbox': {
           component: require('../components/checkbox.vue')
         },
+        'datepicker': {
+          component: require('../components/datepicker.vue')
+        },
         'input-number': {
           component: require('../components/inputnumber.vue')
+        },
+        'input': {
+          component: require('../components/input.vue')
         },
         'radio': {
           component: require('../components/radio.vue')
@@ -41,12 +71,18 @@ export function configRouter(router) {
         },
         'upload': {
           component: require('../components/upload.vue')
-        },
-        'alert': {
-          component: require('../components/alert.vue')
-        },
+        }, // DataDisplay
         'badge': {
           component: require('../components/badge.vue')
+        },
+        'card': {
+          component: require('../components/card.vue')
+        },
+        'carousel': {
+          component: require('../components/carousel.vue')
+        },
+        'collapse': {
+          component: require('../components/collapse.vue')
         },
         'popover': {
           component: require('../components/popover.vue')
@@ -54,47 +90,20 @@ export function configRouter(router) {
         'tag': {
           component: require('../components/tag.vue')
         },
-        'datepicker': {
-          component: require('../components/datepicker.vue')
-        },
-        'carousel': {
-          component: require('../components/carousel.vue')
-        },
-        'spin': {
-          component: require('../components/spin.vue')
-        },
-        'progress': {
-          component: require('../components/progress.vue')
-        },
-        'collapse': {
-          component: require('../components/collapse.vue')
-        },
-        'dropdown': {
-          component: require('../components/dropdown.vue')
-        },
         'timeline': {
           component: require('../components/timeline.vue')
+        }, // Feedback
+        'alert': {
+          component: require('../components/alert.vue')
         },
         'modal': {
           component: require('../components/modal.vue')
         },
-        'steps': {
-          component: require('../components/steps.vue')
+        'progress': {
+          component: require('../components/progress.vue')
         },
-        'card': {
-          component: require('../components/card.vue')
-        },
-        'breadcrumb': {
-          component: require('../components/breadcrumb.vue')
-        },
-        'backtop': {
-          component: require('../components/backtop.vue')
-        },
-        'tabs': {
-          component: require('../components/tabs.vue')
-        },
-        'input': {
-          component: require('../components/input.vue')
+        'spin': {
+          component: require('../components/spin.vue')
         }
       }
     },

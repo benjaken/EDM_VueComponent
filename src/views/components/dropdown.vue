@@ -11,21 +11,45 @@
 
   ## API
 
-  | 参数      | 说明                                     | 类型          | 默认值 |
-  |-----------|------------------------------------------|---------------|--------|
-  | trigger   | 触发行为，可选 `hover/focus/click`        | string         | hover  |
-  | placement | 气泡框位置，可选 `top/left/right/bottom`  | string         | top    |
-  | title     | 卡片标题                                 | String         | 无     |
-  | content   | 卡片内容                                 | String         | 无     |
-  | overlayClassName | 卡片类名                          | string         | 无     |
-  | overlayStyle | 卡片样式                              | object         | 无     |
-  | visible   | 用于手动控制浮层显隐                       | boolean        | false  |
+  | 参数 | 说明 | 类型 | 默认值 |
+  |------|-----|------|-------|
+  | visible | 菜单是否显示 | boolean | false |
+  | value | 菜单按钮文字 | String | undefined |
+  | type | 菜单按钮类型，可选值为 `primary` `default` `success` `info` `warning` `danger` 或者不设 | String | default |
+  | size | 设置按钮大小，可选值为 `xsmall` `small` `large` 或者不设 | String | undefined
+  | loading | 设置按钮载入状态，存在为 `true`，不存在为 `false`，或直接设置值，如：`loading="true"` | Bool | false
+  | onclick | `click` 事件的 handler | Function | `function() {}`
+  | group | 是否显示为带下拉框的按钮 | boolean | false |
+  | data | 下拉列表的设置，通常为`[{'value': String , 'path': String, 'disabled': Boolean, 'onclick': Function }]` | Array | undefined
+
+  注意：
+  - 当`data`中为`[{'value': '|'}]`,显示为分割线
+  - `data`中的`path`属性实际作用为v-link，跳转到其他页面需用`onclick`跳转
 
   ## 组件演示
 
   <demo>
     <example title="基本">
       <v-dropdown value="click me" :data="data"></v-dropdown>
+      <v-dropdown type="primary" value="click me" :data="data"></v-dropdown>
+      <v-dropdown type="success" value="click me" :data="data"></v-dropdown>
+      <v-dropdown type="info" value="click me" :data="data"></v-dropdown>
+      <v-dropdown type="warning" value="click me" :data="data"></v-dropdown>
+      <v-dropdown type="danger" value="click me" :data="data"></v-dropdown>
+    </example>
+    <example title="带下拉框的按钮">
+      <v-dropdown value="点击后2秒消失" :data="data" :group="true" :onclick="_click" :loading.sync="loading"></v-dropdown>
+      <v-dropdown type="primary" value="click me" :data="data" :group="true"></v-dropdown>
+      <v-dropdown type="success" value="click me" :data="data" :group="true"></v-dropdown>
+      <v-dropdown type="info" value="click me" :data="data" :group="true"></v-dropdown>
+      <v-dropdown type="warning" value="click me" :data="data" :group="true"></v-dropdown>
+      <v-dropdown type="danger" value="click me" :data="data" :group="true"></v-dropdown>
+    </example>
+    <example title="不同尺寸">
+      <v-dropdown value="click me" :data="data" size="xsmall"></v-dropdown>
+      <v-dropdown value="click me" :data="data" :group="true" size="small"></v-dropdown>
+      <v-dropdown value="click me" :data="data"></v-dropdown>
+      <v-dropdown value="click me" :data="data" :group="true" size="large"></v-dropdown>
     </example>
   </demo>
 </template>
@@ -42,20 +66,30 @@
       return {
         data: [
           {'value': 'Action', 'path': ''},
-          {'value': 'Action', 'path': '/components/dropdown', 'disabled': true},
+          {'value': 'Baidu', 'path': '/components/dropdown'},
+          {'value': 'Dropdown', 'path': '/components/dropdown', 'disabled': true},
           {'value': '|'},
-          {'value': 'Action', 'path': '/components/dropdown'}
-        ]
+          {'value': 'Dropdown', 'path': '/components/dropdown', 'onclick': this._toggle}
+        ],
+        loading: false
+      }
+    },
+    methods: {
+      _click () {
+        var self = this
+        self.loading = true
+        setTimeout(function () {
+          console.log('Click button!')
+          self.loading = false
+        }, 2000)
+      },
+      _toggle () {
+        console.log('Click dropdown!')
       }
     },
     components: {
       vDropdown,
       vButton
-    },
-    methods: {
-      _gohome () {
-        console.log('111')
-      }
     }
   }
 </script>

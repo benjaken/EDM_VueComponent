@@ -207,8 +207,6 @@
 //** Small `.form-control` height
 @input-height-small:             (floor(@font-size-small * @line-height-small) + (@padding-small-vertical * 2) + 2);
 
-@textarea-height-base:           (@line-height-computed + (@padding-base-vertical * 8) + 2);
-
 @legend-color:                   @gray-dark;
 @legend-border-color:            #e5e5e5;
 
@@ -440,13 +438,13 @@
 //
 //##
 
-@pagination-color:                     @link-color;
+@pagination-color:                     #666;
 @pagination-bg:                        #fff;
 @pagination-border:                    #ddd;
 
 @pagination-hover-color:               @link-hover-color;
-@pagination-hover-bg:                  @gray-lighter;
-@pagination-hover-border:              #ddd;
+@pagination-hover-bg:                  #fff;
+@pagination-hover-border:              @brand-primary;
 
 @pagination-active-color:              #fff;
 @pagination-active-bg:                 @brand-primary;
