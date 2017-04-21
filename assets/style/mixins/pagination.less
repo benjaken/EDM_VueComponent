@@ -7,16 +7,19 @@
       padding: @padding-vertical @padding-horizontal;
       font-size: @font-size;
     }
+    .icon {
+      font-size: @font-size;
+    }
     &:first-child {
       > a,
       > span {
-        .border-left-radius(@border-radius);
+        padding: @padding-vertical @padding-horizontal - 4px;
       }
     }
     &:last-child {
       > a,
       > span {
-        .border-right-radius(@border-radius);
+        padding: @padding-vertical @padding-horizontal - 4px;
       }
     }
   }

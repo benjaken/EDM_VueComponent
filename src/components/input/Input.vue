@@ -1,25 +1,27 @@
 <template>
-  <textarea v-if="type === 'textarea'" class="textarea" :placeholder="placeholder" :rows="rows" v-model="input"></textarea>
-  <div :class="inputClasses" v-if="type === 'input'">
-    <span :class="inputAddonClasses" v-if="addonBefore">
-      <v-button type="default" v-if="addon === 'button'" :onclick="onclick">{{addonBefore}}</v-button>
-      <input type="checkbox" v-if="addon === 'checkbox'" :value="addonBefore">
-      <input type="radio" v-if="addon === 'radio'" :value="addonBefore">
-      <span v-if="addon === 'addon'">{{addonBefore}}</span>
-    </span>
-    <v-icon :type="icon" v-if="icon"></v-icon>
-    <input :type="htmlType" class="form-control" :placeholder="placeholder" v-model="input">
-    <span :class="inputAddonClasses" v-if="addonAfter">
-      <v-button type="default" v-if="addon === 'button'" :onclick="onclick">{{addonAfter}}</v-button>
-      <input type="checkbox" v-if="addon === 'checkbox'" :value="addonAfter">
-      <input type="radio" v-if="addon === 'radio'" :value="addonBefore">
-      <span v-if="addon === 'addon'">{{addonAfter}}</span>
-    </span>
+  <div class="input">
+    <textarea v-if="type === 'textarea'" class="textarea" :placeholder="placeholder" :rows="rows" v-model="value"></textarea>
+    <div :class="inputClasses" v-if="type === 'input'">
+      <span :class="inputAddonClasses" v-if="addonBefore">
+        <v-button type="default" v-if="addon === 'button'" :onclick="onclick">{{addonBefore}}</v-button>
+        <input type="checkbox" v-if="addon === 'checkbox'" :value="addonBefore">
+        <input type="radio" v-if="addon === 'radio'" :value="addonBefore">
+        <span v-if="addon === 'addon'">{{addonBefore}}</span>
+      </span>
+      <v-icon :type="icon" v-if="icon"></v-icon>
+      <input v-el:input ref="input" :type="htmlType" class="form-control" :placeholder="placeholder" v-model="value" />
+      <span :class="inputAddonClasses" v-if="addonAfter">
+        <v-button type="default" v-if="addon === 'button'" :onclick="onclick">{{addonAfter}}</v-button>
+        <input type="checkbox" v-if="addon === 'checkbox'" :value="addonAfter">
+        <input type="radio" v-if="addon === 'radio'" :value="addonBefore">
+        <span v-if="addon === 'addon'">{{addonAfter}}</span>
+      </span>
+    </div>
+    <span v-if="maxLength >= 0" class="input-group-tip">你还可以输入{{maxLength}}字</span>
   </div>
-  <span v-if="maxLength >= 0" class="input-group-tip">你还可以输入{{maxLength}}字</span>
 </template>
 <script>
-import {defaultProps, oneOf} from '../../views/utils/props'
+import {defaultProps, oneOf, oneOfType} from '../../views/utils/props'
 import cx from 'classnames'
 import vButton from '../button'
 import vIcon from '../iconfont'
@@ -29,7 +31,8 @@ export default {
     prefixCls: 'input',
     group: false,
     size: oneOf(['small', 'large', undefined]),
-    placeholder: '',
+    value: oneOfType([String, Number]),
+    placeholder: oneOfType([String, Number]),
     addonBefore: '',
     addonAfter: '',
     icon: '',
@@ -42,7 +45,6 @@ export default {
   }),
   data () {
     return {
-      input: '',
       max: this.maxLength
     }
   },

@@ -131,7 +131,8 @@ export default {
           },
           {
             name: 'pagination',
-            desc: '分页'
+            desc: '分页',
+            done: true
           },
           {
             name: 'steps',

@@ -9,6 +9,7 @@
 
   > li {
     display: inline; // Remove list-style and block-level defaults
+    height: 26px;
     > a,
     > span {
       position: relative;
@@ -25,7 +26,8 @@
     }
     .icon {
       font-size: 12px;
-      &::before {
+      &-left::before,
+      &-right::before {
         display: inline-block;
         -webkit-transform: scale(.5) rotate(0deg);
         -ms-transform: scale(.5) rotate(0deg);
@@ -36,14 +38,29 @@
     &:first-child {
       > a,
       > span {
-        padding: 4px 6px;
+        padding: 4px 7px;
       }
     }
     &:last-child {
       > a,
       > span {
         margin-right: 0;
-        padding: 4px 6px;
+        padding: 4px 7px;
+      }
+    }
+  }
+
+  > li.pagination-ellipsis {
+    > a,
+    > span {
+      border: 1px solid transparent;
+      cursor: default;
+      padding: 4px;
+
+      &:hover,
+      &:focus {
+        color: @pagination-color;
+        border-color: transparent;
       }
     }
   }
@@ -84,6 +101,29 @@
       cursor: @cursor-disabled;
     }
   }
+  >.sizeChanger .btn-sm,
+  .input-group-sm .form-control {
+    padding: 4px 9px;
+    line-height: 1.25;
+    font-size: 14px;
+  }
+  >.sizeChanger{
+    float: left;
+    margin-left: 8px;
+  }
+  >.quick-jumper {
+    float: left;
+    margin-left: 8px;
+    display: inline-block;
+
+    label {
+      font-weight: normal;
+    }
+    >div {
+      width: 40px;
+      display: inline-block;
+    }
+  }
 }
 
 // Sizing
@@ -97,4 +137,17 @@
 // Small
 .pagination-sm {
   .pagination-size(@padding-small-vertical; @padding-small-horizontal; @font-size-small; @border-radius-small);
+}
+
+.pagination-simple {
+  .quick-jumper {
+    margin-left: 0;
+     > div {
+       width: 30px;
+       .form-control {
+         padding: 4px 5px;
+         text-align: center;
+       }
+     }
+  }
 }
