@@ -4,6 +4,7 @@
     <div :class="inputClasses" v-if="type === 'input'">
       <span :class="inputAddonClasses" v-if="addonBefore">
         <v-button type="default" v-if="addon === 'button'" :onclick="onclick">{{addonBefore}}</v-button>
+        <v-drop-down type="default" v-if="addon === 'dropdown'" :onclick="onclick" :value="addonBefore"></v-drop-down>
         <input type="checkbox" v-if="addon === 'checkbox'" :value="addonBefore">
         <input type="radio" v-if="addon === 'radio'" :value="addonBefore">
         <span v-if="addon === 'addon'">{{addonBefore}}</span>
@@ -12,6 +13,7 @@
       <input v-el:input ref="input" :type="htmlType" class="form-control" :placeholder="placeholder" v-model="value" />
       <span :class="inputAddonClasses" v-if="addonAfter">
         <v-button type="default" v-if="addon === 'button'" :onclick="onclick">{{addonAfter}}</v-button>
+        <v-drop-down type="default" v-if="addon === 'dropdown'" :onclick="onclick" :value="addonBefore"></v-drop-down>
         <input type="checkbox" v-if="addon === 'checkbox'" :value="addonAfter">
         <input type="radio" v-if="addon === 'radio'" :value="addonBefore">
         <span v-if="addon === 'addon'">{{addonAfter}}</span>
@@ -24,6 +26,7 @@
 import {defaultProps, oneOf, oneOfType} from '../../views/utils/props'
 import cx from 'classnames'
 import vButton from '../button'
+import vDropDown from '../dropdown'
 import vIcon from '../iconfont'
 
 export default {
@@ -40,7 +43,7 @@ export default {
     type: 'input',
     rows: 4,
     maxLength: -1,
-    addon: oneOf(['addon', 'button', 'checkbox', 'radio', undefined]),
+    addon: oneOf(['addon', 'button', 'checkbox', 'dropdown', 'radio', undefined]),
     onclick: () => {}
   }),
   data () {
@@ -74,7 +77,8 @@ export default {
   },
   components: {
     vButton,
-    vIcon
+    vIcon,
+    vDropDown
   },
   watch: {
     'input' (val) {

@@ -4,15 +4,15 @@
       <v-button :type="type" :onclick="onclick" :size="size" :loading="loading">
         {{value}}
       </v-button>
-      <v-button :type="type" @click="_toggleMenu()" @blur="_closeMenu()" :size="size">
+      <v-button :type="type" @click="_toggleMenu()" :size="size">
         <span class="caret"></span>
       </v-button>
     </div>
-    <v-button :type="type" @click="_toggleMenu()" @blur="_closeMenu()" :size="size"  :loading="loading" v-else>
+    <v-button :type="type" @click="_toggleMenu()" :size="size"  :loading="loading" v-else>
       {{value}}<span class="caret"></span>
     </v-button>
     <ul :class="prefixCls" v-if="visible">
-      <li v-for="i in data" :class="_dropdownClasses(i)">
+      <li v-for="i in data" :class="_dropdownClasses(i)" @click="this.visible = false">
         <!-- <a :href="i.path" target="_blank" v-if="i.value !== '|' && i.href">{{i.value}}</a> -->
         <a @click="i.onclick" v-if="i.value !== '|' && i.onclick">{{i.value}}</a>
         <a v-link="`${i.path}`" v-if="i.value !== '|'" v-else>{{i.value}}</a>
@@ -39,6 +39,12 @@
     components: {
       vButton
     },
+    ready () {
+      window.addEventListener('click', this.close)
+    },
+    beforeDestroy() {
+      window.removeEventListener('click', this.close)
+    },
     methods: {
       _toggleMenu () {
         this.visible = !this.visible
@@ -49,11 +55,10 @@
           [`disabled`]: !!i.disabled
         })
       },
-      _closeMenu () {
-        var self = this
-        setTimeout(function () {
-          self.visible = false
-        }, 200)
+      close(e) {
+        if (!this.$el.contains(e.target)) {
+          this.visible = false
+        }
       }
     }
   }

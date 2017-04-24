@@ -51,11 +51,17 @@ export function configRouter(router) {
         'datepicker': {
           component: require('../components/datepicker.vue')
         },
+        'form': {
+          component: require('../components/form.vue')
+        },
         'input-number': {
           component: require('../components/inputnumber.vue')
         },
         'input': {
           component: require('../components/input.vue')
+        },
+        'rate': {
+          component: require('../components/rate.vue')
         },
         'radio': {
           component: require('../components/radio.vue')

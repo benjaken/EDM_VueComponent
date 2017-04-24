@@ -36,6 +36,14 @@ label {
   font-weight: bold;
 }
 
+.required {
+  display: inline-block;
+  margin-right: 4px;
+  line-height: 1;
+  font-size: 12px;
+  color: @brand-danger;
+}
+
 
 // Normalize form controls
 //
@@ -214,6 +222,10 @@ _:-ms-fullscreen, :root input[type="month"] {
 
 .form-group {
   margin-bottom: 15px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
 }
 
 
@@ -225,8 +237,6 @@ _:-ms-fullscreen, :root input[type="month"] {
 .checkbox {
   position: relative;
   display: block;
-  margin-top: 10px;
-  margin-bottom: 10px;
 
   label {
     min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
@@ -437,7 +447,8 @@ input[type="checkbox"] {
     }
 
     // Make static controls behave like regular ones
-    .form-control-static {
+    .form-control-static,
+    .input {
       display: inline-block;
     }
 
@@ -500,6 +511,29 @@ input[type="checkbox"] {
   // Consistent vertical alignment of radios and checkboxes
   //
   // Labels also get some reset styles, but that is scoped to a media query below.
+
+  .form-group {
+    min-height: 31px;
+
+    >label {
+      width: 16.777777777%;
+      padding-top: 7px;
+      margin-bottom: 0;
+      text-align: right;
+      position: relative;
+      min-height: 1px;
+      float: left;
+    }
+    >.form-item {
+      width: 83.222222222%;
+      display: inline-block;
+      position: relative;
+      min-height: 1px;
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
   .radio,
   .checkbox,
   .radio-inline,
@@ -555,5 +589,103 @@ input[type="checkbox"] {
         padding-top: (@padding-small-vertical + 1);
       }
     }
+  }
+}
+
+.form-item-feedback {
+  .input > div::after {
+    position: absolute;
+    top: 0;
+    right: 16px;
+    visibility: visible;
+    pointer-events: none;
+    width: 31px;
+    height: 31px;
+    line-height: 31px;
+    text-align: center;
+    font-size: 14px;
+    -webkit-animation: zoomIn .3s cubic-bezier(.12,.4,.29,1.46);
+    animation: zoomIn .3s cubic-bezier(.12,.4,.29,1.46);
+    font-family: iconfont;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    content: "";
+    z-index: 1;
+  }
+
+  .tip {
+    line-height: 1.5;
+    display: block;
+    font-size: 12px;
+    color: #666;
+  }
+}
+
+.form-item-danger {
+  .date-picker .calendar-logo i {
+    color: @brand-danger;
+  }
+
+  .input >div input,
+  .date-picker input {
+    border-color: @brand-danger;
+    padding: 6px 24px 6px 12px;
+  }
+
+  .input >div::after {
+    content: "\E631";
+  }
+
+  .tip,
+  .input >div::after {
+    color: @brand-danger;
+  }
+}
+
+.form-item-warning {
+  .input >div input {
+    border-color: @brand-warning;
+    padding: 6px 24px 6px 12px;
+  }
+
+  .input >div::after {
+    content: "\E634";
+  }
+
+  .tip,
+  .input >div::after {
+    color: @brand-warning;
+  }
+}
+
+.form-item-success {
+  .input >div input {
+    padding: 6px 24px 6px 12px;
+  }
+
+  .input >div::after {
+    content: "\E62F";
+  }
+
+  .tip,
+  .input >div::after {
+    color: @brand-success;
+  }
+}
+
+.form-item-waiting {
+  .input >div input {
+    padding: 6px 24px 6px 12px;
+  }
+
+  .input >div::after {
+    content: "\E6A1";
+    animation: loadingCircle 1s infinite linear;
+  }
+
+  .tip,
+  .input >div::after {
+    color: @brand-primary;
   }
 }

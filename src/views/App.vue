@@ -27,7 +27,6 @@
     margin: 0;
     padding: 0;
     font-family: "Helvetica Neue",Helvetica,"Hiragino Sans GB","Microsoft YaHei","微软雅黑",SimSun,sans-serif;
-    line-height: 1.5;
     color: #777;
     font-size: 14px;
     background: #fff;

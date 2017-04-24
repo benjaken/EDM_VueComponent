@@ -1,0 +1,41 @@
+.rate {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 24px;
+  vertical-align: middle;
+
+  &-star {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-right: 8px;
+    position: relative;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+    color: #e9e9e9;
+
+    &-abled {
+      cursor: pointer;
+
+      &:hover {
+        -webkit-transform: scale(1.1);
+        -ms-transform: scale(1.1);
+        transform: scale(1.1);
+        color: @brand-warning;
+      }
+    }
+
+    &-full {
+      color: @brand-warning;
+    }
+  }
+
+  .total {
+    margin: 0;
+    padding: 0;
+    display: inline-block;
+    margin-right: 8px;
+    font-size: 12px;
+  }
+}

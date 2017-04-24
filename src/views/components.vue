@@ -165,7 +165,8 @@ export default {
           },
           {
             name: 'form',
-            desc: '表单'
+            desc: '表单',
+            done: true
           },
           {
             name: 'input-number',
@@ -183,7 +184,8 @@ export default {
           },
           {
             name: 'rate',
-            desc: '评分'
+            desc: '评分',
+            done: true
           },
           {
             name: 'radio',

@@ -17,7 +17,7 @@
   | group | 设置是否为输入框组 | String | false
   | size | 设置输入框组的尺寸，可设置为`small`或`large` | String | undefined
   | placeholder | 设置输入框的placeholder | String | undefined
-  | addon | 设置输入框前面或后面的type，可选`addon`、`button`、`checkbox`、`radio` | String | undefined
+  | addon | 设置输入框前面或后面的type，可选`addon`、`button`、`dropdown`、`checkbox`、`radio` | String | undefined
   | addonBefore | 设置输入框前面的内容 | String | undefined
   | addonAfter | 设置输入框后面的内容 | String | undefined
   | icon | 设置输入框是否带有图标 | String | undefined
@@ -44,6 +44,7 @@
     </example>
     <example title="前置/后置按钮">
       <v-input placeholder="Username" :group="true" addon-after="Search" addon="button" :onclick="_search"></v-input>
+      <!-- <v-input placeholder="Username" :group="true" addon-before="Search" addon="dropdown" :onclick="_search"></v-input> -->
     </example>
     <example title="不同尺寸">
       <v-input placeholder="用户名" :group="true" addon-before="@" addon="addon" size="small"></v-input>

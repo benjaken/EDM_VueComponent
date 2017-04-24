@@ -71,7 +71,6 @@ export default {
   data() {
     return {
       panelState: false,
-      panelType: 'date',
       coordinates: {},
       year: '',
       month: '',
@@ -123,7 +122,8 @@ export default {
       default: false
     },
     disabled: Boolean,
-    format: 'yyyy-mm-dd'
+    format: 'yyyy-mm-dd',
+    panelType: String
   },
   methods: {
     selectToday () {

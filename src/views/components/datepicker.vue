@@ -31,7 +31,7 @@
       <v-datepicker :Date.sync="selectedTime3" :show-time="true"></v-datepicker>
     </example>
     <example title="禁用">
-      <v-datepicker :Date.sync="selectedTime4" :disabled="true"></v-datepicker>
+      <v-datepicker :Date.sync="selectedTime5" :disabled="true"></v-datepicker>
     </example>
     <example title="日期范围一">
       <v-datepicker :start-date.sync="startTime1" :end-date.sync="endTime1" :range-picker="true"></v-datepicker>
@@ -50,6 +50,7 @@
         selectedTime2: '',
         selectedTime3: '',
         selectedTime4: '',
+        selectedTime5: '',
         startTime1: '',
         endTime1: '',
         startTime2: '',

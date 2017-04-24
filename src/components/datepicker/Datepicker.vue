@@ -1,12 +1,12 @@
 <template>
   <div class="datePicker" v-if="rangePicker">
-    <v-calendar :value.sync="startDate" :error="error" :show-time='showTime' :disabled='disabled' :format='format'></v-calendar>
+    <v-calendar :value.sync="startDate" :panel-type="panelType" :error="error" :show-time='showTime' :disabled='disabled' :format='format'></v-calendar>
     <span v-if="!closeGroup"> 至 </span>
-    <v-calendar :value.sync="endDate" :error="error" :show-time='showTime' :disabled='disabled' :format='format'></v-calendar>
+    <v-calendar :value.sync="endDate" :panel-type="panelType" :error="error" :show-time='showTime' :disabled='disabled' :format='format'></v-calendar>
     <span class="error" v-if="error">{{errorString}}</span>
   </div>
   <div class="datePicker" v-else>
-    <v-calendar :value.sync="Date" :error="error" :show-time='showTime' :disabled='disabled' :format='format'></v-calendar>
+    <v-calendar :value.sync="Date" :panel-type="panelType" :error="error" :show-time='showTime' :disabled='disabled' :format='format'></v-calendar>
   </div>
 </template>
 <script>
@@ -22,23 +22,11 @@ export default {
     startDate: '',
     endDate: '',
     disabled: false,
-    showTime: {
-      type: Boolean,
-      default: false
-    },
-    rangePicker: {
-      type: Boolean,
-      default: false
-    },
-    format: {
-      type: String,
-      default: 'yyyy-mm-dd'
-    },
-    orientation: {
-      type: String,
-      default: 'bottom auto'
-    },
+    showTime: false,
+    rangePicker: false,
+    format: 'yyyy-mm-dd',
     closeGroup: false,
+    panelType: 'date',
     onSearch: () => {}
   }),
   data () {
