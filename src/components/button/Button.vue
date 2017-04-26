@@ -14,6 +14,7 @@ export default {
     shape: oneOf(['circle', 'circle-outline', undefined]),
     size: oneOf(['xsmall', 'small', 'large', undefined]),
     loading: false,
+    block: false,
     className: '',
     onclick: () => {}
   }),
@@ -28,6 +29,7 @@ export default {
         [this.prefixCls]: 1,
         [`${this.prefixCls}-${this.type}`]: !!this.type,
         [`${this.prefixCls}-${this.shape}`]: !!this.shape,
+        [`${this.prefixCls}-block`]: !!this.block,
         [`${this.prefixCls}-${sizeCls}`]: !!sizeCls,
         [`${this.prefixCls}-loading`]: this.loading != null && this.loading,
         [this.className]: !!this.className

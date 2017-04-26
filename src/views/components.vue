@@ -108,7 +108,8 @@ export default {
         navigation: [
           {
             name: 'affix',
-            desc: '固钉'
+            desc: '固钉',
+            done: true
           },
           {
             name: 'breadcrumb',
@@ -127,7 +128,8 @@ export default {
           },
           {
             name: 'menu',
-            desc: '导航菜单'
+            desc: '导航菜单',
+            done: true
           },
           {
             name: 'pagination',
@@ -136,7 +138,8 @@ export default {
           },
           {
             name: 'steps',
-            desc: '步骤条'
+            desc: '步骤条',
+            done: true
           },
           {
             name: 'tabs',

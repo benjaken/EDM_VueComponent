@@ -15,19 +15,19 @@
 
   |属性 | 说明 | 类型 | 默认值
   |-----|-----|-----|------
-  | offsetTop | 距离窗口顶部达到指定偏移量后触发 | Number | undefined
-  | offsetBottom | 距离窗口底部达到指定偏移量后触发 | Number | undefined
-  | onChange | 固定状态改变时触发的回调函数	| Function | 无
+  | offset | 距离窗口顶部达到指定偏移量后触发 | Number | undefined
 
   ## 组件演示
 
   <demo>
     <example title="基本">
       <v-affix>
-        <v-button type="primary">Affix Top</v-button>
+        <v-button type="primary">固定在顶部</v-button>
       </v-affix>
-      <v-affix>
-        <v-button type="primary">Affix Bottom</v-button>
+    </example>
+    <example title="偏移">
+      <v-affix offset="75">
+        <v-button type="primary">固定在距离顶部 75px 的位置</v-button>
       </v-affix>
     </example>
   </demo>

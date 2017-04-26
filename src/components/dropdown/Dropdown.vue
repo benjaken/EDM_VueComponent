@@ -2,14 +2,14 @@
   <div class="dropdown">
     <div class="btn-group" v-if="group">
       <v-button :type="type" :onclick="onclick" :size="size" :loading="loading">
-        {{value}}
+        <slot></slot>
       </v-button>
       <v-button :type="type" @click="_toggleMenu()" :size="size">
         <span class="caret"></span>
       </v-button>
     </div>
     <v-button :type="type" @click="_toggleMenu()" :size="size"  :loading="loading" v-else>
-      {{value}}<span class="caret"></span>
+      <slot></slot><span class="caret"></span>
     </v-button>
     <ul :class="prefixCls" v-if="visible">
       <li v-for="i in data" :class="_dropdownClasses(i)" @click="this.visible = false">
@@ -29,7 +29,6 @@
       prefixCls: 'dropdown-menu',
       visible: false,
       group: false,
-      value: '',
       data: [],
       size: oneOf(['xsmall', 'small', 'large', undefined]),
       type: 'default',
@@ -56,8 +55,9 @@
         })
       },
       close(e) {
-        if (!this.$el.contains(e.target)) {
-          this.visible = false
+        var self = this
+        if (!self.$el.contains(e.target)) {
+          self.visible = false
         }
       }
     }

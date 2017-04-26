@@ -12,14 +12,10 @@
   position: relative;
   min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: @navbar-margin-bottom;
-  border: 1px solid transparent;
+  border-bottom: 1px solid transparent;
 
   // Prevent floats from breaking the navbar
   &:extend(.clearfix all);
-
-  @media (min-width: @grid-float-breakpoint) {
-    border-radius: @navbar-border-radius;
-  }
 }
 
 
@@ -163,7 +159,7 @@
 
 .navbar-brand {
   float: left;
-  padding: @navbar-padding-vertical @navbar-padding-horizontal;
+  // padding: @navbar-padding-vertical @navbar-padding-horizontal;
   font-size: @font-size-large;
   line-height: @line-height-computed;
   height: @navbar-height;
@@ -326,12 +322,7 @@
 
 // Menu position and menu carets
 .navbar-nav > li > .dropdown-menu {
-  margin-top: 0;
-  .border-top-radius(0);
-}
-// Menu position and menu caret support for dropups via extra dropup class
-.navbar-fixed-bottom .navbar-nav > li > .dropdown-menu {
-  .border-bottom-radius(0);
+  margin-top: 4px;
 }
 
 
@@ -409,7 +400,8 @@
   }
 
   .navbar-nav {
-    > li > a {
+    > li > a,
+    .dropdown > .btn {
       color: @navbar-default-link-color;
 
       &:hover,
@@ -543,7 +535,8 @@
   }
 
   .navbar-nav {
-    > li > a {
+    > li > a,
+    .dropdown > .btn {
       color: @navbar-inverse-link-color;
 
       &:hover,
@@ -655,5 +648,18 @@
         color: @navbar-inverse-link-disabled-color;
       }
     }
+  }
+}
+
+.dropdown > .btn{
+  line-height: 60px;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  padding: 0 15px;
+  outline: 0;
+
+  &:active {
+    outline: 0;
   }
 }

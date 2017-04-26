@@ -11,6 +11,37 @@
   - 当需要告知用户『你在哪里』时；
   - 当需要向上导航的功能时。
 
+  ## 如何使用
+
+  ```html
+  data () {
+    return {
+      data: [{
+        name: 'first',
+        link: '/index'
+      }, {
+        name: 'second',
+        link: '/index'
+      }, {
+        name: 'third',
+        link: '',
+        active: true
+      }],
+      data1: [{
+        link: '/index',
+        icon: 'home'
+      }, {
+        name: 'second',
+        link: '/index',
+        icon: 'user'
+      }, {
+        name: 'third',
+        link: '',
+        active: true
+      }]
+    }
+  ```
+
   ## API
 
   | 参数           | 说明                             | 类型       | 默认值 |

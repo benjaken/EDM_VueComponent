@@ -9,6 +9,22 @@
 
   当页面上的操作命令过多时，用此组件可以收纳操作元素。点击或移入触点，会出现一个下拉菜单。可在列表中进行选择，并执行相应的命令。
 
+  ## 如何使用
+
+  ```html
+  data () {
+    return {
+      data: [
+        {'value': 'Action', 'path': ''},
+        {'value': 'Baidu', 'path': '/components/dropdown'},
+        {'value': 'Dropdown', 'path': '/components/dropdown', 'disabled': true},
+        {'value': '|'},
+        {'value': 'Dropdown', 'path': '/components/dropdown', 'onclick': this._toggle}
+      ]
+    }
+  }
+  ```
+
   ## API
 
   | 参数 | 说明 | 类型 | 默认值 |
@@ -30,26 +46,26 @@
 
   <demo>
     <example title="基本">
-      <v-dropdown value="click me" :data="data"></v-dropdown>
-      <v-dropdown type="primary" value="click me" :data="data"></v-dropdown>
-      <v-dropdown type="success" value="click me" :data="data"></v-dropdown>
-      <v-dropdown type="info" value="click me" :data="data"></v-dropdown>
-      <v-dropdown type="warning" value="click me" :data="data"></v-dropdown>
-      <v-dropdown type="danger" value="click me" :data="data"></v-dropdown>
+      <v-dropdown :data="data">click me</v-dropdown>
+      <v-dropdown type="primary" :data="data">click me</v-dropdown>
+      <v-dropdown type="success" :data="data">click me</v-dropdown>
+      <v-dropdown type="info" :data="data">click me</v-dropdown>
+      <v-dropdown type="warning" :data="data">click me</v-dropdown>
+      <v-dropdown type="danger" :data="data">click me</v-dropdown>
     </example>
     <example title="带下拉框的按钮">
-      <v-dropdown value="点击后2秒消失" :data="data" :group="true" :onclick="_click" :loading.sync="loading"></v-dropdown>
-      <v-dropdown type="primary" value="click me" :data="data" :group="true"></v-dropdown>
-      <v-dropdown type="success" value="click me" :data="data" :group="true"></v-dropdown>
-      <v-dropdown type="info" value="click me" :data="data" :group="true"></v-dropdown>
-      <v-dropdown type="warning" value="click me" :data="data" :group="true"></v-dropdown>
-      <v-dropdown type="danger" value="click me" :data="data" :group="true"></v-dropdown>
+      <v-dropdown :data="data" :group="true" :onclick="_click" :loading.sync="loading">点击后2秒消失</v-dropdown>
+      <v-dropdown type="primary" :data="data" :group="true">click me</v-dropdown>
+      <v-dropdown type="success" :data="data" :group="true">click me</v-dropdown>
+      <v-dropdown type="info" :data="data" :group="true">click me</v-dropdown>
+      <v-dropdown type="warning" :data="data" :group="true">click me</v-dropdown>
+      <v-dropdown type="danger" :data="data" :group="true">click me</v-dropdown>
     </example>
     <example title="不同尺寸">
-      <v-dropdown value="click me" :data="data" size="xsmall"></v-dropdown>
-      <v-dropdown value="click me" :data="data" :group="true" size="small"></v-dropdown>
-      <v-dropdown value="click me" :data="data"></v-dropdown>
-      <v-dropdown value="click me" :data="data" :group="true" size="large"></v-dropdown>
+      <v-dropdown :data="data" size="xsmall">click me</v-dropdown>
+      <v-dropdown :data="data" :group="true" size="small">click me</v-dropdown>
+      <v-dropdown :data="data">click me</v-dropdown>
+      <v-dropdown :data="data" :group="true" size="large">click me</v-dropdown>
     </example>
   </demo>
 </template>

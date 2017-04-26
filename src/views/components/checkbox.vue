@@ -18,14 +18,14 @@
     -----------|------------------------------------------|------------|-------|--------|
     checked | 指定当前是否选中 | boolean  |   | false
     default-checked | 初始是否选中 | boolean |  | false
-    on-change | 变化时回调函数 | Function(e:Event) |  |
+    onchange | 变化时回调函数 | Function(e:Event) |  |
 
     ## 组件演示
 
     <demo>
       <example title="基础用法">
         <v-checkbox>Checkbox</v-checkbox>
-        <v-checkbox :default-checked="checked" :on-change="_checkShow">Checkbox</v-checkbox>
+        <v-checkbox :default-checked="checked" :onchange="_checkShow">Checkbox</v-checkbox>
       </example>
       <example title="不可用">
         <v-checkbox disabled>Checkbox</v-checkbox>
@@ -60,8 +60,8 @@ export default{
     _disabledChange () {
       this.disabled = !this.disabled
     },
-    _checkShow () {
-      console.log('Checkbox被点击')
+    _checkShow (e) {
+      console.log('checked=' + e.target.checked)
     }
   }
 }

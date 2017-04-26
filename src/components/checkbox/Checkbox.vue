@@ -2,7 +2,7 @@
   <label class="checkbox-wrapper">
     <span :class="ckClasses">
       <span :class="prefixCls + '-inner'"></span>
-      <input :class="prefixCls + '-input'" type="checkbox" :checked="!!checked" :defaultchecked="!!defaultChecked" @change="_handleChange" :disabled="disabled">
+      <input :class="prefixCls + '-input'" type="checkbox" :checked="!!checked" @change="_handleChange" :disabled="disabled">
     </span>
     <span><slot></slot></span>
   </label>
@@ -16,7 +16,7 @@ export default{
     prefixCls: 'checkbox',
     checked: Boolean,
     defaultChecked: false,
-    onChange: () => {},
+    onchange: () => {},
     indeterminate: false,
     disabled: false
   }),
@@ -37,8 +37,8 @@ export default{
   },
   methods: {
     _handleChange (e) {
-      this.checked = e.target.checked
-      this.onChange(e)
+      this.checked = this.defaultChecked = e.target.checked
+      this.onchange(e)
     }
   }
 }

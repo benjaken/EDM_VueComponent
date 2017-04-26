@@ -55,7 +55,7 @@ export function configRouter(router) {
           component: require('../components/form.vue')
         },
         'input-number': {
-          component: require('../components/inputnumber.vue')
+          component: require('../components/input-number.vue')
         },
         'input': {
           component: require('../components/input.vue')
@@ -75,6 +75,12 @@ export function configRouter(router) {
         'switch': {
           component: require('../components/switch.vue')
         },
+        'tree-select': {
+          component: require('../components/tree-select.vue')
+        },
+        'transfer': {
+          component: require('../components/transfer.vue')
+        },
         'upload': {
           component: require('../components/upload.vue')
         }, // DataDisplay
@@ -92,6 +98,9 @@ export function configRouter(router) {
         },
         'popover': {
           component: require('../components/popover.vue')
+        },
+        'table': {
+          component: require('../components/table.vue')
         },
         'tag': {
           component: require('../components/tag.vue')
