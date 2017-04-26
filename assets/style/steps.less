@@ -1,0 +1,293 @@
+@process-icon-color: @brand-primary;
+@process-title-color: #666;
+@process-description-color: @process-title-color;
+@process-tail-color: #e9e9e9;
+@wait-icon-color: #ccc;
+@wait-title-color: #999;
+@wait-description-color: @wait-title-color;
+@wait-tail-color: @process-tail-color;
+@finish-icon-color: @brand-success;
+@finish-title-color: rgba(0,0,0,.43);
+@finish-description-color: rgba(0,0,0,.43);
+@finish-tail-color: @brand-success;
+
+
+.steps {
+  font-size: 0;
+  width: 100%;
+  line-height: 1.5;
+  .steps-item {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+
+    &.steps-status-wait {
+      .steps-head-inner {
+        border-color: @wait-icon-color;
+        background-color: #fff;
+        > .steps-icon {
+          color: @wait-icon-color;
+        }
+      }
+      .steps-title {
+        color: @wait-title-color;
+      }
+      .steps-description {
+        color: @wait-description-color;
+      }
+      .steps-tail > i {
+        background-color: @wait-tail-color;
+      }
+    }
+    &.steps-status-process {
+      .steps-head-inner {
+        border-color: @process-icon-color;
+        background-color: @process-icon-color;
+        > .steps-icon {
+          color: #fff;
+        }
+      }
+      .steps-title {
+        color: @process-title-color;
+      }
+      .steps-description {
+        color: @process-description-color;
+      }
+      .steps-tail > i {
+        background-color: @process-tail-color;
+      }
+    }
+    &.steps-status-finish {
+      .steps-head-inner {
+        border-color: @finish-icon-color;
+        background-color: #fff;
+        > .steps-icon {
+          color: @finish-icon-color;
+        }
+      }
+      .steps-tail > i:after {
+        width: 100%;
+        background: @finish-tail-color;
+        transition: all 0.4s ease;
+        opacity: 1;
+      }
+      .steps-title {
+        color: @finish-title-color;
+      }
+      .steps-description {
+        color: @finish-description-color;
+      }
+    }
+
+    &.steps-custom {
+      .steps-head-inner {
+        background: none;
+        border: 0;
+        width: auto;
+        height: auto;
+        > .steps-icon {
+          font-size: 20px;
+          top: 2px;
+          width: 20px;
+          height: 20px;
+        }
+      }
+      &.steps-status-process {
+        .steps-head-inner > .steps-icon {
+          color: @process-icon-color;
+        }
+      }
+    }
+  }
+
+  .steps-head, .steps-main {
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+  }
+  .steps-head {
+    background: #fff;
+  }
+
+  .steps-head-inner {
+    display: block;
+    border: 1px solid @wait-icon-color;
+    width: 26px;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    border-radius: 26px;
+    font-size: 14px;
+    margin-right: 8px;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+
+    > .steps-icon {
+      line-height: 1;
+      top: -1px;
+      color: @brand-primary;
+      position: relative;
+
+      &.icon {
+        font-size: 12px;
+      }
+    }
+  }
+  .steps-main {
+    margin-top: 3px;
+  }
+  .steps-title {
+    font-size: 14px;
+    margin-bottom: 4px;
+    color: #666;
+    font-weight: bold;
+    background: #fff;
+    display: inline-block;
+    padding-right: 10px;
+  }
+  .steps-item-last {
+    .steps-title {
+      padding-right: 0;
+    }
+  }
+  .steps-description {
+    font-size: 12px;
+    color: #999;
+  }
+  .steps-tail {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    top: 13px;
+    padding: 0 10px;
+    > i {
+      display: inline-block;
+      vertical-align: top;
+      background: @wait-tail-color;
+      height: 1px;
+      border-radius: 1px;
+      width: 100%;
+      position: relative;
+      &:after {
+        position: absolute;
+        content: '';
+        top: 0;
+        width: 0;
+        background: #e9e9e9;
+        height: 100%;
+        opacity: 0;
+      }
+    }
+  }
+
+  &.steps-small {
+    .steps-head-inner {
+      border: 1px solid @wait-icon-color;
+      width: 18px;
+      height: 18px;
+      line-height: 18px;
+      text-align: center;
+      border-radius: 18px;
+      font-size: 12px;
+      margin-right: 10px;
+      > .steps-icon.icon {
+        // .iconfont-size-under-12px(9px);
+        top: 0;
+      }
+    }
+    .steps-main {
+      margin-top: 0;
+    }
+    .steps-title {
+      font-size: 12px;
+      margin-bottom: 4px;
+      color: #666;
+      font-weight: bold;
+    }
+    .steps-description {
+      font-size: 12px;
+      color: #999;
+    }
+    .steps-tail {
+      top: 8px;
+      padding: 0 8px;
+      > i {
+        height: 1px;
+        border-radius: 1px;
+        width: 100%;
+      }
+    }
+  }
+
+  &.steps-small .steps-item.steps-custom .steps-head-inner, .steps-item.steps-custom .steps-head-inner {
+    width: inherit;
+    height: inherit;
+    line-height: inherit;
+    border-radius: 0;
+    border: 0;
+    background: none;
+  }
+}
+
+.steps-vertical {
+  .steps-item {
+    display: block;
+  }
+
+  .steps-tail {
+    position: absolute;
+    left: 13px;
+    top: 0;
+    height: 100%;
+    width: 1px;
+    padding: 30px 0 4px 0;
+    > i {
+      height: 100%;
+      width: 1px;
+      &:after {
+        height: 0;
+        width: 100%;
+      }
+    }
+  }
+
+  .steps-status-finish {
+    .steps-tail > i:after {
+      height: 100%;
+    }
+  }
+
+  .steps-head {
+    float: left;
+    &-inner {
+      margin-right: 16px;
+    }
+  }
+
+  .steps-main {
+    min-height: 47px;
+    overflow: hidden;
+    display: block;
+    .steps-title {
+      line-height: 26px;
+    }
+    .steps-description {
+      padding-bottom: 12px;
+    }
+  }
+}
+
+.steps-vertical.steps-small {
+  .steps-tail {
+    position: absolute;
+    left: 9px;
+    top: 0;
+    padding: 22px 0 4px 0;
+    > i {
+      height: 100%;
+    }
+  }
+
+  .steps-title {
+    line-height: 18px;
+  }
+}

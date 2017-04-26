@@ -1,0 +1,111 @@
+//
+// Sidebar
+// --------------------------------------------------
+
+// Wrapper and base class
+//
+// Provide a static sidebar from which we expand to create full-width, fixed, and
+// other sidebar variations.
+
+.sidebar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 90;
+  transition: all .6s;
+  width: 180px;
+  border-right: 1px solid transparent;
+
+  .btn,i.icon {
+    font-size: @font-size-base;
+  }
+
+  i.icon {
+    margin:0 4px;
+  }
+
+  &-btn {
+    padding: 15px;
+  }
+
+  &-side {
+    > li > a {
+      display: block;
+      padding: 15px;
+      line-height: @line-height-computed;
+
+      &:hover,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.sidebar-default {
+  background-color: @navbar-default-bg;
+  border-color: @navbar-default-border;
+
+  .sidebar-side {
+    > li > a {
+      color: @navbar-default-link-color;
+
+      &:hover,
+      &:focus {
+        color: @navbar-default-link-hover-color;
+        background-color: @navbar-default-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-default-link-active-color;
+        background-color: @navbar-default-link-active-bg;
+        border-right: 3px solid @brand-primary;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-default-link-disabled-color;
+        background-color: @navbar-default-link-disabled-bg;
+      }
+    }
+  }
+}
+
+.sidebar-inverse {
+  background-color: @navbar-inverse-bg;
+  border-color: @navbar-inverse-border;
+
+  .sidebar-side {
+    > li > a{
+      color: @navbar-inverse-link-color;
+
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-hover-color;
+        background-color: @navbar-inverse-link-hover-bg;
+      }
+    }
+    > .active > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-active-color;
+        background-color: @navbar-inverse-link-active-bg;
+        border-right: 3px solid @brand-primary;
+      }
+    }
+    > .disabled > a {
+      &,
+      &:hover,
+      &:focus {
+        color: @navbar-inverse-link-disabled-color;
+        background-color: @navbar-inverse-link-disabled-bg;
+      }
+    }
+  }
+}
