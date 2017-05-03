@@ -4,15 +4,12 @@
 
 
 .popover {
-  position: absolute;
-  top: 0;
-  left: 0;
+  position: fixed;
   z-index: @zindex-popover;
-  display: none;
   max-width: @popover-max-width;
   padding: 1px;
   // Reset font and text propertes given new insertion method
-  font-size: @font-size-base;
+  font-size: @font-size-small;
   font-weight: normal;
   line-height: @line-height-base;
   text-align: left;
