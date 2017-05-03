@@ -114,6 +114,9 @@ export function configRouter(router) {
         'modal': {
           component: require('../components/modal.vue')
         },
+        'message': {
+          component: require('../components/message.vue')
+        },
         'progress': {
           component: require('../components/progress.vue')
         },

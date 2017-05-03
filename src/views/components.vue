@@ -214,7 +214,8 @@ export default {
           },
           {
             name: 'transfer',
-            desc: '穿梭框'
+            desc: '穿梭框',
+            done: true
           },
           {
             name: 'upload',

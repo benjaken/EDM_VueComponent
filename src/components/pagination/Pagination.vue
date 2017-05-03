@@ -17,7 +17,7 @@
       </a>
     </li>
     <li class="sizeChanger" v-if="showSizeChanger">
-      <v-dropdown :value="limit + ' / page'" :data="data" size="small"></v-dropdown>
+      <v-dropdown :data="data" size="small">{{limit}} / page</v-dropdown>
     </li>
     <li class="pagination-ellipsis" v-if="showTotal">
       <a>Total {{total}} items</a>

@@ -19,19 +19,27 @@
   | placement | 气泡框位置，可选 `top/left/right/bottom`  | string         | top    |
   | title     | 卡片标题                                 | String         | 无     |
   | content   | 卡片内容                                 | String         | 无     |
-  | overlayClassName | 卡片类名                          | string         | 无     |
-  | overlayStyle | 卡片样式                              | object         | 无     |
   | visible   | 用于手动控制浮层显隐                       | boolean        | false  |
 
   ## 组件演示
 
   <demo>
     <example title="基本">
-      <v-popover title="title" content="contentcontentcontentcontentcontent">
+      <v-popover title="title" content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." trigger="hover">
         <v-button type="primary">Hover me</v-button>
       </v-popover>
     </example>
-    <example title="位置"></example>
+    <example title="位置">
+      <v-popover title="title" content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." trigger="click" placement="left">
+        <v-button type="primary">Left</v-button>
+      </v-popover>
+      <v-popover title="title" content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." trigger="click" placement="right">
+        <v-button type="primary">Right</v-button>
+      </v-popover>
+      <v-popover title="title" content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." trigger="click" placement="bottom">
+        <v-button type="primary">Bottom</v-button>
+      </v-popover>
+    </example>
     <example title="三种触发方式"></example>
   </demo>
 </template>
