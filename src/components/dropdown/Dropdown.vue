@@ -5,17 +5,18 @@
         <slot></slot>
       </v-button>
       <v-button :type="type" @click="_toggleMenu()" :size="size">
-        <span class="caret"></span>
+        <v-icon type="down"></v-icon>
       </v-button>
     </div>
     <v-button :type="type" @click="_toggleMenu()" :size="size"  :loading="loading" v-else>
-      <slot></slot><span class="caret"></span>
+      <slot></slot>
+      <v-icon type="down"></v-icon>
     </v-button>
     <ul :class="prefixCls" v-if="visible">
       <li v-for="i in data" :class="_dropdownClasses(i)" @click="this.visible = false">
         <!-- <a :href="i.path" target="_blank" v-if="i.value !== '|' && i.href">{{i.value}}</a> -->
-        <a @click="i.onclick" v-if="i.value !== '|' && i.onclick">{{i.value}}</a>
-        <a v-link="`${i.path}`" v-if="i.value !== '|'" v-else>{{i.value}}</a>
+        <a v-link="`${i.path}`" v-if="i.value !== '|' && i.path">{{i.value}}</a>
+        <a @click="_toggle(i.value)" v-else>{{i.value}}</a>
       </li>
     </ul>
   </div>
@@ -23,6 +24,7 @@
 <script>
   import {defaultProps, oneOf} from '../../views/utils/props'
   import vButton from '../button'
+  import vIcon from '../iconfont'
   import cx from 'classnames'
   export default {
     props: defaultProps({
@@ -36,7 +38,8 @@
       onclick: () => {}
     }),
     components: {
-      vButton
+      vButton,
+      vIcon
     },
     ready () {
       window.addEventListener('click', this.close)
@@ -47,6 +50,9 @@
     methods: {
       _toggleMenu () {
         this.visible = !this.visible
+      },
+      _toggle (action) {
+        this.$dispatch(`dropdown:action`, action)
       },
       _dropdownClasses (i) {
         return cx({

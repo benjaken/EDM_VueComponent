@@ -45,6 +45,9 @@ export function configRouter(router) {
         'tabs': {
           component: require('../components/tabs.vue')
         }, // DataEntry
+        'auto-complete': {
+          component: require('../components/autocomplete.vue')
+        },
         'checkbox': {
           component: require('../components/checkbox.vue')
         },

@@ -25,14 +25,14 @@
     <demo>
       <example title="基础用法">
         <v-checkbox>Checkbox</v-checkbox>
-        <v-checkbox :default-checked="checked" :onchange="_checkShow">Checkbox</v-checkbox>
+        <v-checkbox :default-checked="checked" :onchange="_checkShow"><span>Checkbox</span></v-checkbox>
       </example>
       <example title="不可用">
         <v-checkbox disabled>Checkbox</v-checkbox>
-        <v-checkbox :default-checked="true" disabled>Checkbox</v-checkbox>
+        <v-checkbox :default-checked="true" disabled><span>Checkbox</span></v-checkbox>
       </example>
       <example title="可控的checkbox">
-        <v-checkbox :checked="checked" :disabled="disabled">Checkbox</v-checkbox>
+        <v-checkbox :checked="checked" :disabled="disabled"><span>Checkbox</span></v-checkbox>
         <br/>
         <v-button type="default" size="small" @click="_checkChange">改变check状态</v-button>
         <v-button type="default" size="small" @click="_disabledChange">改变disabled状态</v-button>

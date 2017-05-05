@@ -81,11 +81,11 @@
     data () {
       return {
         data: [
-          {'value': 'Action', 'path': ''},
+          {'value': 'Action'},
           {'value': 'Baidu', 'path': '/components/dropdown'},
           {'value': 'Dropdown', 'path': '/components/dropdown', 'disabled': true},
           {'value': '|'},
-          {'value': 'Dropdown', 'path': '/components/dropdown', 'onclick': this._toggle}
+          {'value': 'Google', 'path': '/components/dropdown'}
         ],
         loading: false
       }
@@ -98,9 +98,11 @@
           console.log('Click button!')
           self.loading = false
         }, 2000)
-      },
-      _toggle () {
-        console.log('Click dropdown!')
+      }
+    },
+    events: {
+      'dropdown:action' (action) {
+        console.log('Click dropdown!', action)
       }
     },
     components: {

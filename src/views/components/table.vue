@@ -1,104 +1,177 @@
 <template lang="md">
-    # Table
+  # Table
 
-    ---
+  ---
 
-    展示行列数据。
+  展示行列数据。
 
-    ## 何时使用
+  ## 何时使用
 
-    - 当有大量结构化的数据需要展现时；
-    - 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。
+  - 当有大量结构化的数据需要展现时；
+  - 当需要对数据进行排序、搜索、分页、自定义操作等复杂行为时。
 
-    ## 如何使用
+  ## 如何使用
 
-    ```html
-    data () {
-      return {
-        data: [{
-          key: '1',
-          name: 'John Brown',
-          age: 32,
-          address: 'New York No. 1 Lake Park'
-        }, {
-          key: '2',
-          name: 'Jim Green',
-          age: 42,
-          address: 'London No. 1 Lake Park'
-        }, {
-          key: '3',
-          name: 'Joe Black',
-          age: 32,
-          address: 'Sidney No. 1 Lake Park'
-        }]
-      }
+  ```html
+  data () {
+    return {
+      colums: ['id', 'Name', 'Age', 'Address'],
+      datas: [],
+      itemActions: [{
+        name: 'edit',
+        title: '编辑'
+      }, {
+        name: 'copy',
+        title: '复制'
+      }, {
+        name: 'delete',
+        title: '删除'
+      }]
     }
-    ```
+  },
+  created () {
+    var self = this
+    const mockData = []
+    for (let i = 0; i < 20; i++) {
+      mockData.push({
+        id: i,
+        name: `Edward King ${i + 1}`,
+        age: `${i + 20}`,
+        address: `London, Park Lane no. ${i + 1}`,
+        phone: `13535135${i > 10 ? i : '0' + i}`
+      })
+    }
+    self.datas = mockData
+  }
+  ```
 
-    ## API
+  回调方法
 
-    ## 组件演示
-
-    <demo>
-      <example title="基本">
-        <v-table caption="Optional table caption." :colums="colums" :data="data">
-        </v-table>
-      </example>
-      <example title="条纹状表格">
-        <v-table :colums="colums" :data="data" :striped="true">
-        </v-table>
-      </example>
-      <example title="带边框的表格">
-        <v-table :colums="colums" :data="data" :bordered="true">
-        </v-table>
-      </example>
-      <example title="鼠标悬停">
-        <v-table :colums="colums" :data="data" :hover="true">
-        </v-table>
-      </example>
-      <example title="紧缩表格">
-        <v-table :colums="colums" :data="data" :condensed="true">
-        </v-table>
-      </example>
-      <example title="状态类">
-        <v-table :colums="colums" :data="data" :condensed="true">
-        </v-table>
-      </example>
-    </demo>
-
-</template>
-<script>
-  import vTable from '../../components/table/Table'
-  export default {
-    data () {
-      return {
-        colums: [{
-          title: 'Name'
-        }, {
-          title: 'Age'
-        }, {
-          title: 'Address'
-        }],
-        data: [{
-          key: '1',
-          name: 'John Brown',
-          age: 32,
-          address: 'New York No. 1 Lake Park'
-        }, {
-          key: '2',
-          name: 'Jim Green',
-          age: 42,
-          address: 'London No. 1 Lake Park'
-        }, {
-          key: '3',
-          name: 'Joe Black',
-          age: 32,
-          address: 'Sidney No. 1 Lake Park'
-        }]
-      }
-    },
-    components: {
-      vTable
+  ```html
+  events: {
+    'table:action' (action, data) {
+      console.log('table:action', action, data)
     }
   }
+  ```
+
+  ## API
+
+  | 参数 | 说明 | 类型 | 默认值 |
+  |------|-----|------|-------|
+  | caption | 列表的备注	| String | undefined |
+  | colums | 列表列的配置 | Array | [] |
+  | dataSource | 数据数组 | Array | [] |
+  | itemActions | 列表的方法，通过`$event`的`table:action`获取对应的action和data | Array | [] |
+  | striped | 条纹状列表 | Boolean | false |
+  | bordered | 带边框的列表 | Boolean | false |
+  | hover | 鼠标悬停状态下作出响应 | Boolean | true |
+  | condensed | 紧缩列表 | Boolean | false |
+  | rowSelection | 列表项是否可选择 | Boolean | false |
+  | selectedRowKeys | 指定列表选中项，选择项有`全选`、`反选`、`选择单数项`、`选择双数项` | Boolean | false |
+  | showItem | 指定列表是否显示指定的列表列 | Boolean | false |
+  | current | 指定列表显示的页数 | Number | 1 |
+  | limit | 指定列表页显示的条数 | Number | 10 |
+  | targetSelectedKeys | 指定选中项 | Array | [] |
+  | locale | 指定部分按钮显示的文字 | {} | {} |
+  | showReload | 是否显示刷新按钮，通过`$event`的`table:reload`通知方法 | Boolean | false |
+
+  ## 组件演示
+
+  <demo>
+    <example title="基本">
+      <v-table caption="Optional table caption." :colums="colums" :limit="4" :data-source="datas" :item-actions="itemActions" :show-reload="true">
+      </v-table>
+    </example>
+    <example title="条纹状列表">
+      <v-table :colums="colums" :data-source="datas" :striped="true" :limit="4" :item-actions="itemActions">
+      </v-table>
+    </example>
+    <example title="带边框的列表">
+      <v-table :colums="colums" :data-source="datas" :bordered="true" :limit="4" :item-actions="itemActions">
+      </v-table>
+    </example>
+    <example title="紧缩列表">
+      <v-table :colums="colums" :data-source="datas" :condensed="true" :limit="4" :item-actions="itemActions">
+      </v-table>
+    </example>
+    <example title="可选择">
+      <v-table :colums="colums" :data-source="datas" :item-actions="itemActions" :row-selection="true">
+      </v-table>
+    </example>
+    <example title="选择和操作">
+      <v-table :colums="colums" :data-source="datas" :row-selection="true" :target-selected-keys.sync="targets">
+        <div slot="table-operation">
+          <v-button type="primary" :loading="loading" @click="_reload">重加载</v-button>
+        </div>
+      </v-table>
+    </example>
+    <example title="自定义选择项">
+      <v-table :colums="colums" :data-source="datas" :item-actions="itemActions" :row-selection="true" :selected-row-keys="true" :show-item="true">
+      </v-table>
+    </example>
+  </demo>
+</template>
+<script>
+import vTable from '../../components/table/Table'
+import vButton from '../../components/button'
+export default {
+  data() {
+    return {
+      colums: ['Id', 'Name', 'Age', 'Address'],
+      datas: [],
+      itemActions: [{
+        name: 'edit',
+        title: '编辑'
+      }, {
+        name: 'copy',
+        title: '复制'
+      }, {
+        name: 'delete',
+        title: '删除'
+      }],
+      loading: false,
+      targets: []
+    }
+  },
+  components: {
+    vTable,
+    vButton
+  },
+  events: {
+    'table:action' (action, data) {
+      console.log('table:action', action, data)
+    },
+    'table:reload' () {
+      console.log('table:reload')
+    }
+  },
+  created() {
+    var self = this
+    const mockData = []
+    for (let i = 0; i < 50; i++) {
+      mockData.push({
+        id: i * 2,
+        name: `${i % 3 > 1 ? 'Lao King' : 'Lao Wang'} ${i}`,
+        age: `${i + 20}`,
+        address: `${i % 3 > 1 ? 'London' : 'BeiJing'}, Park Lane no. ${i}`,
+        phone: `13535135${i > 10 ? i : '0' + i}`
+      })
+    }
+    self.datas = mockData
+    const targetKeys = mockData
+      .filter(item => +item.id % 3 > 1)
+      .map(item => item.id)
+    self.targets = targetKeys
+  },
+  methods: {
+    _reload() {
+      this.loading = true
+      setTimeout(() => {
+        this.targets = []
+        this.loading = false
+      }, 1000)
+    }
+  }
+}
 </script>

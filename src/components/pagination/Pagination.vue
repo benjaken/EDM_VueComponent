@@ -99,11 +99,20 @@
       self.defaultPage = self.page >= 5 ? 5 : self.page
       self.pageSizeOptions.forEach(function (val) {
         var arr = {
-          'value': val + ' / page',
-          'onclick': function () { self.limit = val }
+          'value': val + ' / page'
         }
         self.data.push(arr)
       })
+    },
+    events: {
+      'dropdown:action' (action) {
+        var self = this
+        self.pageSizeOptions.forEach(function (val) {
+          if (action === val + ' / page') {
+            self.limit = val
+          }
+        })
+      }
     },
     computed: {
       pagClasses () {

@@ -19,6 +19,13 @@
 .dropdown {
   position: relative;
   display: inline-block;
+
+  .icon-down::before {
+    display: inline-block;
+    -webkit-transform: scale(0.6667) rotate(0deg);
+    transform: scale(0.6667) rotate(0deg);
+    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+  }
 }
 
 // Prevent the focus on the dropdown toggle when closing dropdowns
@@ -32,7 +39,6 @@
   z-index: @zindex-dropdown;
   float: left;
   min-width: 160px;
-  padding: 5px 0;
   margin: 2px 0 0; // override default ul
   list-style: none;
   font-size: @font-size-base;
@@ -60,7 +66,7 @@
   // Links within the dropdown menu
   > li > a {
     display: block;
-    padding: 3px 20px;
+    padding: 7px 20px;
     clear: both;
     font-weight: normal;
     line-height: @line-height-base;

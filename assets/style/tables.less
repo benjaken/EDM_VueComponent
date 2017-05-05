@@ -31,16 +31,45 @@ th {
       > th,
       > td {
         padding: @table-cell-padding;
-        line-height: @line-height-base;
-        vertical-align: top;
+        line-height: 1.5;
         border-top: 1px solid @table-border-color;
+
+      &.table-checkbox {
+          width: 50px;
+          padding: 5px 10px;
+        }
+      }
+
+      > .table-action {
+        a:not(:last-child) {
+          margin-right: 8px;
+          padding-right: 8px;
+          border-right: 1px solid @table-border-color;
+        }
       }
     }
   }
   // Bottom align for column headings
   > thead > tr > th {
-    vertical-align: bottom;
-    border-bottom: 2px solid @table-border-color;
+    background: #f7f7f7;
+    padding: 10px 5px;
+
+    .dropdown {
+      .btn {
+        padding: 0;
+        border: 0;
+        background: transparent;
+        line-height: 1;
+
+        &:active,
+        &:hover,
+        &:focus {
+          outline: 0;
+          border-color: transparent;
+          color: #666;
+        }
+      }
+    }
   }
   // Remove top border from thead by default
   > caption + thead,
@@ -62,6 +91,32 @@ th {
   .table {
     background-color: @body-bg;
   }
+  &-operation {
+    margin-bottom: 8px;
+    display: inline-block;
+
+    .btn {
+      margin-right: 6px;
+    }
+  }
+  &-column,
+  &-reload {
+    float: right;
+    margin-left: 4px;
+
+    .dropdown-menu {
+      right: 0;
+    }
+
+    .btn .icon {
+      display: inline-block;
+      font-size: 12px;
+    }
+  }
+  .pagination {
+    float: right;
+    margin: 8px 0;
+  }
 }
 
 
@@ -77,6 +132,9 @@ th {
         padding: @table-condensed-cell-padding;
       }
     }
+  }
+  > thead > tr > th {
+    padding: 10px 5px;
   }
 }
 
@@ -229,6 +287,44 @@ table {
         }
       }
 
+    }
+  }
+}
+
+.table-column-sorter {
+  display: inline-block;
+  width: 12px;
+  height: 14px;
+  margin-left: 4px;
+  vertical-align: middle;
+  text-align: center;
+
+  &-up,
+  &-down {
+    line-height: 6px;
+    height: 7px;
+    display: block;
+    width: 12px;
+    cursor: pointer;
+
+    .icon {
+      display: inline-block;
+      font-size: 12px;
+      -webkit-transform: scale(.5833333) rotate(0deg);
+      -ms-transform: scale(.5833333) rotate(0deg);
+      transform: scale(.5833333) rotate(0deg);
+      -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+      zoom: 1;
+      line-height: 6px;
+      height: 6px;
+      color: #ccc;
+    }
+
+    &.on,
+    &:hover {
+      .icon {
+        color: @brand-primary;
+      }
     }
   }
 }
