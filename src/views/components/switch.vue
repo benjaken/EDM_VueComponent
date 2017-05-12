@@ -28,7 +28,7 @@
       <v-switch :checked.sync="defaultChecked" :on-change="showValue"></v-switch>
     </example>
     <example title="不可用">
-      <v-switch :disabled="true"></v-switch>
+      <v-switch disabled></v-switch>
     </example>
     <example title="带文字和图标">
       <v-switch :disabled="disabled" :on-change="showValue">

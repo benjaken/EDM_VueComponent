@@ -5,7 +5,7 @@
       <slot name="table-operation"></slot>
     </div>
     <div :class="prefixCls + '-column'" v-if="showItem">
-      <v-dropdown :data="dropdownData">Show Items</v-dropdown>
+      <v-dropdown :data="columsData" show-select>Show Items</v-dropdown>
     </div>
     <div :class="prefixCls + '-reload'" v-if="showItem">
       <v-button type="default" @click="_reload">
@@ -17,15 +17,15 @@
       <thead>
         <tr>
           <th class="table-checkbox" v-if="rowSelection">
-            <v-dropdown :data="dropdownData" v-if="selectedRowKeys"></v-dropdown>
+            <v-dropdown :data="selectedRow" v-if="selectedRowKeys"></v-dropdown>
           </th>
           <th v-for="i in colums" :title="i">
-            {{i}}
+            <span>{{i}}</span>
             <div :class="prefixCls + '-column-sorter'">
-              <span class="table-column-sorter-up" title="↑" @click="_sortData('asc', i)" :class="{'on': sortData.action === 'asc' && sortData.data === i}">
+              <span class="table-column-sorter-up" title="↑" @click="_sortData('asc', i)" :class="{'on': sortedInfo.order === 'asc' && sortedInfo.columnKey === i}">
                 <v-icon type="caret-up"></v-icon>
               </span>
-              <span class="table-column-sorter-down" title="↓" @click="_sortData('desc', i)" :class="{'on': sortData.action === 'desc' && sortData.data === i}">
+              <span class="table-column-sorter-down" title="↓" @click="_sortData('desc', i)" :class="{'on': sortedInfo.order === 'desc' && sortedInfo.columnKey === i}">
                 <v-icon type="caret-down"></v-icon>
               </span>
             </div>
@@ -34,7 +34,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="data in defaultData | limit" :id="$index">
+        <tr v-for="data in dataSource | limit" :id="$index" :class="data.rowClassName">
           <td v-if="rowSelection" class="table-checkbox">
             <v-checkbox :checked="data.checked" :id="data.id" :onchange="_handleSelectTarget"></v-checkbox>
           </td>
@@ -45,7 +45,7 @@
         </tr>
       </tbody>
     </table>
-    <v-pagination :total="dataSource.length" :limit="limit" :default-current.sync="current"></v-pagination>
+    <v-pagination :total="dataSource.length" :limit="limit" :current.sync="current"></v-pagination>
   </div>
 </template>
 <script>
@@ -74,7 +74,6 @@ export default {
     showItem: false,
     current: 1,
     limit: 10,
-    targetSelectedKeys: [],
     locale: {
       action: 'Action'
     },
@@ -82,8 +81,9 @@ export default {
   }),
   data () {
     return {
-      defaultData: this.dataSource,
-      dropdownData: [{
+      targetSelectedKeys: [],
+      columsData: [],
+      selectedRow: [{
         value: 'Select All'
       }, {
         value: 'select Invert'
@@ -92,9 +92,9 @@ export default {
       }, {
         value: 'select Even Row'
       }],
-      sortData: {
-        action: '',
-        data: ''
+      sortedInfo: {
+        order: '',
+        columnKey: ''
       }
     }
   },
@@ -103,13 +103,9 @@ export default {
       let self = this
       let start = (self.current - 1) * self.limit
       data = data.slice(start, start + self.limit)
-      data.forEach(function (val) {
-        if (self.targetSelectedKeys.indexOf(val['id']) !== -1) {
-          val['checked'] = true
-        } else {
-          val['checked'] = false
-        }
-      })
+      // data.forEach(function (val) {
+      //   val['checked'] = self.targetSelectedKeys.includes(val['id'])
+      // })
       return data
     },
     'filter' (data) {
@@ -133,12 +129,21 @@ export default {
       })
     }
   },
+  ready () {
+    this._listColums()
+  },
   methods: {
+    _listColums () {
+      let self = this
+      self.colums.forEach(function (val) {
+        self.columsData.push({value: val})
+      })
+    },
     _arrayClick (action) {
       let target = []
       let self = this
       self.targetSelectedKeys.forEach(function (key) {
-        self.defaultData.forEach(function (val) {
+        self.dataSource.forEach(function (val) {
           if (val.id === key) {
             target.push(val)
           }
@@ -146,27 +151,30 @@ export default {
       })
       this.$dispatch(`${this.prefixCls}:action`, action, target)
     },
-    _sortData (action, data) {
+    _sortData (order, columnKey) {
       let self = this
-      self.sortData.action = action
-      self.sortData.data = data
-      self.defaultData = _.orderBy(self.defaultData, _.toLower(data), action)
+      self.sortedInfo.order = order
+      self.sortedInfo.data = columnKey
+      self.targetSelectedKeys = []
+      self.dataSource = _.orderBy(self.dataSource, _.toLower(columnKey), order)
     },
     _itemClick (action, data) {
       this.$dispatch(`${this.prefixCls}:action`, action, data)
     },
     _handleSelectTarget (e) {
-      var self = this
-      if (e.target.checked) {
-        self.targetSelectedKeys.push(parseInt(e.target.labels[0].id))
+      let self = this
+      let id
+      id = parseInt(e.target.labels[0].id)
+      if (e.target.checked && !self.targetSelectedKeys.includes(id)) {
+        self.targetSelectedKeys.push(id)
       } else {
-        self.targetSelectedKeys = _.dropRightWhile(self.targetSelectedKeys, function (n) {
-          return n === e.target.labels[0].id
-        })
+        _.remove(self.targetSelectedKeys, function(n) { return n === id })
       }
     },
     _reload () {
-      this.$dispatch(`${this.prefixCls}:reload`)
+      var self = this
+      self.current = 1
+      self.$dispatch(`${self.prefixCls}:reload`)
     }
   },
   events: {
@@ -176,7 +184,7 @@ export default {
       if (action === 'Select All') {
         self.targetSelectedKeys = []
         let start = (self.current - 1) * self.limit
-        data = self.defaultData.slice(start, start + self.limit)
+        data = self.dataSource.slice(start, start + self.limit)
         data.forEach(function (val) {
           self.targetSelectedKeys.push(val.id)
         })

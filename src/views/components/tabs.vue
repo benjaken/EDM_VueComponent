@@ -28,12 +28,12 @@
       <v-tabs type="pills" :data="data"></v-tabs>
     </example>
     <example title="垂直排列">
-      <v-tabs type="pills" :stacked="true" :data="data"></v-tabs>
+      <v-tabs type="pills" :data="data" stacked></v-tabs>
     </example>
     <example title="两端对齐">
-      <v-tabs type="tabs" :justified="true" :data="data"></v-tabs>
+      <v-tabs type="tabs" :data="data" justified></v-tabs>
       <br/>
-      <v-tabs type="pills" :justified="true" :data="data"></v-tabs>
+      <v-tabs type="pills" :data="data" justified></v-tabs>
     </example>
     <example title="带下拉菜单">
       <v-tabs type="tabs" :data="data1"></v-tabs>

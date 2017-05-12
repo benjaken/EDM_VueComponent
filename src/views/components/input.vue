@@ -36,20 +36,20 @@
       <v-input placeholder="请填写密码" icon="lock" html-type="password"></v-input>
     </example>
     <example title="前置/后置标签">
-      <v-input placeholder="用户名" :group="true" addon-before="@" addon="addon"></v-input>
-      <v-input placeholder="Username" icon="user" :group="true" addon-after="@example.com" addon="addon"></v-input>
-      <v-input :group="true" addon-before="$" addon-after=".00" addon="addon" html-type="number"></v-input>
+      <v-input placeholder="用户名" group addon-before="@" addon="addon"></v-input>
+      <v-input placeholder="Username" icon="user" group addon-after="@example.com" addon="addon"></v-input>
+      <v-input group addon-before="$" addon-after=".00" addon="addon" html-type="number"></v-input>
       <label>Your vanity URL</label>
-      <v-input :group="true" addon-before="https://example.com/users/" addon="addon"></v-input>
+      <v-input group addon-before="https://example.com/users/" addon="addon"></v-input>
     </example>
     <example title="前置/后置按钮">
-      <v-input placeholder="Username" :group="true" addon-after="Search" addon="button" :onclick="_search"></v-input>
-      <!-- <v-input placeholder="Username" :group="true" addon-before="Search" addon="dropdown" :onclick="_search"></v-input> -->
+      <v-input placeholder="Username" group addon-after="Search" addon="button" :onclick="_search"></v-input>
+      <!-- <v-input placeholder="Username" group addon-before="Search" addon="dropdown" :onclick="_search"></v-input> -->
     </example>
     <example title="不同尺寸">
-      <v-input placeholder="用户名" :group="true" addon-before="@" addon="addon" size="small"></v-input>
-      <v-input placeholder="用户名" :group="true" addon-before="@" addon="addon"></v-input>
-      <v-input placeholder="用户名" :group="true" addon-before="@" addon="addon" size="large"></v-input>
+      <v-input placeholder="用户名" group addon-before="@" addon="addon" size="small"></v-input>
+      <v-input placeholder="用户名" group addon-before="@" addon="addon"></v-input>
+      <v-input placeholder="用户名" group addon-before="@" addon="addon" size="large"></v-input>
     </example>
     <example title="文本框">
       <v-input type="textarea" placeholder="Autosize height based on content lines"></v-input>

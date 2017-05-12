@@ -20,7 +20,7 @@
         {'value': '校园邮服务号', 'path': '', 'disabled': true},
         {'value': 'Admin', 'path': '', 'dropdown': true, 'data': [
           {'value': '个人资料', 'path': ''},
-          {'value': '退出', 'onclick': this._toggle}
+          {'value': '退出'}
         ]}
       ],
       data1: [
@@ -61,7 +61,7 @@
       <p>切换主题：<v-switch :default-checked="checked" :on-change="_toggle"></v-switch></p>
       <v-menu type="sidebar" :data="data1" :theme="theme">
         <div slot="button" class="sidebar-btn">
-          <v-button type="primary" :block="true" size="large"><v-icon type="edit"></v-icon>群发邮件</v-button>
+          <v-button type="primary" block size="large"><v-icon type="edit"></v-icon>群发邮件</v-button>
         </div>
       </v-menu>
     </example>
@@ -102,10 +102,14 @@
       vIcon,
       vSwitch
     },
+    events: {
+      'dropdown:action' (action) {
+        if (action === '退出') {
+          console.log("Log Out")
+        }
+      }
+    },
     methods: {
-      _logout () {
-        console.log("Log Out")
-      },
       _toggle (val) {
         this.theme = val ? 'default' : 'inverse'
       }

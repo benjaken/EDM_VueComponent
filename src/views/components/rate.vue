@@ -27,10 +27,10 @@
       <v-rate :default-value.sync="value1" :onchange="_showlog"></v-rate>
     </example>
     <example title="文案展示">
-      <v-rate :default-value.sync="value2" :total="true"></v-rate>
+      <v-rate :default-value.sync="value2" total></v-rate>
     </example>
     <example title="只读">
-      <v-rate :default-value.sync="value3" :readonly="true"></v-rate>
+      <v-rate :default-value.sync="value3" readonly></v-rate>
     </example>
     <example title="其他图标">
       <v-rate :default-value.sync="value4" icon="android"></v-rate>

@@ -26,7 +26,7 @@
       <v-timeline>
         <v-timeline-item>Technical testing 2015-09-01</v-timeline-item>
         <v-timeline-item>Network problems being solved 2015-09-01</v-timeline-item>
-        <v-timeline-item :last="true">Technical testing 2015-09-01</v-timeline-item>
+        <v-timeline-item last>Technical testing 2015-09-01</v-timeline-item>
       </v-timeline>
     </example>
     <example title="圆圈颜色">
@@ -35,23 +35,23 @@
         <v-timeline-item type="success">Technical testing 2015-09-01</v-timeline-item>
         <v-timeline-item type="info">Network problems being solved 2015-09-01</v-timeline-item>
         <v-timeline-item type="warning">Technical testing 2015-09-01</v-timeline-item>
-        <v-timeline-item type="danger" :last="true">Technical testing 2015-09-01</v-timeline-item>
+        <v-timeline-item type="danger" last>Technical testing 2015-09-01</v-timeline-item>
       </v-timeline>
     </example>
     <example title="最后一个可操作">
-      <v-timeline :pending="true">
+      <v-timeline pending>
         <v-timeline-item>Technical testing 2015-09-01</v-timeline-item>
         <v-timeline-item>Technical testing 2015-09-01</v-timeline-item>
-        <v-timeline-item :last="true">Technical testing 2015-09-01</v-timeline-item>
-        <v-timeline-item><a href="#">show more</a></v-timeline-item>
+        <v-timeline-item last>Technical testing 2015-09-01</v-timeline-item>
+        <v-timeline-item><a href="http://www.baidu.com">show more</a></v-timeline-item>
       </v-timeline>
     </example>
     <example title="自定义图标">
-      <v-timeline :pending="true">
+      <v-timeline pending>
         <v-timeline-item>Technical testing 2015-09-01</v-timeline-item>
         <v-timeline-item type="info" icon="clock-circle">Technical testing 2015-09-01</v-timeline-item>
         <v-timeline-item type="danger" icon="clock-circle-o">Technical testing 2015-09-01</v-timeline-item>
-        <v-timeline-item :last="true">Technical testing 2015-09-01</v-timeline-item>
+        <v-timeline-item last>Technical testing 2015-09-01</v-timeline-item>
       </v-timeline>
     </example>
   </demo>

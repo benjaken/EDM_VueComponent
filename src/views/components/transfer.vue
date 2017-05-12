@@ -63,16 +63,16 @@
       <v-transfer :titles="titles" :data-source="datas" :target-keys="targets"></v-transfer>
     </example>
     <example title="带搜索框">
-      <v-transfer :titles="titles" :data-source="datas" :target-keys="targets" :show-filter="true"></v-transfer>
+      <v-transfer :titles="titles" :data-source="datas" :target-keys="targets" show-filter></v-transfer>
     </example>
     <example title="显示备注">
-      <v-transfer :titles="titles" :data-source="datas" :target-keys="targets" :show-filter="true" :show-description="true"></v-transfer>
+      <v-transfer :titles="titles" :data-source="datas" :target-keys="targets" show-filter show-description></v-transfer>
     </example>
     <example title="重置和清除按钮">
-      <v-transfer :titles="titles" :data-source="datas" :target-keys="targets" :show-filter="true" :show-reload="true"></v-transfer>
+      <v-transfer :titles="titles" :data-source="datas" :target-keys="targets" show-filter show-reload></v-transfer>
     </example>
     <example title="自定义文字">
-      <v-transfer :titles="titles" search-placeholder="搜索" :data-source="datas" :target-keys="targets" :show-filter="true" :operations="operations"></v-transfer>
+      <v-transfer :titles="titles" search-placeholder="搜索" :data-source="datas" :target-keys="targets" :operations="operations" show-filter></v-transfer>
     </example>
   </demo>
 </template>

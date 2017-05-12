@@ -14,9 +14,11 @@
     </v-button>
     <ul :class="prefixCls" v-if="visible">
       <li v-for="i in data" :class="_dropdownClasses(i)" @click="this.visible = false">
-        <!-- <a :href="i.path" target="_blank" v-if="i.value !== '|' && i.href">{{i.value}}</a> -->
         <a v-link="`${i.path}`" v-if="i.value !== '|' && i.path">{{i.value}}</a>
-        <a @click="_toggle(i.value)" v-else>{{i.value}}</a>
+        <a @click="_toggle(i.value)" id="checkbox" v-else>
+          <v-checkbox v-if="showSelect">{{i.value}}</v-checkbox>
+          <span v-else>{{i.value}}</span>
+        </a>
       </li>
     </ul>
   </div>
@@ -25,6 +27,7 @@
   import {defaultProps, oneOf} from '../../views/utils/props'
   import vButton from '../button'
   import vIcon from '../iconfont'
+  import vCheckbox from '../checkbox'
   import cx from 'classnames'
   export default {
     props: defaultProps({
@@ -35,11 +38,13 @@
       size: oneOf(['xsmall', 'small', 'large', undefined]),
       type: 'default',
       loading: false,
+      showSelect: false,
       onclick: () => {}
     }),
     components: {
       vButton,
-      vIcon
+      vIcon,
+      vCheckbox
     },
     ready () {
       window.addEventListener('click', this.close)

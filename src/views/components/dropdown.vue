@@ -54,18 +54,18 @@
       <v-dropdown type="danger" :data="data">click me</v-dropdown>
     </example>
     <example title="带下拉框的按钮">
-      <v-dropdown :data="data" :group="true" :onclick="_click" :loading.sync="loading">点击后2秒消失</v-dropdown>
-      <v-dropdown type="primary" :data="data" :group="true">click me</v-dropdown>
-      <v-dropdown type="success" :data="data" :group="true">click me</v-dropdown>
-      <v-dropdown type="info" :data="data" :group="true">click me</v-dropdown>
-      <v-dropdown type="warning" :data="data" :group="true">click me</v-dropdown>
-      <v-dropdown type="danger" :data="data" :group="true">click me</v-dropdown>
+      <v-dropdown :data="data" group :onclick="_click" :loading.sync="loading">点击后2秒消失</v-dropdown>
+      <v-dropdown type="primary" :data="data" group>click me</v-dropdown>
+      <v-dropdown type="success" :data="data" group>click me</v-dropdown>
+      <v-dropdown type="info" :data="data" group>click me</v-dropdown>
+      <v-dropdown type="warning" :data="data" group>click me</v-dropdown>
+      <v-dropdown type="danger" :data="data" group>click me</v-dropdown>
     </example>
     <example title="不同尺寸">
       <v-dropdown :data="data" size="xsmall">click me</v-dropdown>
-      <v-dropdown :data="data" :group="true" size="small">click me</v-dropdown>
+      <v-dropdown :data="data" group size="small">click me</v-dropdown>
       <v-dropdown :data="data">click me</v-dropdown>
-      <v-dropdown :data="data" :group="true" size="large">click me</v-dropdown>
+      <v-dropdown :data="data" group size="large">click me</v-dropdown>
     </example>
   </demo>
 </template>

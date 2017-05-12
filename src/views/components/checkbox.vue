@@ -29,7 +29,7 @@
       </example>
       <example title="不可用">
         <v-checkbox disabled>Checkbox</v-checkbox>
-        <v-checkbox :default-checked="true" disabled><span>Checkbox</span></v-checkbox>
+        <v-checkbox default-checked disabled><span>Checkbox</span></v-checkbox>
       </example>
       <example title="可控的checkbox">
         <v-checkbox :checked="checked" :disabled="disabled"><span>Checkbox</span></v-checkbox>

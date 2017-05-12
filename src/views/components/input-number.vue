@@ -36,7 +36,7 @@
       <v-input-number :min="1" :max="10" size="big"></v-input-number>
     </example>
     <example title="不可用">
-      <v-input-number :default-value="10" :disabled="true"></v-input-number>
+      <v-input-number :default-value="10" disabled></v-input-number>
     </example>
     <example title="大步数">
       <v-input-number :step="10"></v-input-number>

@@ -42,13 +42,13 @@
       </v-badge>
     </example>
     <example title="小红点">
-      <v-badge :dot="true">
+      <v-badge dot>
         <a href="#" class="head-example"></a>
       </v-badge>
-      <v-badge :dot="true">
+      <v-badge dot>
         <a href="#">一个连接</a>
       </v-badge>
-      <v-badge :dot="true">
+      <v-badge dot>
         <a href="#"><i class="icon icon-github"></i></a>
       </v-badge>
     </example>

@@ -59,7 +59,7 @@
       <v-button type="primary" @click="visible3 = !visible3">异步关闭</v-button>
     </example>
     <example title="自定义页脚">
-      <v-modal title="自定义页脚" :visible.sync="visible4" :footer="false" :mask-closable="true" :closable="false">
+      <v-modal title="自定义页脚" :visible.sync="visible4" :footer="false" mask-closable :closable="false">
         <p>这是一段modal内容</p>
       </v-modal>
       <v-button type="primary" @click="visible4 = !visible4">自定义页脚</v-button>

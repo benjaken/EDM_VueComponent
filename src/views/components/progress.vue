@@ -27,15 +27,15 @@
   <demo>
     <example title="基本">
       <v-progress :percentage="40"></v-progress>
-      <v-progress :percentage="60" :show-text="true"></v-progress>
+      <v-progress :percentage="60" show-text></v-progress>
     </example>
     <example title="动态变化">
-      <v-progress :percentage="percentage" :show-text="true"></v-progress>
+      <v-progress :percentage="percentage" show-text></v-progress>
       <v-button type="default" @click="_randomNumber()">改变进度</v-button>
     </example>
     <example title="最低百分比">
-      <v-progress :percentage="0"  :show-min="true"></v-progress>
-      <v-progress :percentage="2" :show-text="true" :show-min="true"></v-progress>
+      <v-progress :percentage="0"  show-min></v-progress>
+      <v-progress :percentage="2" show-text show-min></v-progress>
     </example>
     <example title="根据情境变化">
       <v-progress :percentage="20" type="success"></v-progress>
@@ -44,19 +44,19 @@
       <v-progress :percentage="80" type="danger"></v-progress>
     </example>
     <example title="条纹效果">
-      <v-progress :percentage="20" type="success" :striped="true"></v-progress>
-      <v-progress :percentage="40" type="info" :striped="true"></v-progress>
+      <v-progress :percentage="20" type="success" striped></v-progress>
+      <v-progress :percentage="40" type="info" striped></v-progress>
     </example>
     <example title="动画效果">
-      <v-progress :percentage="20" type="success" :striped="true" :active="true"></v-progress>
-      <v-progress :percentage="40" type="info" :striped="true" :active="active"></v-progress>
+      <v-progress :percentage="20" type="success" striped active></v-progress>
+      <v-progress :percentage="40" type="info" striped :active="active"></v-progress>
       <v-button type="default" @click="active = !active">动画效果：{{active}}</v-button>
     </example>
     <example title="堆叠效果">
       <div class="progress">
-        <v-progress :percentage="20" :plie-up="true" type="success"></v-progress>
-        <v-progress :percentage="20" :plie-up="true" type="info" :striped="true"></v-progress>
-        <v-progress :percentage="20" :plie-up="true" type="danger" :striped="true" :active="true"></v-progress>
+        <v-progress :percentage="20" type="success" plie-up></v-progress>
+        <v-progress :percentage="20" type="info" plie-up striped></v-progress>
+        <v-progress :percentage="20" type="danger" plie-up striped active></v-progress>
       </div>
     </example>
   </demo>

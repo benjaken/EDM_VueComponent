@@ -28,16 +28,16 @@
       <v-datepicker :Date.sync="selectedTime2" format="yyyy/mm/dd"></v-datepicker>
     </example>
     <example title="日期时间选择">
-      <v-datepicker :Date.sync="selectedTime3" :show-time="true"></v-datepicker>
+      <v-datepicker :Date.sync="selectedTime3" show-time></v-datepicker>
     </example>
     <example title="禁用">
-      <v-datepicker :Date.sync="selectedTime5" :disabled="true"></v-datepicker>
+      <v-datepicker :Date.sync="selectedTime5" disabled></v-datepicker>
     </example>
     <example title="日期范围一">
-      <v-datepicker :start-date.sync="startTime1" :end-date.sync="endTime1" :range-picker="true"></v-datepicker>
+      <v-datepicker :start-date.sync="startTime1" :end-date.sync="endTime1" range-picker></v-datepicker>
     </example>
     <example title="日期范围二">
-      <v-datepicker :start-date.sync="startTime2" :end-date.sync="endTime2" :range-picker="true" :show-time="true"></v-datepicker>
+      <v-datepicker :start-date.sync="startTime2" :end-date.sync="endTime2" range-picker show-time></v-datepicker>
     </example>
   </demo>
 </template>

@@ -72,6 +72,7 @@ export default {
     position: relative;
     display: inline-block;
     width: 120px;
+    transition: .6s all ease;
 
     .form-control[readonly]{
       width: 100%;
@@ -84,17 +85,18 @@ export default {
 
     &-toolbox {
       width: 22px;
-      height: 34px;
+      height: 100%;
       border: 1px solid #ccc;
       border-radius: 0 4px 4px 0;
       position: absolute;
       right: 0;
       background: #fff;
       z-index: 900;
+      opacity: 0;
 
       .operation{
         display: block;
-        height: 16px;
+        height: 50%;
         width: 100%;
         text-align: center;
         line-height: 16px;
@@ -111,6 +113,13 @@ export default {
         i {
           color: #666;
           font-size: 10px;
+
+          &::before {
+            display: inline-block;
+            -webkit-transform: scale(0.5) rotate(0deg);
+            transform: scale(0.5) rotate(0deg);
+            -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+          }
         }
 
         &:hover {
@@ -125,6 +134,10 @@ export default {
           }
         }
       }
+    }
+
+    &:hover .inputnumber-toolbox {
+      opacity: 1;
     }
 
     &.small {

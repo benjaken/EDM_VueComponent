@@ -18,6 +18,15 @@
 
   <demo>
     <example title="基本">
+      <v-slider></v-slider>
     </example>
   </demo>
 </template>
+<script>
+  import vSlider from '../../components/slider'
+  export default {
+    components: {
+      vSlider
+    }
+  }
+</script>

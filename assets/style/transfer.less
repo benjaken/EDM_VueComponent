@@ -111,13 +111,16 @@
       }
 
       &-item {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
         padding: 7px 12px;
         min-height: 32px;
         -webkit-transition: all .3s;
         transition: all .3s;
+
+        .checkbox-wrapper {
+          overflow: hidden;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
 
         &:hover {
           background-color: @dropdown-link-hover-bg;

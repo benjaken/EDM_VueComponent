@@ -34,17 +34,17 @@
       <v-pagination :total="300" :default-current.sync="current"></v-pagination>
     </example>
     <example title="跳转">
-      <v-pagination :total="150" :default-current.sync="current" :show-quick-jumper="true"></v-pagination>
+      <v-pagination :total="150" :default-current.sync="current" show-quick-jumper></v-pagination>
     </example>
     <example title="迷你">
-      <v-pagination :total="150" :default-current.sync="current" :simple="true"></v-pagination>
+      <v-pagination :total="150" :default-current.sync="current" simple></v-pagination>
       <br />
-      <v-pagination :total="300" :default-current.sync="current" :simple="true" :show-size-changer="true" :page-size-options="options"></v-pagination>
+      <v-pagination :total="300" :default-current.sync="current" simple show-size-changer :page-size-options="options"></v-pagination>
       <br />
-      <v-pagination :total="150" :default-current.sync="current" :simple="true" :show-total="true"></v-pagination>
+      <v-pagination :total="150" :default-current.sync="current" simple show-total></v-pagination>
     </example>
     <example title="总数">
-      <v-pagination :total="50" :show-total="true"></v-pagination>
+      <v-pagination :total="50" show-total></v-pagination>
     </example>
   </demo>
 </template>

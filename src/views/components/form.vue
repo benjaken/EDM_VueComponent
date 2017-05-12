@@ -76,7 +76,7 @@
       <br />
       <v-form type="inline">
         <v-form-item>
-          <v-input :group="true" addon-before="$" addon-after=".00" addon="addon" html-type="number"></v-input>
+          <v-input group addon-before="$" addon-after=".00" addon="addon" html-type="number"></v-input>
         </v-form-item>
         <v-form-item>
           <v-button type="primary" html-type="submit">Submit</v-button>
@@ -102,7 +102,7 @@
     <example title="弹出层中的表单">
       <v-modal title="基本" :visible.sync="visible1">
         <v-form type="horizontal">
-          <v-form-item title="Email address" :required="true">
+          <v-form-item title="Email address" required>
             <v-input placeholder="Email"></v-input>
           </v-form-item>
           <v-form-item title="Password">
@@ -120,20 +120,20 @@
         <v-form-item title="Default" content="Default Input">
           <v-input placeholder="Default"></v-input>
         </v-form-item>
-        <v-form-item title="Waiting" :waiting="true">
+        <v-form-item title="Waiting" waiting>
           <v-input placeholder="Waiting"></v-input>
         </v-form-item>
-        <v-form-item title="Success" :success="true" content="The email is true">
+        <v-form-item title="Success" success content="The email is true">
           <v-input placeholder="Success input"></v-input>
         </v-form-item>
-        <v-form-item title="Warning" :warning="true">
+        <v-form-item title="Warning" warning>
           <v-input placeholder="Warning"></v-input>
         </v-form-item>
-        <v-form-item title="Fail" :wrong="true" content="Should be combination of numbers & alphabets">
+        <v-form-item title="Fail" wrong content="Should be combination of numbers & alphabets">
           <v-input placeholder="unavailable choice"></v-input>
         </v-form-item>
-        <v-form-item title="Wrong" :wrong="true" content="the date is wrong">
-          <v-datepicker :start-date.sync="startTime" :end-date.sync="endTime" :range-picker="true"></v-datepicker>
+        <v-form-item title="Wrong" wrong content="the date is wrong">
+          <v-datepicker :start-date.sync="startTime" :end-date.sync="endTime" range-picker></v-datepicker>
         </v-form-item>
       </v-form>
     </example>

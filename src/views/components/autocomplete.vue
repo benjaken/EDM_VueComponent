@@ -24,7 +24,7 @@
       <v-auto-complete :value.sync="value1" :data-source="dataSource1" placeholder="input here" :onchange="onchange" :style="style"></v-auto-complete>
     </example>
     <example title="不区分大小写">
-      <v-auto-complete :value.sync="value2" :ignore-symbol="true" :data-source="dataSource" placeholder="input here" :onselect="onselect" :style="style"></v-auto-complete>
+      <v-auto-complete :value.sync="value2" ignore-symbol :data-source="dataSource" placeholder="input here" :onselect="onselect" :style="style"></v-auto-complete>
     </example>
   </demo>
 </template>
@@ -48,7 +48,7 @@ export default {
     onchange (val) {
       let self = this
       let result
-      if (!val || val.indexOf('@') >= 0) {
+      if (!val || val.includes('@')) {
         result = []
       } else {
         result = ['gmail.com', '163.com', 'qq.com'].map(domain => `${val}@${domain}`)

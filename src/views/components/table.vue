@@ -72,7 +72,6 @@
   | showItem | 指定列表是否显示指定的列表列 | Boolean | false |
   | current | 指定列表显示的页数 | Number | 1 |
   | limit | 指定列表页显示的条数 | Number | 10 |
-  | targetSelectedKeys | 指定选中项 | Array | [] |
   | locale | 指定部分按钮显示的文字 | {} | {} |
   | showReload | 是否显示刷新按钮，通过`$event`的`table:reload`通知方法 | Boolean | false |
 
@@ -80,34 +79,38 @@
 
   <demo>
     <example title="基本">
-      <v-table caption="Optional table caption." :colums="colums" :limit="4" :data-source="datas" :item-actions="itemActions" :show-reload="true">
+      <v-table caption="Optional table caption." :colums="colums" :limit="4" :data-source="datas" :item-actions="itemActions" show-reload>
       </v-table>
     </example>
     <example title="条纹状列表">
-      <v-table :colums="colums" :data-source="datas" :striped="true" :limit="4" :item-actions="itemActions">
+      <v-table :colums="colums" :data-source="datas" striped :limit="4" :item-actions="itemActions">
       </v-table>
     </example>
     <example title="带边框的列表">
-      <v-table :colums="colums" :data-source="datas" :bordered="true" :limit="4" :item-actions="itemActions">
+      <v-table :colums="colums" :data-source="datas" bordered :limit="4" :item-actions="itemActions">
       </v-table>
     </example>
     <example title="紧缩列表">
-      <v-table :colums="colums" :data-source="datas" :condensed="true" :limit="4" :item-actions="itemActions">
+      <v-table :colums="colums" :data-source="datas" condensed :limit="4" :item-actions="itemActions">
+      </v-table>
+    </example>
+    <example title="紧缩列表">
+      <v-table :colums="colums" :data-source="datas1" :item-actions="itemActions">
       </v-table>
     </example>
     <example title="可选择">
-      <v-table :colums="colums" :data-source="datas" :item-actions="itemActions" :row-selection="true">
+      <v-table :colums="colums" :data-source="datas" :item-actions="itemActions" row-selection>
       </v-table>
     </example>
     <example title="选择和操作">
-      <v-table :colums="colums" :data-source="datas" :row-selection="true" :target-selected-keys.sync="targets">
+      <v-table :colums="colums" :data-source="datas" :target-selected-keys="targets" row-selection>
         <div slot="table-operation">
           <v-button type="primary" :loading="loading" @click="_reload">重加载</v-button>
         </div>
       </v-table>
     </example>
     <example title="自定义选择项">
-      <v-table :colums="colums" :data-source="datas" :item-actions="itemActions" :row-selection="true" :selected-row-keys="true" :show-item="true">
+      <v-table :colums="colums" :data-source="datas" :item-actions="itemActions" row-selection selected-row-keys show-item>
       </v-table>
     </example>
   </demo>
@@ -120,6 +123,7 @@ export default {
     return {
       colums: ['Id', 'Name', 'Age', 'Address'],
       datas: [],
+      datas1: [],
       itemActions: [{
         name: 'edit',
         title: '编辑'
@@ -141,6 +145,9 @@ export default {
   events: {
     'table:action' (action, data) {
       console.log('table:action', action, data)
+      if (action === 'delete') {
+        // this.datas.splice(data.id, 1)
+      }
     },
     'table:reload' () {
       console.log('table:reload')
@@ -159,10 +166,8 @@ export default {
       })
     }
     self.datas = mockData
-    const targetKeys = mockData
-      .filter(item => +item.id % 3 > 1)
-      .map(item => item.id)
-    self.targets = targetKeys
+    mockData.filter(item => +item.key % 3 > 1).push(item => item.rowClassName)
+    self.datas1 = mockData
   },
   methods: {
     _reload() {

@@ -17,13 +17,13 @@
       <v-collapse :data="data2"></v-collapse>
     </example>
     <example title="被禁用">
-      <v-collapse :data="data1" :enable-click="true"></v-collapse>
+      <v-collapse :data="data1" enable-click></v-collapse>
     </example>
     <example title="添加情境类">
-      <v-collapse :data="data3" :enable-click="true"></v-collapse>
+      <v-collapse :data="data3" enable-click></v-collapse>
     </example>
     <example title="带描述性内容">
-      <v-collapse :data="data4" :enable-click="true"></v-collapse>
+      <v-collapse :data="data4" enable-click></v-collapse>
     </example>
   </demo>
 </template>

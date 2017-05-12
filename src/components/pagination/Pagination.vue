@@ -74,6 +74,7 @@
       size: oneOf(['small', 'large', undefined]),
       total: 1,
       limit: 10,
+      current: 0,
       defaultCurrent: 1,
       showSizeChanger: false,
       pageSizeOptions: ['10', '20', '30', '40'],
@@ -84,7 +85,6 @@
     }),
     data () {
       return {
-        current: 0,
         page: Math.ceil(this.total / this.limit),
         defaultPage: 1,
         base: 1,

@@ -66,9 +66,9 @@
       <v-button type="default" class="disabled">幽灵按钮(失效)</v-button>
     </example>
     <example title="按钮加载中">
-      <v-button type="primary" :loading="true" size="small">加载中</v-button>
-      <v-button type="primary" :loading="true">加载中</v-button>
-      <v-button type="primary" size="large" :loading="true">加载中</v-button>
+      <v-button type="primary" loading size="small">加载中</v-button>
+      <v-button type="primary" loading>加载中</v-button>
+      <v-button type="primary" size="large" loading>加载中</v-button>
       <v-button type="primary" :loading="loading" @click="_enterLoading">点击加载(2s恢复原状)</v-button>
     </example>
     <example title="按钮组合">
