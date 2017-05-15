@@ -12,7 +12,11 @@
   background-color: @thumbnail-bg;
   border: 1px solid @thumbnail-border;
   border-radius: @thumbnail-border-radius;
-  .transition(border .2s ease-in-out);
+  .transition(all .2s ease-in-out);
+
+  &:hover {
+    .box-shadow(0 2px 6px rgba(0,0,0,.175));
+  }
 
   > img,
   a > img {

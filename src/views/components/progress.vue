@@ -34,7 +34,7 @@
       <v-button type="default" @click="_randomNumber()">改变进度</v-button>
     </example>
     <example title="最低百分比">
-      <v-progress :percentage="0"  show-min></v-progress>
+      <v-progress :percentage="0" show-min></v-progress>
       <v-progress :percentage="2" show-text show-min></v-progress>
     </example>
     <example title="根据情境变化">
