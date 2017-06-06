@@ -67,7 +67,7 @@
 </template>
 <script>
 import vIcon from '../../components/iconfont'
-import clipboard from 'clipboard'
+import Clipboard from 'clipboard'
 export default {
   components: {
     vIcon
@@ -97,7 +97,7 @@ export default {
     }
   },
   ready () {
-    const clipboard = new clipboard('.icons-list li')
+    const clipboard = new Clipboard('.icons-list li')
     clipboard.on('success', (e) => {
       const item = e.trigger.__vfrag__.scope.item
       item.justCopied = true
