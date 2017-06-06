@@ -1,6 +1,6 @@
 import vStep from './Step.vue'
-import vStepItem from './Step.vue'
+import vStepItem from './StepItem.vue'
 
-vStepItem.vStep = vStep 
+vStepItem.vStep = vStep
 
 export default vStep

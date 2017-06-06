@@ -1,3 +1,3 @@
-import vTabs from './tabs.vue'
+import vTabs from './Tabs.vue'
 
 export default vTabs
