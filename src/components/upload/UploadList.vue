@@ -4,7 +4,9 @@
       <span @click="_handlePreview(file)">
         <v-icon type="file"></v-icon> {{file.name}}
       </span>
-      <v-icon type="remove" :class="prefixCls + '-remove'" v-show="file.status === 'finished'" @click="_handleRemove(file)"></v-icon>
+      <span @click="_handleRemove(file)" :class="prefixCls + '-remove'">
+        <v-icon type="remove" v-show="file.status === 'finished'"></v-icon>
+      </span>
       <v-progress v-if="file.showProgress" :percentage="_parsePercentage(file.percentage)" :type="_parseType(file)" show-min active></v-progress>
     </li>
   </ul>

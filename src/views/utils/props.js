@@ -30,7 +30,6 @@ export function defaultProps (props) {
       }
 
       // 支持 Object和Array的简洁声明方式
-      // Todo: 目前看来这样并没有什么卵用
       if (type === 'Array' || type === 'Object') {
         props[i] = {
           type: window[type],

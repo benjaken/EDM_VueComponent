@@ -36,7 +36,7 @@
       <tbody>
         <tr v-for="data in dataSource | limit" :id="$index" :class="data.rowClassName">
           <td v-if="rowSelection" class="table-checkbox">
-            <v-checkbox :checked="data.checked" :id="data.id" :onchange="_handleSelectTarget"></v-checkbox>
+            <v-checkbox :checked.sync="data.checked" :id="data.id" :onchange="_handleSelectTarget"></v-checkbox>
           </td>
           <td v-for="i in data | filter" :title="i">{{i}}</td>
           <td v-if="itemActions.length > 0" class="table-action">
@@ -86,11 +86,7 @@ export default {
       selectedRow: [{
         value: 'Select All'
       }, {
-        value: 'select Invert'
-      }, {
-        value: 'Select Odd Row'
-      }, {
-        value: 'select Even Row'
+        value: 'Select Invert'
       }],
       sortedInfo: {
         order: '',
@@ -103,9 +99,9 @@ export default {
       let self = this
       let start = (self.current - 1) * self.limit
       data = data.slice(start, start + self.limit)
-      // data.forEach(function (val) {
-      //   val['checked'] = self.targetSelectedKeys.includes(val['id'])
-      // })
+      data.map(item => {
+        item['checked'] = self.targetSelectedKeys.includes(item['id'])
+      })
       return data
     },
     'filter' (data) {
@@ -135,8 +131,8 @@ export default {
   methods: {
     _listColums () {
       let self = this
-      self.colums.forEach(function (val) {
-        self.columsData.push({value: val})
+      self.colums.map(item => {
+        self.columsData.push({value: item})
       })
     },
     _arrayClick (action) {
@@ -154,7 +150,7 @@ export default {
     _sortData (order, columnKey) {
       let self = this
       self.sortedInfo.order = order
-      self.sortedInfo.data = columnKey
+      self.sortedInfo.columnKey = columnKey
       self.targetSelectedKeys = []
       self.dataSource = _.orderBy(self.dataSource, _.toLower(columnKey), order)
     },
@@ -181,15 +177,18 @@ export default {
     'dropdown:action' (action) {
       let self = this
       let data
-      if (action === 'Select All') {
-        self.targetSelectedKeys = []
-        let start = (self.current - 1) * self.limit
-        data = self.dataSource.slice(start, start + self.limit)
-        data.forEach(function (val) {
-          self.targetSelectedKeys.push(val.id)
-        })
-        console.log(self.targetSelectedKeys)
+      let start = (self.current - 1) * self.limit
+      data = self.dataSource.slice(start, start + self.limit)
+      data = data.map(item => item.id)
+      switch (action) {
+        case 'Select All':
+          self.targetSelectedKeys = data
+          break
+        case 'Select Invert':
+          self.targetSelectedKeys = _.xor(data, self.targetSelectedKeys)
+          break
       }
+      console.log(self.targetSelectedKeys)
     }
   },
   watch: {

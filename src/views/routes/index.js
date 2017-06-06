@@ -90,6 +90,9 @@ export function configRouter(router) {
         'badge': {
           component: require('../components/badge.vue')
         },
+        'calendar': {
+          component: require('../components/calendar.vue')
+        },
         'card': {
           component: require('../components/card.vue')
         },

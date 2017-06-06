@@ -95,15 +95,30 @@
         }
       },
       _post (file) {
-        console.log(file)
         if (this.maxSize) {
           if (file.size > this.maxSize * 1024) {
             this.onExceededSize(file, this.fileList)
             return false
           }
         }
-
         this._handleStart(file)
+        // ajax({
+        //   headers: this.headers,
+        //   withCredentials: this.withCredentials,
+        //   file: file,
+        //   data: this.data,
+        //   filename: this.name,
+        //   operation: this.operation,
+        //   onProgress: e => {
+        //     this._handleProgress(e, file)
+        //   },
+        //   onSuccess: e => {
+        //     this._handleSuccess(res, file)
+        //   },
+        //   onError: e => {
+        //     this._handleError(err, response, file)
+        //   }
+        // })
       },
       _handleStart (file) {
         file.uid = Date.now() + this.tempIndex++
@@ -117,15 +132,68 @@
         }
         this.fileList.push(_file)
       },
+      _getFile (file) {
+        const fileList = this.fileList
+        let target
+        fileList.every(item => {
+          target = file.uid === item.uid ? item : null
+          return !target
+        })
+        return target
+      },
+      _handleProgress (e, file) {
+        const _file = this._getFile(file)
+        this.onProgress(e, _file, this.fileList)
+        _file.percentage = e.percent || 0
+      },
+      _handleSuccess (res, file) {
+        const _file = this._getFile(file)
+        if (_file) {
+          _file.status = 'finished'
+          _file.response = res
+          this.dispath('FormItem', 'on-form-change', _file)
+          this.onSuccess(res, _file, this.fileList)
+          setTimeout(() => {
+            _file.showProgress = false
+          }, 1000)
+        }
+      },
+      _handleError (error, response, file) {
+        const _file = this._getFile(file)
+        const fileList = this.fileList
+        _file.status = 'failed'
+        fileList.splice(fileList.indexOf(file), 1)
+        this.onError(error, file, fileList)
+      },
       _handleRemove (file) {
-        console.log(file)
+        const fileList = this.fileList
+        fileList.splice(fileList.indexOf(file), 1)
+        this.onRemove(file, fileList)
       },
       _handlePreview (file) {
-        console.log(file)
+        if (file.status === 'finished') {
+          this.onPreview(file)
+        }
+      },
+      _clearFiles () {
+        this.fileList = []
       }
     },
     components: {
       vUploadList
+    },
+    watch: {
+      'defaultFileList': {
+        immediate: false,
+        handler (fileList) {
+          this.fileList = fileList.map(item => {
+            item.status = 'finished'
+            item.percentage = 100
+            item.uid = Date.now() + this.tempIndex++
+            return item
+          })
+        }
+      }
     }
   }
 </script>

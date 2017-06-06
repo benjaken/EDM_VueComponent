@@ -1,0 +1,30 @@
+.calendar {
+  &-header {
+    text-align: right;
+    padding: 10px 16px;
+  }
+  &-body {
+    padding: 6px 10px;
+
+    .table {
+      thead > tr > th {
+        text-align: right;
+        background: #fff;
+        font-weight: normal;
+      }
+
+      tbody > tr > td {
+        border-top: none;
+      }
+    }
+  }
+
+  &-date {
+    margin: 0 4px;
+    padding: 4px 8px;
+    height: 116px;
+    text-align: left;
+    display: block;
+    border-top: 2px solid @gray-light;
+  }
+}
