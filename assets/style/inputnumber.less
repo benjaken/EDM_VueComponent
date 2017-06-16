@@ -1,0 +1,99 @@
+.inputnumber {
+  position: relative;
+  display: inline-block;
+  width: 120px;
+  transition: .6s all ease;
+
+  .form-control[readonly]{
+    width: 100%;
+    background: #fff;
+
+    &:disabled{
+      background: #eeeeee;
+    }
+  }
+
+  &-toolbox {
+    width: 22px;
+    height: 100%;
+    border: 1px solid #ccc;
+    border-radius: 0 4px 4px 0;
+    position: absolute;
+    right: 0;
+    background: #fff;
+    z-index: 900;
+    opacity: 0;
+
+    .operation{
+      display: block;
+      height: 50%;
+      width: 100%;
+      text-align: center;
+      line-height: 16px;
+      text-decoration: none;
+      cursor: pointer;
+      padding: 0;
+      border: none;
+      background: #fff;
+
+      &:first-child {
+        border-bottom: 1px solid #ccc;
+      }
+
+      i {
+        color: #666;
+        font-size: 10px;
+
+        &::before {
+          .resize(.5, 0deg);
+        }
+      }
+
+      &:hover {
+        i {
+          color: #21A3E9;
+        }
+      }
+
+      &:disabled {
+        i {
+          color: #ccc
+        }
+      }
+    }
+  }
+
+  &:hover .inputnumber-toolbox {
+    opacity: 1;
+  }
+
+  &.small {
+    .inputnumber-toolbox {
+      height: 30px;
+
+      .operation{
+        line-height: 14px;
+        height: 14px;
+      }
+    }
+
+    input {
+      height: 30px;
+    }
+  }
+
+  &.big {
+    .inputnumber-toolbox {
+      height: 38  px;
+
+      .operation{
+        line-height: 18px;
+        height: 18px;
+      }
+    }
+
+    input {
+      height: 38px;
+    }
+  }
+}

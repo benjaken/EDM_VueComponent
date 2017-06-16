@@ -28,11 +28,7 @@
       font-size: 12px;
       &-left::before,
       &-right::before {
-        display: inline-block;
-        -webkit-transform: scale(.5) rotate(0deg);
-        -ms-transform: scale(.5) rotate(0deg);
-        transform: scale(.5) rotate(0deg);
-        -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+        .resize(.5, 0deg);
       }
     }
     &:first-child {

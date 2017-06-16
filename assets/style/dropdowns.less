@@ -21,10 +21,13 @@
   display: inline-block;
 
   .icon-down::before {
-    display: inline-block;
-    -webkit-transform: scale(0.6667) rotate(0deg);
-    transform: scale(0.6667) rotate(0deg);
-    -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+    .resize(0.667, 0deg);
+  }
+
+  &-visible {
+    .icon-down {
+      transform: rotate(180deg);
+    }
   }
 }
 

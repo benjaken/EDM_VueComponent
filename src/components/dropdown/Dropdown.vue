@@ -1,5 +1,5 @@
 <template>
-  <div class="dropdown">
+  <div :class="dropClasses">
     <div class="btn-group" v-if="group">
       <v-button :type="type" :onclick="onclick" :size="size" :loading="loading">
         <slot></slot>
@@ -12,7 +12,7 @@
       <slot></slot>
       <v-icon type="down"></v-icon>
     </v-button>
-    <ul :class="prefixCls" v-if="visible">
+    <ul :class="`${prefixCls}-menu`" v-show="visible" transition="slide">
       <li v-for="i in data" :class="_dropdownClasses(i)" @click="this.visible = false">
         <a v-link="`${i.path}`" v-if="i.value !== '|' && i.path">{{i.value}}</a>
         <a @click="_toggle(i.value)" id="checkbox" v-else>
@@ -31,7 +31,7 @@
   import cx from 'classnames'
   export default {
     props: defaultProps({
-      prefixCls: 'dropdown-menu',
+      prefixCls: 'dropdown',
       visible: false,
       group: false,
       data: [],
@@ -41,6 +41,14 @@
       showSelect: false,
       onclick: () => {}
     }),
+    computed: {
+      dropClasses () {
+        return cx({
+          [this.prefixCls]: 1,
+          [`${this.prefixCls}-visible`]: !!this.visible
+        })
+      }
+    },
     components: {
       vButton,
       vIcon,

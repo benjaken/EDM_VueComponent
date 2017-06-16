@@ -1,0 +1,112 @@
+.select {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  vertical-align: middle;
+  color: @gray;
+  line-height: normal;
+
+  &-selection {
+    display: block;
+    outline: 0;
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    background-color: @input-bg;
+    border-radius: @input-border-radius;
+    border: 1px solid @input-border;
+    color: @input-color;
+    font-size: @font-size-base;
+    transition: all .2s ease-in-out;
+  }
+
+  &-search {
+    display: inline-block;
+    padding: @padding-base-vertical @padding-base-horizontal;
+    line-height: @line-height-base;
+    outline: 0;
+    border: none;
+    background-color: transparent;
+    position: relative;
+    cursor: pointer;
+  }
+
+  &-arrow {
+    position: absolute;
+    right: @padding-base-horizontal;
+    top: 50%;
+    line-height: 1;
+    margin-top: -8px;
+    color: #999;
+    transition: all .2s ease-in-out;
+
+    &::before {
+      .resize(.55, 0deg);
+    }
+  }
+
+  &-dropdown {
+    position: absolute;
+    width: inherit;
+    max-height: 200px;
+    overflow: auto;
+    margin: 4px 0;
+    padding: 4px 0;
+    background-color: @input-bg;
+    border-radius: @input-border-radius;
+    .box-shadow(0 1px 6px rgba(0,0,0,.175));
+    z-index: 900;
+  }
+
+  &-item {
+    line-height: normal;
+    padding: @padding-base-vertical @padding-base-horizontal;
+    clear: both;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: background .3s ease-in-out;
+
+    &:hover {
+      background-color: @gray-lighter;
+    }
+
+    &-selected,&-selected:hover {
+      background-color: @brand-primary;
+      color: #fff;
+    }
+  }
+
+  &-visible {
+    .icon-down {
+      transform: rotate(180deg);
+    }
+  }
+
+  &-disabled {
+    .select-selection {
+      background: @gray-lighter;
+      cursor: not-allowed;
+      color: #999;
+    }
+  }
+}
+
+.select-single {
+  .select-selection {
+    height: 32px;
+
+    .select-placeholder,
+    .select-selected-value {
+      display: block;
+      padding: @padding-base-vertical @padding-base-horizontal;
+      line-height: @line-height-base;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .select-placeholder {
+      color: #999;
+    }
+  }
+}

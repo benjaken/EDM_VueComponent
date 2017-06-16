@@ -210,3 +210,11 @@
 .icon-pushpin:before { content: "\e6b5"; }
 .icon-enter:before { content: "\e6b6"; }
 .icon-qrcode:before { content: "\e6a5"; }
+
+.resize (@size; @angle) {
+  display: inline-block;
+  -webkit-transform: scale(@size) rotate(@angle);
+  -ms-transform: scale(@size) rotate(@angle);
+  transform: scale(@size) rotate(@angle);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Matrix(sizingMethod='auto expand', M11=1, M12=0, M21=0, M22=1)";
+}

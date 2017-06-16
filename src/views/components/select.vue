@@ -11,6 +11,41 @@
 
   ## 组件演示
   <demo>
-    <example title=""></example>
+    <example title="基本">
+      <v-select :options="options" :value.sync="selected"></v-select>
+    </example>
+    <example title="可搜索">
+      <v-select :options="options" show-search></v-select>
+    </example>
+    <example title="不可用">
+      <v-select :options="options" :value.sync="selected" disabled></v-select>
+    </example>
   </demo>
 </template>
+<script>
+  import vSelect from '../../components/select/Select.vue'
+  import vOption from '../../components/select/Option.vue'
+  export default {
+    components: {
+      vSelect,
+      vOption
+    },
+    data () {
+      return {
+        selected: 'c12',
+        options: []
+      }
+    },
+    created () {
+      let self = this
+      const mockData = []
+      for (let i = 10; i < 36; i++) {
+        mockData.push({
+          value: i.toString(36) + i,
+          label: i.toString(36).toUpperCase() + i
+        })
+      }
+      self.options = mockData
+    }
+  }
+</script>

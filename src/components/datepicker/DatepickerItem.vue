@@ -13,11 +13,11 @@
         <div class="arrow-right" @click="nextMonthPreview()">&gt;</div>
       </div>
       <div class="panel-header" v-show="panelType === 'year'">
-        <div class="arrow-left" @click="chYearRange(0)">&lt;</div>
+        <div class="arrow-left" @click="chYearRange(false)">&lt;</div>
         <div class="year-range">
           <span v-text="yearList[0]"></span> - <span v-text="yearList[yearList.length - 1]"></span>
         </div>
-        <div class="arrow-right" @click="chYearRange(1)">&gt;</div>
+        <div class="arrow-right" @click="chYearRange(true)">&gt;</div>
       </div>
       <div class="type-year" v-show="panelType === 'year'">
         <ul class="year-list">
@@ -67,8 +67,9 @@
 
 <script>
 import moment from 'moment'
+import {defaultProps} from '../../views/utils/props'
 export default {
-  data() {
+  data () {
     return {
       panelState: false,
       coordinates: {},
@@ -94,63 +95,49 @@ export default {
       rangeStart: false
     }
   },
-  props: {
-    language: {
-      default: 'ch'
-    },
-    min: {
-      type: String,
-      default: '1970-01-01'
-    },
-    max: {
-      type: String,
-      default: '3016-01-01'
-    },
-    showTime: {
-      type: Boolean,
-      default: false
-    },
-    minYear: Number,
-    minMonth: Number,
-    minDate: Number,
-    maxYear: Number,
-    maxMonth: Number,
-    maxDate: Number,
-    value: String,
-    range: {
-      type: Boolean,
-      default: false
-    },
-    disabled: Boolean,
+  props: defaultProps({
+    language: 'ch',
+    min: '1970-01-01',
+    max: '2100-01-01',
+    showTime: false,
+    minYear: 0,
+    minMonth: 0,
+    minDate: 0,
+    maxYear: 0,
+    maxMonth: 0,
+    maxDate: 0,
+    value: '',
+    range: false,
+    disabled: false,
     format: 'yyyy-mm-dd',
-    panelType: String
-  },
+    panelType: ''
+  }),
   methods: {
     selectToday () {
       this.value = moment().format()
       this.togglePanel()
     },
-    togglePanel() {
+    togglePanel () {
       this.panelState = !this.panelState
       this.rangeStart = false
     },
-    isSelected(type, item) {
+    isSelected (type, item) {
       switch (type) {
         case 'year':
           if (!this.range) return item === this.tmpYear
-          return (new Date(item, 0).getTime() >= new Date(this.tmpStartYear, 0).getTime() &&
-            new Date(item, 0).getTime() <= new Date(this.tmpEndYear, 0).getTime())
+          return (moment().set('year', item).isAfter(moment().set('year', this.tmpStartYear)) &&
+            moment().set('year', item).isBefore(moment().set('year', this.tmpEndYear)))
         case 'month':
           if (!this.range) return item === this.tmpMonth && this.year === this.tmpYear
-          return (new Date(this.tmpYear, item).getTime() >= new Date(this.tmpStartYear, this.tmpStartMonth).getTime() &&
-            new Date(this.tmpYear, item).getTime() <= new Date(this.tmpEndYear, this.tmpEndMonth).getTime())
+          return (moment().set({'year': this.tmpYear, 'month': item}).isAfter(moment().set({'year': this.tmpStartYear, 'month': this.tmpStartMonth})) &&
+            moment().set({'year': this.tmpYear, 'month': item}).isBefore(moment().set({'year': this.tmpEndYear, 'month': this.tmpEndMonth})))
         case 'date':
           if (!this.range) return this.date === item.value && this.month === this.tmpMonth && item.currentMonth
           let month = this.tmpMonth
           item.previousMonth && month--
           item.nextMonth && month++
-          return (new Date(this.tmpYear, month, item.value, this.tmpHour, this.tmpMinute, this.tmpSecond).getTime() >= new Date(this.tmpStartYear, this.tmpStartMonth, this.tmpStartDate).getTime() &&
-                  new Date(this.tmpYear, month, item.value, this.tmpHour, this.tmpMinute, this.tmpSecond).getTime() <= new Date(this.tmpEndYear, this.tmpEndMonth, this.tmpEndDate).getTime())
+          return (moment().set({'year': this.tmpYear, 'month': month, 'date': item.value}).isAfter(moment().set({'year': this.tmpStartYear, 'month': this.tmpStartMonth, 'date': this.tmpStartDate})) &&
+            moment().set({'year': this.tmpYear, 'month': month, 'date': item.value}).isBefore(moment().set({'year': this.tmpEndYear, 'month': this.tmpEndYear, 'date': this.tmpEndDate})))
         case 'hour':
           if (!this.range) return item === this.tmpHour
           return
@@ -162,33 +149,29 @@ export default {
           return
       }
     },
-    chType(type) {
+    chType (type) {
       this.panelType = type
     },
-    chYearRange(next) {
-      if (next) {
-        this.yearList = this.yearList.map((i) => i + 12)
-      } else {
-        this.yearList = this.yearList.map((i) => i - 12)
-      }
+    chYearRange (next) {
+      this.yearList = next ? this.yearList.map((i) => i + 12) : this.yearList.map((i) => i - 12)
     },
-    prevMonthPreview() {
+    prevMonthPreview () {
       this.tmpMonth = this.tmpMonth === 0 ? 0 : this.tmpMonth - 1
     },
-    nextMonthPreview() {
+    nextMonthPreview () {
       this.tmpMonth = this.tmpMonth === 11 ? 11 : this.tmpMonth + 1
     },
-    selectYear(year) {
+    selectYear (year) {
       if (this.validateYear(year)) return
       this.tmpYear = year
       this.panelType = 'month'
     },
-    selectMonth(month) {
+    selectMonth (month) {
       if (this.validateMonth(month)) return
       this.tmpMonth = month
       this.panelType = 'date'
     },
-    selectDate(date) {
+    selectDate (date) {
       setTimeout(() => {
         if (this.validateDate(date)) return
         if (date.previousMonth) {
@@ -214,7 +197,7 @@ export default {
           this.year = this.tmpYear
           this.month = this.tmpMonth
           this.date = date.value
-          this.value = this.showTime === false ? `${this.tmpYear}-${('0' + (this.month + 1)).slice(-2)}-${('0' + this.date).slice(-2)}`
+          this.value = this.showTime ? `${this.tmpYear}-${('0' + (this.month + 1)).slice(-2)}-${('0' + this.date).slice(-2)}`
                         : `${this.tmpYear}-${('0' + (this.month + 1)).slice(-2)}-${('0' + this.date).slice(-2)} ${this.tmpHour}:${this.tmpMinute}:${this.tmpSecond}`
           this.panelState = false
         } else if (this.range && !this.rangeStart) {
@@ -226,9 +209,7 @@ export default {
           this.tmpEndYear = this.tmpYear
           this.tmpEndMonth = this.tmpMonth
           this.tmpEndDate = date.value
-          let d1 = new Date(this.tmpStartYear, this.tmpStartMonth, this.tmpStartDate).getTime()
-          let d2 = new Date(this.tmpEndYear, this.tmpEndMonth, this.tmpEndDate).getTime()
-          if (d1 > d2) {
+          if (moment().set({'year': this.tmpStartYear, 'month': this.tmpStartMonth, 'date': this.tmpStartDate}).isAfter(moment().set({'year': this.tmpEndYear, 'month': this.tmpEndYear, 'date': this.tmpEndDate}))) {
             let tmpY, tmpM, tmpD
             tmpY = this.tmpEndYear
             tmpM = this.tmpEndMonth
@@ -260,17 +241,17 @@ export default {
       second = second < 10 ? '0' + second : second
       this.value = this.value.substring(0, 17) + second
     },
-    validateYear(year) {
+    validateYear (year) {
       return (year > this.maxYear || year < this.minYear) ? 1 : 0
     },
-    validateMonth(month) {
+    validateMonth (month) {
       if (new Date(this.tmpYear, month).getTime() >= new Date(this.minYear, this.minMonth - 1).getTime() &&
         new Date(this.tmpYear, month).getTime() <= new Date(this.maxYear, this.maxMonth - 1).getTime()) {
         return false
       }
       return true
     },
-    validateDate(date) {
+    validateDate (date) {
       let mon = this.tmpMonth
       if (date.previousMonth) {
         mon -= 1
@@ -283,7 +264,7 @@ export default {
       }
       return true
     },
-    close(e) {
+    close (e) {
       if (!this.$el.contains(e.target)) {
         this.panelState = false
         this.rangeStart = false
@@ -291,12 +272,12 @@ export default {
     }
   },
   watch: {
-    min(v) {
+    min (v) {
       this.minYear = Number(v.subString(0, 4))
       this.minMonth = Number(v.subString(5, 7))
       this.minDate = Number(v.subString(8, 10))
     },
-    max(v) {
+    max (v) {
       this.maxYear = Number(v.subString(0, 4))
       this.maxMonth = Number(v.subString(5, 7))
       this.maxDate = Number(v.subString(8, 10))
@@ -314,7 +295,7 @@ export default {
     }
   },
   computed: {
-    dateList() {
+    dateList () {
       let currentMonthLength = new Date(this.tmpYear, this.tmpMonth + 1, 0).getDate()
       let dateList = Array.from({
         length: currentMonthLength
@@ -371,7 +352,7 @@ export default {
           return item
       }
     },
-    month(item, lang) {
+    month (item, lang) {
       switch (lang) {
         case 'en':
           return {
@@ -408,7 +389,7 @@ export default {
       }
     }
   },
-  ready() {
+  ready () {
     if (this.showTime) {
       this.format += ' hh:mm:ss'
     }
@@ -460,7 +441,7 @@ export default {
     }
     window.addEventListener('click', this.close)
   },
-  beforeDestroy() {
+  beforeDestroy () {
     window.removeEventListener('click', this.close)
   }
 }
