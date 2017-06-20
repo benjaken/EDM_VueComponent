@@ -1,27 +1,32 @@
 <template>
   <span class="vbadge">
-    <span v-if="count > 0" class="badge" :class="{'badge-count': count, 'badge-dot': dot}">{{count | short}}</span>
-    <span v-if="dot" class="badge" :class="{'badge-dot': dot}"></span>
+    <span v-if="count > 0" :class="badgeClasses" transition="zoom">{{count | short}}</span>
+    <span v-if="dot" :class="badgeClasses" transition="zoom"></span>
     <slot></slot>
   </span>
 </template>
 <script>
 import {defaultProps} from '../../views/utils/props'
+import cx from 'classnames'
 export default {
   props: defaultProps({
-    count: Number,
-    overflowCount: {
-      type: Number,
-      default: 99
-    },
-    dot: {
-      type: Boolean,
-      default: false
-    }
+    prefixCls: 'badge',
+    count: 0,
+    overflowCount: 99,
+    dot: false
   }),
+  computed: {
+    badgeClasses () {
+      return cx({
+        [this.prefixCls]: 1,
+        [`${this.prefixCls}-count`]: this.count > 0,
+        [`${this.prefixCls}-dot`]: !!this.dot
+      })
+    }
+  },
   filters: {
     short (val) {
-      return val > this.overflowCount ? this.overflowCount + '+' : val
+      return val > this.overflowCount ? `${this.overflowCount}+` : val
     }
   }
 }

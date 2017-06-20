@@ -1,5 +1,6 @@
 <template>
-  <div class="modal fade confirmBox" :class="{'show in' : visible}" v-if="modal === 'confirmBox'">
+  <div class="modal-backdrop" v-show="visible" @click="_backCloseModal()" transition="backdropFade"></div>
+  <div class="modal confirmBox" v-if="modal === 'confirmBox' && visible" transition="fadeIn">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-body">
@@ -11,21 +12,21 @@
             </div>
           </div>
           <div class="confirm-btns" v-if="type == 'question'">
-            <v-button type="primary" size="small" :loading="confirmLoading" @click="onOk()">{{okText}}</v-button>
-            <v-button type="default" size="small" @click="_closeModal()">{{cancelText}}</v-button>
+            <v-button type="primary" :loading="confirmLoading" @click="onOk()">{{okText}}</v-button>
+            <v-button type="default" @click="_closeModal()">{{cancelText}}</v-button>
           </div>
           <div class="confirm-btns" v-else>
-            <v-button type="primary" size="small" :loading="confirmLoading" @click="_closeModal()">{{okText}}</v-button>
+            <v-button type="primary" :loading="confirmLoading" @click="_closeModal()">{{okText}}</v-button>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="modal fade" :class="{'show in' : visible}" v-else>
+  <div class="modal" v-if="modal === 'modal' && visible" transition="fadeIn">
     <div class="modal-dialog" :class="'modal-' + size">
       <div class="modal-content">
         <div class="modal-header">
-          <button type="button" class="close" @click="_closeModal()" v-if="closable"><span>&times;</span></button>
+          <button type="button" class="close" @click="_closeModal()" v-if="closable"><v-icon type="cross"></v-icon></button>
           <h4 class="modal-title">{{title}}</h4>
         </div>
         <div class="modal-body">
@@ -38,10 +39,9 @@
       </div>
     </div>
   </div>
-  <div class="modal-backdrop fade" @click="_backCloseModal()" :class="{'in show' : visible}"></div>
 </template>
 <script>
-  import {defaultProps} from '../../views/utils/props'
+  import {defaultProps, oneOf} from '../../views/utils/props'
   import vButton from '../button'
   import vIcon from '../iconfont'
   // import cx from 'classnames'
@@ -56,7 +56,7 @@
       footer: true,
       maskClosable: false,
       size: '',
-      modal: '',
+      modal: oneOf(['modal', 'confirmBox'], 'modal'),
       type: 'question',
       content: '',
       onOk: () => {},

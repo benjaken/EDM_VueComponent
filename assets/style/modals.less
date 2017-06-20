@@ -14,7 +14,6 @@
 
 // Container that the modal scrolls within
 .modal {
-  display: none;
   position: fixed;
   top: 80px;
   left:50%;
@@ -25,13 +24,6 @@
   // Prevent Chrome on Windows from adding a focus outline. For details, see
   // https://github.com/twbs/bootstrap/pull/10951.
   outline: 0;
-
-  // When fading in the modal, animate it to slide down
-  &.fade .modal-dialog {
-    .translate(0, -25%);
-    .transition-transform(~"0.3s ease-out");
-  }
-  &.in .modal-dialog { .translate(0, 0) }
 }
 .modal-open .modal {
   overflow-x: hidden;
@@ -59,7 +51,6 @@
 
 // Modal background
 .modal-backdrop {
-  display: none;
   position: fixed;
   top: 0;
   right: 0;
@@ -67,9 +58,7 @@
   left: 0;
   z-index: @zindex-modal - 1;
   background-color: @modal-backdrop-bg;
-  // Fade for backdrop
-  &.fade { .opacity(0); }
-  &.in { .opacity(@modal-backdrop-opacity); }
+  .opacity(@modal-backdrop-opacity);
 }
 
 // Modal header

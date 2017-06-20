@@ -86,6 +86,10 @@
           this.visible = false
         } else {
           this.model = val
+          if (this.showSearch) {
+            let target = this.options.filter(item => item.value === this.model)
+            this.query = target[0].label
+          }
           // if (this.showSearch) this.query = val
           // this.value = val
           // this.visible = this.showPlaceholder = false

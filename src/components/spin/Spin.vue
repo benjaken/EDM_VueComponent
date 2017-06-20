@@ -1,5 +1,5 @@
 <template>
-  <div :class="spinClasses" v-show="spinning">
+  <div :class="spinClasses" v-show="spinning" transition="fade">
     <div class="spinning" :class="{'spin-with-tip': tip}">
       <div class='bounce1'></div>
       <div class='bounce2'></div>

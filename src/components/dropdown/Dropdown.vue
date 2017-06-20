@@ -35,6 +35,7 @@
       visible: false,
       group: false,
       data: [],
+      trigger: oneOf(['click', 'hover'], 'click'),
       size: oneOf(['xsmall', 'small', 'large', undefined]),
       type: 'default',
       loading: false,
@@ -62,7 +63,7 @@
     },
     methods: {
       _toggleMenu () {
-        this.visible = !this.visible
+        if (this.trigger === 'click') this.visible = !this.visible
       },
       _toggle (action) {
         this.$dispatch(`dropdown:action`, action)

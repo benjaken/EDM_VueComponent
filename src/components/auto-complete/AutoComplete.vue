@@ -1,7 +1,7 @@
 <template>
   <div :class="prefixCls" :style="style">
     <input class="form-control" :placeholder="placeholder" v-model="value" @onblur="_blur"/>
-    <ul class="dropdown-menu" v-if="value">
+    <ul class="dropdown-menu" v-show="visible" transition="slide">
       <li v-for="i in data | filter" @click="_setValue(i)">
         <a>{{i}}</a>
       </li>
@@ -20,13 +20,13 @@ export default {
     placeholder: '',
     dataSource: [],
     style: '',
-    visible: false,
     ignoreSymbol: false,
     onchange: () => {},
     onselect: () => {}
   }),
   data () {
     return {
+      visible: false,
       data: this.dataSource
     }
   },

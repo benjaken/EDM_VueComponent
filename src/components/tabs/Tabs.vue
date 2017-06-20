@@ -7,7 +7,7 @@
         {{items.value}}
         <span class="caret" v-if="items.showdrop"></span>
       </a>
-      <ul class="dropdown-menu" v-if="items.showdrop && visibility">
+      <ul class="dropdown-menu" v-if="items.showdrop && visible" transition="slide">
         <li v-for="item in items.dropdown" :class="{'disabled': item.disabled}">
           <a href="javascript:void(0)" v-if="item.disabled">{{items.value}}</a>
           <a @click.prevent="item.onclick" @click="_closedrop(items.showdrop)" v-if="item.onclick">{{item.value}}</a>
@@ -27,9 +27,15 @@
       stacked: false,
       justified: false,
       data: [],
-      visibility: false,
+      visible: false,
       active: 0
     }),
+    ready () {
+      window.addEventListener('click', this.close)
+    },
+    beforeDestroy() {
+      window.removeEventListener('click', this.close)
+    },
     computed: {
       navClasses () {
         return cx({
@@ -42,20 +48,25 @@
     },
     methods: {
       _showdrop (val) {
-        var self = this
         if (val) {
-          self.visibility = !self.visibility
+          this.visible = !this.visible
         }
       },
-      _closedrop (val) {
+      _closedrop () {
+        this.visible = false
+      },
+      close(e) {
         var self = this
-        self.visibility = false
+        if (!self.$el.contains(e.target)) {
+          self._closedrop()
+        }
       },
       _toggleTab (index, val) {
         var self = this
         if (val) {
           return
         } else {
+          self._closedrop()
           self.active = index
         }
       }

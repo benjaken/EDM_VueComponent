@@ -34,7 +34,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="data in dataSource | limit" :id="$index" :class="data.rowClassName">
+        <tr v-for="data in dataSource | limit" :id="$index" :class="data.rowClassName" transition="fade">
           <td v-if="rowSelection" class="table-checkbox">
             <v-checkbox :checked.sync="data.checked" :id="data.id" :onchange="_handleSelectTarget"></v-checkbox>
           </td>

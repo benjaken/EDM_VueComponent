@@ -1,6 +1,6 @@
 <template>
-  <div :class="['alert alert-dismissable alert-description alert-' + type]" v-if="!closed">
-    <i :class="'icon ' + iconClass"></i>
+  <div :class="['alert alert-dismissable alert-description alert-' + type]" v-if="visible" transition="zoom">
+    <v-icon :type="iconClass"></v-icon>
     <span>{{message}}</span>
     <span class="description">
       <slot></slot>
@@ -13,54 +13,43 @@
 </template>
 <script>
 import {defaultProps, oneOf} from '../../views/utils/props'
+import vIcon from '../iconfont'
+import cx from 'classnames'
 export default {
   props: defaultProps({
-    type: oneOf(['success', 'info', 'warning', 'danger', undefined]),
-    message: {
-      type: String,
-      require: true
-    },
-    closable: Boolean,
-    closeText: String,
+    type: oneOf(['success', 'info', 'warning', 'danger', undefined], 'success'),
+    message: '',
+    closable: false,
+    closeText: '',
     onClose: () => {},
-    description: String
+    description: ''
   }),
+  components: {
+    vIcon
+  },
   data () {
     return {
       iconClass: '',
-      closed: false
+      visible: true
     }
   },
   computed: {
     iconClass() {
-      let iconClass = 'icon-'
-      switch (this.type) {
-        case 'success':
-          iconClass += 'check-circle'
-          break
-
-        case 'info':
-          iconClass += 'info-circle'
-          break
-
-        case 'warning':
-          iconClass += 'exclamation-circle'
-          break
-
-        case 'danger':
-          iconClass += 'question-circle'
-          break
-
-        default:
-          iconClass += 'default'
-      }
-      return iconClass
+      const stateCls = ({
+        'success': 'check',
+        'info': 'info',
+        'warning': 'exclamation',
+        'danger': 'question'
+      })[this.type] || ''
+      return cx({
+        [`${stateCls}-circle`]: !!this.type
+      })
     }
   },
   methods: {
     close () {
-      this.closed = true
-      return this.closed
+      this.visible = false
+      this.onClose
     }
   }
 }

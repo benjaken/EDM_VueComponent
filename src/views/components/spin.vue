@@ -46,7 +46,7 @@
         消息提示的文案
         <v-spin :spinning="spinning"></v-spin>
       </v-alert>
-      <v-alert type="info" message="消息提示的文案">
+      <v-alert type="success" message="消息提示的文案">
         消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案消息提示的文案
         <v-spin :spinning="spinning" tip="加载中..."></v-spin>
       </v-alert>

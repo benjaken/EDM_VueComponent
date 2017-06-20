@@ -1,17 +1,3 @@
-@process-icon-color: @brand-primary;
-@process-title-color: #666;
-@process-description-color: @process-title-color;
-@process-tail-color: #e9e9e9;
-@wait-icon-color: #ccc;
-@wait-title-color: #999;
-@wait-description-color: @wait-title-color;
-@wait-tail-color: @process-tail-color;
-@finish-icon-color: @brand-success;
-@finish-title-color: rgba(0,0,0,.43);
-@finish-description-color: rgba(0,0,0,.43);
-@finish-tail-color: @brand-success;
-
-
 .steps {
   font-size: 0;
   width: 100%;
@@ -23,59 +9,59 @@
 
     &.steps-status-wait {
       .steps-head-inner {
-        border-color: @wait-icon-color;
+        border-color: #cccccc;
         background-color: #fff;
         > .steps-icon {
-          color: @wait-icon-color;
+          color: #cccccc;
         }
       }
       .steps-title {
-        color: @wait-title-color;
+        color: #999999;
       }
       .steps-description {
-        color: @wait-description-color;
+        color: #999999;
       }
       .steps-tail > i {
-        background-color: @wait-tail-color;
+        background-color: #e9e9e9;
       }
     }
     &.steps-status-process {
       .steps-head-inner {
-        border-color: @process-icon-color;
-        background-color: @process-icon-color;
+        border-color: @brand-primary;
+        background-color: @brand-primary;
         > .steps-icon {
           color: #fff;
         }
       }
       .steps-title {
-        color: @process-title-color;
+        color: #666666;
       }
       .steps-description {
-        color: @process-description-color;
+        color: #666666;
       }
       .steps-tail > i {
-        background-color: @process-tail-color;
+        background-color: #e9e9e9;
       }
     }
     &.steps-status-finish {
       .steps-head-inner {
-        border-color: @finish-icon-color;
+        border-color: @brand-success;
         background-color: #fff;
         > .steps-icon {
-          color: @finish-icon-color;
+          color: @brand-success;
         }
       }
       .steps-tail > i:after {
         width: 100%;
-        background: @finish-tail-color;
+        background: @brand-success;
         transition: all 0.4s ease;
         opacity: 1;
       }
       .steps-title {
-        color: @finish-title-color;
+        color: rgba(0,0,0,.43);
       }
       .steps-description {
-        color: @finish-description-color;
+        color: rgba(0,0,0,.43);
       }
     }
 
@@ -94,7 +80,7 @@
       }
       &.steps-status-process {
         .steps-head-inner > .steps-icon {
-          color: @process-icon-color;
+          color: @brand-primary;
         }
       }
     }
@@ -111,7 +97,7 @@
 
   .steps-head-inner {
     display: block;
-    border: 1px solid @wait-icon-color;
+    border: 1px solid #cccccc;
     width: 26px;
     height: 26px;
     line-height: 26px;
@@ -119,7 +105,7 @@
     border-radius: 26px;
     font-size: 14px;
     margin-right: 8px;
-    transition: background-color 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out;
 
     > .steps-icon {
       line-height: 1;
@@ -162,7 +148,7 @@
     > i {
       display: inline-block;
       vertical-align: top;
-      background: @wait-tail-color;
+      background: #e9e9e9;
       height: 1px;
       border-radius: 1px;
       width: 100%;
@@ -181,7 +167,7 @@
 
   &.steps-small {
     .steps-head-inner {
-      border: 1px solid @wait-icon-color;
+      border: 1px solid #cccccc;
       width: 18px;
       height: 18px;
       line-height: 18px;

@@ -200,22 +200,23 @@ ul{
     .preMonth, .nextMonth{
         color: #ddd;
     }
-    li{
-        font-family: Roboto;
+    li {
         width: 14%;
         list-style: none;
-        height: 30px;
+        height: 28px;
         text-align: center;
-        line-height: 30px;
-
+        line-height: 28px;
     }
 }
 .toggle{
-    &-transition{
-        transition: all ease .2s;
+    &-transition {
+        transition: all .2s ease-in-out;
     }
-    &-enter, &-leave{
-        opacity: 0;
+    &-enter {
+      animation-name: fadeIn;
+    }
+    &-leave {
+      animation-name: fadeOut;
     }
 }
 .footer {

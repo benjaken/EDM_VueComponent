@@ -2,8 +2,8 @@
 <div class="date-picker" :class="{'showtime': showTime}">
   <input type="text" @click="togglePanel" v-model="value" :disabled="disabled" readonly="">
   <div class="calendar-logo" @click="togglePanel"><i class="icon icon-calendar"></i></div>
-  <div v-show="panelState">
-    <div class="date-panel" :style="coordinates" v-show="panelType !== 'time'" transition="toggle">
+  <div class="date-panel" :style="coordinates" v-show="panelState" transition="slide">
+    <div v-if="panelType !== 'time'" transition="toggle">
       <div class="panel-header" v-show="panelType !== 'year'">
         <div class="arrow-left" @click="prevMonthPreview()">&lt;</div>
         <div class="year-month-box">
@@ -46,7 +46,7 @@
         </div>
       </div>
     </div>
-    <div class="date-panel type-time toggle-transition" v-show="panelType === 'time'">
+    <div class="type-time" v-if="panelType === 'time'" transition="toggle">
       <div class="panel-header">
         <span>{{tmpYear}}年 {{tmpMonth + 1 | month language}} {{tmpEndDate}}日</span>
       </div>
