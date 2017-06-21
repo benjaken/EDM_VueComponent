@@ -49,22 +49,17 @@
   </demo>
 </template>
 <script>
-  import vPagination from '../../components/pagination'
-
-  export default {
-    components: {
-      vPagination
-    },
-    data () {
-      return {
-        options: ['10', '20', '30', '50'],
-        current: 3
-      }
-    },
-    watch: {
-      'current' (val) {
-        console.log('page changed:' + val)
-      }
+export default {
+  data () {
+    return {
+      options: ['10', '20', '30', '50'],
+      current: 3
+    }
+  },
+  watch: {
+    'current' (val) {
+      console.log('page changed:' + val)
     }
   }
+}
 </script>

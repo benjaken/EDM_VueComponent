@@ -141,23 +141,7 @@
 
 </template>
 <script>
-import vForm from '../../components/form/Form'
-import vFormItem from '../../components/form/FormItem'
-import vInput from '../../components/input'
-import vButton from '../../components/button'
-import vCheckbox from '../../components/checkbox'
-import vModal from '../../components/modal'
-import vDatepicker from '../../components/datepicker'
 export default {
-  components: {
-    vForm,
-    vFormItem,
-    vInput,
-    vButton,
-    vCheckbox,
-    vModal,
-    vDatepicker
-  },
   data () {
     return {
       visible1: false,

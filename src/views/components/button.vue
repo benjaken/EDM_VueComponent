@@ -81,19 +81,11 @@
   </demo>
 </template>
 <script>
-import vButton from '../../components/button/Button'
-import vButtonGroup from '../../components/button/ButtonGroup'
-import vIcon from '../../components/iconfont'
 export default {
   data () {
     return {
       loading: false
     }
-  },
-  components: {
-    vButton,
-    vButtonGroup,
-    vIcon
   },
   methods: {
     _enterLoading () {

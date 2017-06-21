@@ -22,23 +22,23 @@
   <demo>
     <example title="基础用法">
       <div class="spin-box">
-        <v-spin></v-spin>
+        <v-spin spinning></v-spin>
       </div>
     </example>
     <example title="自定义描述文案">
       <div class="spin-box">
-        <v-spin tip="加载中..."></v-spin>
+        <v-spin tip="加载中..." spinning></v-spin>
       </div>
     </example>
     <example title="各种大小">
-      <div class="spin-box">
-        <v-spin size="small"></v-spin>
+      <div class="spin-box" spinning>
+        <v-spin size="small" spinning></v-spin>
       </div>
       <div class="spin-box">
         <v-spin></v-spin>
       </div>
       <div class="spin-box">
-        <v-spin size="large"></v-spin>
+        <v-spin size="large" spinning></v-spin>
       </div>
     </example>
     <example title="卡片加载中">
@@ -53,12 +53,16 @@
       加载状态：
       <v-switch :checked.sync="spinning"></v-switch>
     </example>
+    <example title="全局调用">
+      <v-button type="default" @click="_showSpin()">show Spin</v-button>
+    </example>
   </demo>
 </template>
 <script>
   import vSpin from '../../components/spin'
   import vAlert from '../../components/alert'
   import vSwitch from '../../components/switch'
+  import vButton from '../../components/button'
   export default {
     data () {
       return {
@@ -68,7 +72,13 @@
     components: {
       vSpin,
       vAlert,
-      vSwitch
+      vSwitch,
+      vButton
+    },
+    methods: {
+      _showSpin () {
+        this.$loading({spinning: true})
+      }
     }
   }
 </script>

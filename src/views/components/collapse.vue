@@ -28,35 +28,31 @@
   </demo>
 </template>
 <script>
-    import vCollapse from '../../components/collapse'
-    export default {
-      data () {
-        return {
-          data1: [
-            {'title': 'Cras justo odio', 'active': true},
-            {'title': 'Dapibus ac facilisis in', 'disabled': true},
-            {'title': 'Morbi leo risus'}
-          ],
-          data2: [
-            {'title': 'Cras justo odio', 'badge': '14', 'active': true},
-            {'title': 'Dapibus ac facilisis in', 'badge': '4'},
-            {'title': 'Morbi leo risus', 'badge': '2'}
-          ],
-          data3: [
-            {'title': 'Cras justo odio', 'type': 'success'},
-            {'title': 'Dapibus ac facilisis in', 'type': 'info'},
-            {'title': 'Morbi leo risus', 'type': 'warning'},
-            {'title': 'Vestibulum at eros', 'type': 'danger'}
-          ],
-          data4: [
-            {'title': 'List group item heading', 'content': 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', 'active': true},
-            {'title': 'List group item heading', 'content': 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'},
-            {'title': 'List group item heading', 'content': 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'}
-          ]
-        }
-      },
-      components: {
-        vCollapse
-      }
+export default {
+  data () {
+    return {
+      data1: [
+        {'title': 'Cras justo odio', 'active': true},
+        {'title': 'Dapibus ac facilisis in', 'disabled': true},
+        {'title': 'Morbi leo risus'}
+      ],
+      data2: [
+        {'title': 'Cras justo odio', 'badge': '14', 'active': true},
+        {'title': 'Dapibus ac facilisis in', 'badge': '4'},
+        {'title': 'Morbi leo risus', 'badge': '2'}
+      ],
+      data3: [
+        {'title': 'Cras justo odio', 'type': 'success'},
+        {'title': 'Dapibus ac facilisis in', 'type': 'info'},
+        {'title': 'Morbi leo risus', 'type': 'warning'},
+        {'title': 'Vestibulum at eros', 'type': 'danger'}
+      ],
+      data4: [
+        {'title': 'List group item heading', 'content': 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.', 'active': true},
+        {'title': 'List group item heading', 'content': 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'},
+        {'title': 'List group item heading', 'content': 'Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.'}
+      ]
     }
+  }
+}
 </script>

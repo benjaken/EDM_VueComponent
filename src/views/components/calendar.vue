@@ -20,12 +20,3 @@
     </example>
   </demo>
 </template>
-<script>
-  import vCalendar from '../../components/calendar'
-
-  export default {
-    components: {
-      vCalendar
-    }
-  }
-</script>

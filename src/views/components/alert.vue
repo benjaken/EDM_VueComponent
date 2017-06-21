@@ -48,11 +48,3 @@
     </example>
   </demo>
 </template>
-<script>
-import vAlert from '../../components/alert'
-export default{
-  components: {
-    vAlert
-  }
-}
-</script>

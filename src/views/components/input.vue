@@ -58,11 +58,7 @@
   </demo>
 </template>
 <script>
-import vInput from '../../components/input'
 export default {
-  components: {
-    vInput
-  },
   methods: {
     _search () {
       console.log("Searching!")

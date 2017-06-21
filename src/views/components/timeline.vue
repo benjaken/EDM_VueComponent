@@ -56,13 +56,3 @@
     </example>
   </demo>
 </template>
-<script>
-  import vTimeline from '../../components/timeline/TimeLine'
-  import vTimelineItem from '../../components/timeline/TimeLineItem'
-  export default {
-    components: {
-      vTimeline,
-      vTimelineItem
-    }
-  }
-</script>

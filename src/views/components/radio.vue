@@ -33,82 +33,73 @@
   ## 组件演示
 
   <example title="基本">
-    <v-radio :default-checked="checked"></v-radio>
+    <v-radio-item :default-checked="checked"></v-radio-item>
   </example>
   <example title="不可用">
-    <v-radio :disabled="disabled"></v-radio>
-    <v-radio :checked.sync="checked" :disabled="disabled"></v-radio>
+    <v-radio-item :disabled="disabled"></v-radio-item>
+    <v-radio-item :checked.sync="checked" :disabled="disabled"></v-radio-item>
     <br />
     <v-button type="default" @click="_toggleChange">改变状态</v-button>
   </example>
   <example title="RadioGroup 组合">
-    <v-radio-group :on-change="_onGroupChange" :value="groupValue" :radios="radios"></v-radio-group>
+    <v-radio :on-change="_onGroupChange" :value="groupValue" :radios="radios"></v-radio>
     <p>你选择了：{{groupValue}}</p>
   </example>
   <example title="RadioGroup 组合">
-    <v-radio-group type="button" :on-change="_onCityChange" :value="cityValue" :radios="radios1"></v-radio-group>
+    <v-radio type="button" :on-change="_onCityChange" :value="cityValue" :radios="radios1"></v-radio>
     <p>你选择了：{{cityName}}</p>
   </example>
 </template>
 <script>
-  import vRadio from '../../components/radio/Radio'
-  import vRadioGroup from '../../components/radio/RadioGroup'
-  import vButton from '../../components/button'
-
-  export default {
-    data () {
-      return {
-        checked: true,
-        disabled: true,
-        radios: [{
-          value: 'a',
-          name: 'A'
-        }, {
-          value: 'b',
-          name: 'B'
-        }, {
-          value: 'c',
-          name: 'C'
-        }, {
-          value: 'd',
-          name: 'D'
-        }],
-        groupValue: 'a',
-        radios1: [{
-          value: 'a',
-          name: '广州'
-        }, {
-          value: 'b',
-          name: '深圳'
-        }, {
-          value: 'c',
-          name: '东莞'
-        }, {
-          value: 'd',
-          name: '汕头'
-        }],
-        cityValue: 'a',
-        cityName: '广州'
-      }
+export default {
+  data () {
+    return {
+      checked: true,
+      disabled: true,
+      radios: [{
+        value: 'a',
+        name: 'A'
+      }, {
+        value: 'b',
+        name: 'B'
+      }, {
+        value: 'c',
+        name: 'C'
+      }, {
+        value: 'd',
+        name: 'D'
+      }],
+      groupValue: 'a',
+      radios1: [{
+        value: 'a',
+        name: '广州'
+      }, {
+        value: 'b',
+        name: '深圳'
+      }, {
+        value: 'c',
+        name: '东莞'
+      }, {
+        value: 'd',
+        name: '汕头'
+      }],
+      cityValue: 'a',
+      cityName: '广州'
+    }
+  },
+  methods: {
+    _toggleChange () {
+      var self = this
+      self.disabled = !self.disabled
     },
-    components: {
-      vRadio,
-      vRadioGroup,
-      vButton
+    _onGroupChange (e) {
+      console.log('radio checked:' + e.target.value)
+      this.groupValue = e.target.value
     },
-    methods: {
-      _toggleChange () {
-        var self = this
-        self.disabled = !self.disabled
-      },
-      _onGroupChange (e) {
-        console.log('radio checked:' + e.target.value)
-        this.groupValue = e.target.value
-      },
-      _onCityChange (e) {
-        console.log('city checked:' + e.target.name)
-        this.cityName = e.target.name
-      }
+    _onCityChange (e) {
+      console.log('city checked:' + e.target.name)
+      this.cityName = e.target.name
     }
   }
+}
 </script>

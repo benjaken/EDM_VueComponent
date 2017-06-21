@@ -36,94 +36,85 @@
   ## 组件演示
   <demo>
     <example title="简单的步骤条">
-      <v-steps :current="1">
-        <v-step title="已完成" description="这里是多信息的描述啊"></v-step>
-        <v-step title="进行中" description="这里是多信息的耶哦耶哦哦耶哦耶"></v-step>
-        <v-step title="有一个待运行" description="描述啊描述啊"></v-step>
-        <v-step title="待运行" description="这里是多信息的描述啊"></v-step>
-      </v-steps>
+      <v-step :current="1">
+        <v-step-item title="已完成" description="这里是多信息的描述啊"></v-step-item>
+        <v-step-item title="进行中" description="这里是多信息的耶哦耶哦哦耶哦耶"></v-step-item>
+        <v-step-item title="有一个待运行" description="描述啊描述啊"></v-step-item>
+        <v-step-item title="待运行" description="这里是多信息的描述啊"></v-step-item>
+      </v-step>
     </example>
     <example title="迷你版">
-      <v-steps size="small" :current="1">
-        <v-step title="已完成" status="finish"></v-step>
-        <v-step title="进行中" status="process"></v-step>
-        <v-step title="待运行" status="wait"></v-step>
-        <v-step title="待运行" status="wait"></v-step>
-      </v-steps>
+      <v-step size="small" :current="1">
+        <v-step-item title="已完成" status="finish"></v-step-item>
+        <v-step-item title="进行中" status="process"></v-step-item>
+        <v-step-item title="待运行" status="wait"></v-step-item>
+        <v-step-item title="待运行" status="wait"></v-step-item>
+      </v-step>
     </example>
     <example title="带ICON图标的步骤条">
-      <v-steps>
-        <v-step title="步骤1" status="finish" icon="cloud"></v-step>
-        <v-step title="步骤2" status="process" icon="apple"></v-step>
-        <v-step title="步骤3" status="wait" icon="github"></v-step>
-      </v-steps>
+      <v-step>
+        <v-step-item title="步骤1" status="finish" icon="cloud"></v-step-item>
+        <v-step-item title="步骤2" status="process" icon="apple"></v-step-item>
+        <v-step-item title="步骤3" status="wait" icon="github"></v-step-item>
+      </v-step>
     </example>
     <example title="切换到下一步">
       <div>当前正在执行第 {{currentStep + 1}} 步</div>
       <br>
-      <v-steps :current="currentStep">
-        <v-step title="步骤1"></v-step>
-        <v-step title="步骤2"></v-step>
-        <v-step title="步骤3"></v-step>
-      </v-steps>
+      <v-step :current="currentStep">
+        <v-step-item title="步骤1"></v-step-item>
+        <v-step-item title="步骤2"></v-step-item>
+        <v-step-item title="步骤3"></v-step-item>
+      </v-step>
       <br>
       <div>
         <v-button type="primary" @click="_next">下一步</v-button>
       </div>
     </example>
     <example title="竖直方向的步骤条">
-      <v-steps direction="vertical" :current="1">
-        <v-step title="已完成" description="这里是多信息的描述啊"></v-step>
-        <v-step title="进行中" description="这里是多信息的描述啊"></v-step>
-        <v-step title="待运行" description="这里是多信息的描述啊"></v-step>
-        <v-step title="又一个待运行" description="这里是多信息的描述啊"></v-step>
-      </v-steps>
+      <v-step direction="vertical" :current="1">
+        <v-step-item title="已完成" description="这里是多信息的描述啊"></v-step-item>
+        <v-step-item title="进行中" description="这里是多信息的描述啊"></v-step-item>
+        <v-step-item title="待运行" description="这里是多信息的描述啊"></v-step-item>
+        <v-step-item title="又一个待运行" description="这里是多信息的描述啊"></v-step-item>
+      </v-step>
     </example>
     <example title="竖直方向的小型步骤条">
-      <v-steps size='small' direction="vertical" :current="1">
-        <v-step title="已完成" description="这里是多信息的描述啊"></v-step>
-        <v-step title="进行中" description="这里是多信息的描述啊"></v-step>
-        <v-step title="待运行" description="这里是多信息的描述啊"></v-step>
-      </v-steps>
+      <v-step size='small' direction="vertical" :current="1">
+        <v-step-item title="已完成" description="这里是多信息的描述啊"></v-step-item>
+        <v-step-item title="进行中" description="这里是多信息的描述啊"></v-step-item>
+        <v-step-item title="待运行" description="这里是多信息的描述啊"></v-step-item>
+      </v-step>
     </example>
     <example title="自定义状态">
-      <v-steps>
-        <v-step title="已完成" status="finish" description="这里是多信息的描述啊"></v-step>
-        <v-step title="进行中" status="process" description="这里是多信息的描述啊"></v-step>
-        <v-step title="待运行" status="wait" description="这里是多信息的描述啊"></v-step>
-        <v-step title="又一个待运行" status="wait" description="这里是多信息的描述啊"></v-step>
-      </v-steps>
+      <v-step>
+        <v-step-item title="已完成" status="finish" description="这里是多信息的描述啊"></v-step-item>
+        <v-step-item title="进行中" status="process" description="这里是多信息的描述啊"></v-step-item>
+        <v-step-item title="待运行" status="wait" description="这里是多信息的描述啊"></v-step-item>
+        <v-step-item title="又一个待运行" status="wait" description="这里是多信息的描述啊"></v-step-item>
+      </v-step>
     </example>
   </demo>
 </template>
 <script>
-  import vSteps from '../../components/steps/Step'
-  import vStep from '../../components/steps/StepItem'
-  import vButton from '../../components/button'
-
-  export default {
-    data () {
-      return {
-        steps: 3,
-        currentStep: 0
+export default {
+  data () {
+    return {
+      steps: 3,
+      currentStep: 0
+    }
+  },
+  beforeCompile () {
+    this.currentStep = Math.floor(Math.random() * this.steps)
+  },
+  methods: {
+    _next () {
+      let s = this.currentStep + 1
+      if (s === this.steps) {
+        s = 0
       }
-    },
-    components: {
-      vSteps,
-      vStep,
-      vButton
-    },
-    beforeCompile () {
-      this.currentStep = Math.floor(Math.random() * this.steps)
-    },
-    methods: {
-      _next () {
-        let s = this.currentStep + 1
-        if (s === this.steps) {
-          s = 0
-        }
-        this.currentStep = s
-      }
+      this.currentStep = s
     }
   }
+}
 </script>

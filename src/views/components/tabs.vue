@@ -41,51 +41,46 @@
   </demo>
 </template>
 <script>
-  import vTabs from '../../components/tabs'
-
-  export default {
-    data () {
-      return {
-        data: [{
-          link: '',
-          value: '111'
-        }, {
-          link: '',
-          value: '222'
-        }, {
-          link: '',
-          value: '333',
-          disabled: true
-        }],
-        data1: [{
-          link: '',
+export default {
+  data () {
+    return {
+      data: [{
+        link: '',
+        value: '111'
+      }, {
+        link: '',
+        value: '222'
+      }, {
+        link: '',
+        value: '333',
+        disabled: true
+      }],
+      data1: [{
+        link: '',
+        value: '111',
+        active: true
+      }, {
+        link: '',
+        value: '222'
+      }, {
+        link: '',
+        value: '333',
+        showdrop: true,
+        dropdown: [{
           value: '111',
-          active: true
+          onclick: function _showlog () {
+            console.log("show log!")
+          }
         }, {
-          link: '',
+          link: '/',
           value: '222'
         }, {
+          disabled: true,
           link: '',
-          value: '333',
-          showdrop: true,
-          dropdown: [{
-            value: '111',
-            onclick: function _showlog () {
-              console.log("show log!")
-            }
-          }, {
-            link: '/',
-            value: '222'
-          }, {
-            disabled: true,
-            link: '',
-            value: '333'
-          }]
+          value: '333'
         }]
-      }
-    },
-    components: {
-      vTabs
+      }]
     }
   }
+}
 </script>

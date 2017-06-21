@@ -79,7 +79,7 @@
       <v-button type="default" @click="visible7 = !visible7">确认对话框</v-button>
     </example>
     <example title="异步对话框">
-      <v-modal title="异步对话框" :visible.sync="visible8" modal="confirmBox" content="确认的内容" :confirm-loading.sync="confirmLoading1" :on-ok="_confirm_handleOk"></v-modal>
+      <v-modal title="异步对话框" :visible.sync="visible8" modal="confirmBox" content="确认的内容" mask-closable :confirm-loading.sync="confirmLoading1" :on-ok="_confirm_handleOk"></v-modal>
       <v-button type="default" @click="visible8 = !visible8">异步对话框</v-button>
     </example>
     <example title="信息提示">
@@ -95,48 +95,42 @@
   </demo>
 </template>
 <script>
-    import vModal from '../../components/modal'
-    import vButton from '../../components/button'
-    export default {
-      data () {
-        return {
-          visible1: false,
-          visible2: false,
-          visible3: false,
-          visible4: false,
-          visible5: false,
-          visible6: false,
-          visible7: false,
-          visible8: false,
-          visible9: false,
-          visible10: false,
-          visible11: false,
-          visible12: false,
-          confirmLoading: false,
-          confirmLoading1: false
-        }
+  export default {
+    data () {
+      return {
+        visible1: false,
+        visible2: false,
+        visible3: false,
+        visible4: false,
+        visible5: false,
+        visible6: false,
+        visible7: false,
+        visible8: false,
+        visible9: false,
+        visible10: false,
+        visible11: false,
+        visible12: false,
+        confirmLoading: false,
+        confirmLoading1: false
+      }
+    },
+    methods: {
+      _handleOk () {
+        var self = this
+        self.confirmLoading = true
+        setTimeout(() => {
+          self.visible3 = false
+          self.confirmLoading = false
+        }, 2000)
       },
-      components: {
-        vModal,
-        vButton
-      },
-      methods: {
-        _handleOk () {
-          var self = this
-          self.confirmLoading = true
-          setTimeout(() => {
-            self.visible3 = false
-            self.confirmLoading = false
-          }, 2000)
-        },
-        _confirm_handleOk () {
-          var self = this
-          self.confirmLoading1 = true
-          setTimeout(() => {
-            self.visible8 = false
-            self.confirmLoading1 = false
-          }, 2000)
-        }
+      _confirm_handleOk () {
+        var self = this
+        self.confirmLoading1 = true
+        setTimeout(() => {
+          self.visible8 = false
+          self.confirmLoading1 = false
+        }, 2000)
       }
     }
+  }
 </script>

@@ -41,26 +41,21 @@
 
 </template>
 <script>
-  import vRate from '../../components/rate'
-
-  export default {
-    components: {
-      vRate
-    },
-    data () {
-      return {
-        value1: 2,
-        value2: 3,
-        value3: 3,
-        value4: 2,
-        value5: 3,
-        value6: 4
-      }
-    },
-    methods: {
-      _showlog () {
-        console.log("Rate changed!")
-      }
+export default {
+  data () {
+    return {
+      value1: 2,
+      value2: 3,
+      value3: 3,
+      value4: 2,
+      value5: 3,
+      value6: 4
+    }
+  },
+  methods: {
+    _showlog () {
+      console.log("Rate changed!")
     }
   }
+}
 </script>

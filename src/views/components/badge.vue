@@ -67,13 +67,7 @@
   </demo>
 </template>
 <script>
-import vBadge from '../../components/badge'
-import vButton from '../../components/button'
 export default {
-  components: {
-    vBadge,
-    vButton
-  },
   data () {
     return {
       count: 5,

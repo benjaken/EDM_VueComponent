@@ -75,39 +75,33 @@
   }
 </style>
 <script>
-  import vDropdown from '../../components/dropdown'
-  import vButton from '../../components/button'
-  export default {
-    data () {
-      return {
-        data: [
-          {'value': 'Action'},
-          {'value': 'Baidu', 'path': '/components/dropdown'},
-          {'value': 'Dropdown', 'path': '/components/dropdown', 'disabled': true},
-          {'value': '|'},
-          {'value': 'Google', 'path': '/components/dropdown'}
-        ],
-        loading: false
-      }
-    },
-    methods: {
-      _click () {
-        var self = this
-        self.loading = true
-        setTimeout(function () {
-          console.log('Click button!')
-          self.loading = false
-        }, 2000)
-      }
-    },
-    events: {
-      'dropdown:action' (action) {
-        console.log('Click dropdown!', action)
-      }
-    },
-    components: {
-      vDropdown,
-      vButton
+export default {
+  data () {
+    return {
+      data: [
+        {'value': 'Action'},
+        {'value': 'Baidu', 'path': '/components/dropdown'},
+        {'value': 'Dropdown', 'path': '/components/dropdown', 'disabled': true},
+        {'value': '|'},
+        {'value': 'Google', 'path': '/components/dropdown'}
+      ],
+      loading: false
+    }
+  },
+  methods: {
+    _click () {
+      var self = this
+      self.loading = true
+      setTimeout(function () {
+        console.log('Click button!')
+        self.loading = false
+      }, 2000)
+    }
+  },
+  events: {
+    'dropdown:action' (action) {
+      console.log('Click dropdown!', action)
     }
   }
+}
 </script>

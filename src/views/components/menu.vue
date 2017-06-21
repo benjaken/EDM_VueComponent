@@ -68,51 +68,40 @@
   </demo>
 </template>
 <script>
-  import vMenu from '../../components/menu'
-  import vButton from '../../components/button'
-  import vIcon from '../../components/iconfont'
-  import vSwitch from '../../components/switch'
-
-  export default {
-    data () {
-      return {
-        data: [
-          {'value': '欢迎页', 'path': '/components/menu'},
-          {'value': '帮助', 'path': ''},
-          {'value': '校园邮服务号', 'path': '', 'disabled': true},
-          {'value': 'Admin', 'path': '', 'dropdown': true, 'data': [
-            {'value': '个人资料', 'path': ''},
-            {'value': '退出', 'onclick': this._logout}
-          ]}
-        ],
-        data1: [
-          {'value': '联系人', 'path': '', 'icon': 'team'},
-          {'value': '邮件模板', 'path': '/components/menu', 'icon': 'save'},
-          {'value': '群发任务', 'path': '', 'icon': 'folder'},
-          {'value': '平台权限管理', 'path': '', 'icon': 'exception'},
-          {'value': '用户管理', 'path': '', 'icon': 'solution'}
-        ],
-        checked: false,
-        theme: 'inverse'
-      }
-    },
-    components: {
-      vMenu,
-      vButton,
-      vIcon,
-      vSwitch
-    },
-    events: {
-      'dropdown:action' (action) {
-        if (action === '退出') {
-          console.log("Log Out")
-        }
-      }
-    },
-    methods: {
-      _toggle (val) {
-        this.theme = val ? 'default' : 'inverse'
+export default {
+  data () {
+    return {
+      data: [
+        {'value': '欢迎页', 'path': '/components/menu'},
+        {'value': '帮助', 'path': ''},
+        {'value': '校园邮服务号', 'path': '', 'disabled': true},
+        {'value': 'Admin', 'path': '', 'dropdown': true, 'data': [
+          {'value': '个人资料', 'path': ''},
+          {'value': '退出', 'onclick': this._logout}
+        ]}
+      ],
+      data1: [
+        {'value': '联系人', 'path': '', 'icon': 'team'},
+        {'value': '邮件模板', 'path': '/components/menu', 'icon': 'save'},
+        {'value': '群发任务', 'path': '', 'icon': 'folder'},
+        {'value': '平台权限管理', 'path': '', 'icon': 'exception'},
+        {'value': '用户管理', 'path': '', 'icon': 'solution'}
+      ],
+      checked: false,
+      theme: 'inverse'
+    }
+  },
+  events: {
+    'dropdown:action' (action) {
+      if (action === '退出') {
+        console.log("Log Out")
       }
     }
+  },
+  methods: {
+    _toggle (val) {
+      this.theme = val ? 'default' : 'inverse'
+    }
   }
+}
 </script>

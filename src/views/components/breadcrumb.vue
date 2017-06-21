@@ -59,38 +59,33 @@
   </demo>
 </template>
 <script>
-  import vBreadcrumb from '../../components/breadcrumb'
-
-  export default {
-    data () {
-      return {
-        data: [{
-          name: 'first',
-          link: '/index'
-        }, {
-          name: 'second',
-          link: '/index'
-        }, {
-          name: 'third',
-          link: '',
-          active: true
-        }],
-        data1: [{
-          link: '/index',
-          icon: 'home'
-        }, {
-          name: 'second',
-          link: '/index',
-          icon: 'user'
-        }, {
-          name: 'third',
-          link: '',
-          active: true
-        }]
-      }
-    },
-    components: {
-      vBreadcrumb
+export default {
+  data () {
+    return {
+      data: [{
+        name: 'first',
+        link: '/index'
+      }, {
+        name: 'second',
+        link: '/index'
+      }, {
+        name: 'third',
+        link: '',
+        active: true
+      }],
+      data1: [{
+        link: '/index',
+        icon: 'home'
+      }, {
+        name: 'second',
+        link: '/index',
+        icon: 'user'
+      }, {
+        name: 'third',
+        link: '',
+        active: true
+      }]
     }
   }
+}
 </script>

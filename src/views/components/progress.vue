@@ -62,25 +62,17 @@
   </demo>
 </template>
 <script>
-  import vProgress from '../../components/progress'
-  import vButton from '../../components/button'
-  import vIcon from '../../components/iconfont'
-  export default{
-    data () {
-      return {
-        percentage: 50,
-        active: false
-      }
-    },
-    components: {
-      vProgress,
-      vButton,
-      vIcon
-    },
-    methods: {
-      _randomNumber () {
-        this.percentage = Math.floor(Math.random() * 100)
-      }
+export default{
+  data () {
+    return {
+      percentage: 50,
+      active: false
+    }
+  },
+  methods: {
+    _randomNumber () {
+      this.percentage = Math.floor(Math.random() * 100)
     }
   }
+}
 </script>

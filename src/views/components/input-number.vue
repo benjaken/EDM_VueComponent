@@ -43,11 +43,3 @@
     </example>
   </demo>
 </template>
-<script>
-  import vInputNumber from '../../components/inputnumber'
-  export default{
-    components: {
-      vInputNumber
-    }
-  }
-</script>

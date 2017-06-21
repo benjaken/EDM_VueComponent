@@ -1,57 +1,41 @@
 <template>
-  <label :class="wrapClasses">
-    <span :class="radioClasses">
-      <span :class="prefixCls + '-inner'"></span>
-      <input
-        type="radio"
-        :disabled="disabled"
-        :value="value"
-        :checked="!!checked"
-        :class="prefixCls + '-input'"
-        @change="_handleChange">
-    </span>
-    <slot>Radio</slot>
-  </label>
+  <div :class="prefixCls">
+    <v-radio-item v-for="radio in radios" :class-name="radioClasses" :value="radio.value" :on-change="_onRadioChange.bind(radio, $index)" :checked="value === radio.value"><span>{{radio.name}}</span></v-radio-item-item>
+  </div>
 </template>
 <script>
   import { defaultProps, oneOfType } from '../../views/utils/props'
-  import cx from 'classnames'
+  import vRadioItem from './RadioItem.vue'
 
   export default {
     props: defaultProps({
-      prefixCls: 'radio',
-      disabled: false,
+      prefixCls: 'radio-group',
+      type: 'radio',
       value: oneOfType([String, Number, Boolean]),
-      checked: Boolean,
-      defaultChecked: false,
-      onChange: () => {},
-      className: ''
+      defaultValue: oneOfType([String, Number, Boolean]),
+      radios: [],
+      onChange: () => {}
     }),
+    components: {
+      vRadioItem
+    },
     computed: {
-      wrapClasses () {
-        return cx({
-          [this.className]: !!this.className,
-          [`${this.className}-checked`]: this.checked
-        })
-      },
       radioClasses () {
-        return cx({
-          [this.className]: !!this.className,
-          [this.prefixCls]: true,
-          [`${this.prefixCls}-checked`]: this.checked,
-          [`${this.prefixCls}-checked-${this.checked ? 1 : 0}`]: !!this.checked,
-          [`${this.prefixCls}-disabled`]: this.disabled
-        })
+        if (this.type === 'button') {
+          return 'radio-button'
+        }
+        return ''
       }
     },
     compiled () {
-      if (this.checked === null) {
-        this.checked = this.defaultChecked
+      if (this.value == null) {
+        this.value = this.defaultValue
       }
     },
     methods: {
-      _handleChange (e) {
-        this.checked = e.target.checked
+      _onRadioChange (index, e) {
+        e.target.name = this.radios[index].name
+        this.value = e.target.value
         this.onChange(e)
       }
     }

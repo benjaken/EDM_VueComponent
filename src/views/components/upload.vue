@@ -84,19 +84,11 @@
   }
 </style>
 <script>
-  import vUpload from '../../components/upload'
-  import vButton from '../../components/button'
-  import vIcon from '../../components/iconfont'
-  export default {
-    components: {
-      vUpload,
-      vButton,
-      vIcon
-    },
-    methods: {
-      onExceededSize (file, fileList) {
-        console.log(file.name, fileList)
-      }
+export default {
+  methods: {
+    onExceededSize (file, fileList) {
+      console.log(file.name, fileList)
     }
   }
+}
 </script>

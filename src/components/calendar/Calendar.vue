@@ -1,7 +1,7 @@
 <template>
   <div :class="prefixCls">
     <div :class="prefixCls + '-header'">
-      <v-radio-group type="button" :on-change="_onTypeChange" :value="type" :radios="radios"></v-radio-group>
+      <v-radio type="button" :on-change="_onTypeChange" :value="type" :radios="radios"></v-radio>
     </div>
     <div :class="prefixCls + '-body'">
       <table :class="prefixCls + ' table'" v-if="type === 'month'">
@@ -21,7 +21,7 @@
 import {defaultProps} from '../../views/utils/props'
 // import cx from 'classnames'
 import vButton from '../button/Button'
-import vRadioGroup from '../radio/RadioGroup'
+import vRadioGroup from '../radio/Radio'
 
 export default {
   props: defaultProps({

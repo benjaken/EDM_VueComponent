@@ -23,29 +23,23 @@
   </demo>
 </template>
 <script>
-  import vSelect from '../../components/select/Select.vue'
-  import vOption from '../../components/select/Option.vue'
-  export default {
-    components: {
-      vSelect,
-      vOption
-    },
-    data () {
-      return {
-        selected: 'c12',
-        options: []
-      }
-    },
-    created () {
-      let self = this
-      const mockData = []
-      for (let i = 10; i < 36; i++) {
-        mockData.push({
-          value: i.toString(36) + i,
-          label: i.toString(36).toUpperCase() + i
-        })
-      }
-      self.options = mockData
+export default {
+  data () {
+    return {
+      selected: 'c12',
+      options: []
     }
+  },
+  created () {
+    let self = this
+    const mockData = []
+    for (let i = 10; i < 36; i++) {
+      mockData.push({
+        value: i.toString(36) + i,
+        label: i.toString(36).toUpperCase() + i
+      })
+    }
+    self.options = mockData
   }
+}
 </script>

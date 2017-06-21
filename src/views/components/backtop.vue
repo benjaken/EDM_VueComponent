@@ -62,18 +62,11 @@
 }
 </style>
 <script>
-  import vBacktop from '../../components/backtop'
-  import vIcon from '../../components/iconfont'
-
-  export default {
-    components: {
-      vBacktop,
-      vIcon
-    },
-    methods: {
-      _handleClick () {
-        console.log("The back-top is clicked!")
-      }
+export default {
+  methods: {
+    _handleClick () {
+      console.log("The back-top is clicked!")
     }
   }
+}
 </script>

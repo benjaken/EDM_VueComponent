@@ -77,35 +77,31 @@
   </demo>
 </template>
 <script>
-  import vTransfer from '../../components/transfer'
-  export default{
-    data () {
-      return {
-        titles: ['Source', 'Target'],
-        operations: ['To Left', 'To Right'],
-        datas: [],
-        targets: []
-      }
-    },
-    components: {
-      vTransfer
-    },
-    created () {
-      var self = this
-      const mockData = []
-      for (let i = 0; i < 20; i++) {
-        mockData.push({
-          key: i,
-          title: `content${i + 1}`,
-          description: `description of content${i + 1}`,
-          disabled: i % 3 < 1
-        })
-      }
-      self.datas = mockData
-      const targetKeys = mockData
-        .filter(item => +item.key % 3 > 1)
-        .map(item => item.key)
-      self.targets = targetKeys
+export default{
+  data () {
+    return {
+      titles: ['Source', 'Target'],
+      operations: ['To Left', 'To Right'],
+      datas: [],
+      targets: []
     }
+  },
+  created () {
+    var self = this
+    const mockData = []
+    for (let i = 0; i < 20; i++) {
+      mockData.push({
+        key: i,
+        title: `content${i + 1}`,
+        description: `description of content${i + 1}`,
+        disabled: i % 3 < 1
+      })
+    }
+    self.datas = mockData
+    const targetKeys = mockData
+      .filter(item => +item.key % 3 > 1)
+      .map(item => item.key)
+    self.targets = targetKeys
   }
+}
 </script>

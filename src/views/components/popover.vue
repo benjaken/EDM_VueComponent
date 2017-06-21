@@ -43,13 +43,3 @@
     <example title="三种触发方式"></example>
   </demo>
 </template>
-<script>
-  import vPopover from '../../components/popover'
-  import vButton from '../../components/button'
-  export default{
-    components: {
-      vPopover,
-      vButton
-    }
-  }
-</script>

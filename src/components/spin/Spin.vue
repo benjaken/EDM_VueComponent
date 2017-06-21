@@ -15,7 +15,7 @@
     props: defaultProps({
       prefixCls: 'spin',
       size: oneOf(['small', 'large', undefined]),
-      spinning: true,
+      spinning: false,
       tip: String,
       delay: Number
     }),

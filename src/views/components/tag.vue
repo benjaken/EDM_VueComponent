@@ -37,11 +37,7 @@
   </demo>
 </template>
 <script>
-import vTag from '../../components/tag'
 export default{
-  components: {
-    vTag
-  },
   method: {
     _onClose () {
       console.log('label被关闭')

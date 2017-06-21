@@ -22,11 +22,3 @@
     </example>
   </demo>
 </template>
-<script>
-  import vSlider from '../../components/slider'
-  export default {
-    components: {
-      vSlider
-    }
-  }
-</script>

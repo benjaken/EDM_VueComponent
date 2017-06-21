@@ -116,8 +116,6 @@
   </demo>
 </template>
 <script>
-import vTable from '../../components/table/Table'
-import vButton from '../../components/button'
 export default {
   data() {
     return {
@@ -137,10 +135,6 @@ export default {
       loading: false,
       targets: []
     }
-  },
-  components: {
-    vTable,
-    vButton
   },
   events: {
     'table:action' (action, data) {

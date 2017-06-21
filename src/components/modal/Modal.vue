@@ -13,7 +13,7 @@
           </div>
           <div class="confirm-btns" v-if="type == 'question'">
             <v-button type="primary" :loading="confirmLoading" @click="onOk()">{{okText}}</v-button>
-            <v-button type="default" @click="_closeModal()">{{cancelText}}</v-button>
+            <v-button type="default" :disabled="confirmLoading" @click="_closeModal()">{{cancelText}}</v-button>
           </div>
           <div class="confirm-btns" v-else>
             <v-button type="primary" :loading="confirmLoading" @click="_closeModal()">{{okText}}</v-button>
@@ -34,7 +34,7 @@
         </div>
         <div class="modal-footer" v-if="footer">
           <v-button type="primary" :loading="confirmLoading" @click="onOk()">{{okText}}</v-button>
-          <v-button type="default" @click="_closeModal()">{{cancelText}}</v-button>
+          <v-button type="default" :disabled="confirmLoading" @click="_closeModal()">{{cancelText}}</v-button>
         </div>
       </div>
     </div>
@@ -65,12 +65,14 @@
     methods: {
       _closeModal () {
         var self = this
-        self.visible = false
-        self.onCancel()
+        if (!self.confirmLoading) {
+          self.visible = false
+          self.onCancel()
+        }
       },
       _backCloseModal () {
         var self = this
-        if (self.maskClosable) {
+        if (self.maskClosable && !self.confirmLoading) {
           self.visible = false
         }
       }

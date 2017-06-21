@@ -40,13 +40,7 @@
     </demo>
 </template>
 <script>
-import vCheckbox from '../../components/checkbox'
-import vButton from '../../components/button'
 export default{
-  components: {
-    vCheckbox,
-    vButton
-  },
   data () {
     return {
       checked: true,

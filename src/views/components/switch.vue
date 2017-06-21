@@ -46,15 +46,11 @@
     </example>
 </template>
 <script>
-import vSwitch from '../../components/switch'
 export default {
   data () {
     return {
       defaultChecked: true
     }
-  },
-  components: {
-    vSwitch
   },
   methods: {
     showValue (val) {

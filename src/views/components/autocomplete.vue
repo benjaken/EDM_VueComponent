@@ -29,7 +29,6 @@
   </demo>
 </template>
 <script>
-import vAutoComplete from '../../components/auto-complete'
 export default {
   data () {
     return {
@@ -40,9 +39,6 @@ export default {
       value2: '',
       style: 'width: 200px'
     }
-  },
-  components: {
-    vAutoComplete
   },
   methods: {
     onchange (val) {

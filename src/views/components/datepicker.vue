@@ -42,23 +42,19 @@
   </demo>
 </template>
 <script>
-  import vDatepicker from '../../components/datepicker'
-  export default {
-    data () {
-      return {
-        selectedTime1: '',
-        selectedTime2: '',
-        selectedTime3: '',
-        selectedTime4: '',
-        selectedTime5: '',
-        startTime1: '',
-        endTime1: '',
-        startTime2: '',
-        endTime2: ''
-      }
-    },
-    components: {
-      vDatepicker
+export default {
+  data () {
+    return {
+      selectedTime1: '',
+      selectedTime2: '',
+      selectedTime3: '',
+      selectedTime4: '',
+      selectedTime5: '',
+      startTime1: '',
+      endTime1: '',
+      startTime2: '',
+      endTime2: ''
     }
   }
+}
 </script>

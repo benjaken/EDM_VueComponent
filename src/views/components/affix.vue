@@ -31,16 +31,4 @@
       </v-affix>
     </example>
   </demo>
-
 </template>
-<script>
-  import vAffix from '../../components/affix'
-  import vButton from '../../components/button'
-
-  export default {
-    components: {
-      vAffix,
-      vButton
-    }
-  }
-</script>
